@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Build your own lab test in Dubai. Choose individual blood tests, pick a home visit from 6 AM to 11:30 PM, and a DHA-licensed nurse comes to you.">
+<meta name="theme-color" content="#00C3FF">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22%2300C3FF%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2246%22%20text-anchor%3D%22middle%22%20font-family%3D%22Poppins%2CArial%2Csans-serif%22%20font-size%3D%2240%22%20font-weight%3D%22700%22%20fill%3D%22%23fff%22%3Ej%3C/text%3E%3Ccircle%20cx%3D%2245%22%20cy%3D%2217%22%20r%3D%225%22%20fill%3D%22%238DC63F%22/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="180x180" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 <title>Justlife Custom Lab Test</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -346,7 +350,7 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
 .c2 small:last-child{font-size:calc(var(--u)*12.5);margin-top:calc(var(--u)*8);color:var(--body)}
 .c3{left:calc(var(--u)*10);top:calc(var(--u)*276)}
 .c4{left:0;top:calc(var(--u)*344)}
-.hv-tube{position:absolute;left:calc(var(--u)*236);top:calc(var(--u)*36);width:calc(var(--u)*62);height:calc(var(--u)*266);transform:rotate(22deg);z-index:2;filter:drop-shadow(calc(var(--u)*6) calc(var(--u)*12) calc(var(--u)*10) rgba(19,81,99,.3))}
+.hv-tube{position:absolute;left:calc(var(--u)*140);top:calc(var(--u)*76);width:calc(var(--u)*205);height:calc(var(--u)*205);z-index:2;overflow:visible;filter:drop-shadow(calc(var(--u)*4) calc(var(--u)*10) calc(var(--u)*8) rgba(19,81,99,.28))}
 .hv-phone{position:absolute;right:calc(var(--u)*22);top:calc(var(--u)*18);width:calc(var(--u)*212);height:calc(var(--u)*384);background:#141414;border-radius:calc(var(--u)*36);padding:calc(var(--u)*7);z-index:4;box-shadow:0 calc(var(--u)*30) calc(var(--u)*50) calc(var(--u)*-22) rgba(12,58,71,.6)}
 .hv-scr{height:100%;background:linear-gradient(180deg,#F8EDEA 0%,#fff 22%);border-radius:calc(var(--u)*30);padding:calc(var(--u)*30) calc(var(--u)*12) calc(var(--u)*12);position:relative;display:flex;flex-direction:column;gap:calc(var(--u)*9);overflow:hidden}
 .hv-scr::before{content:"";position:absolute;top:calc(var(--u)*9);left:50%;transform:translateX(-50%);width:calc(var(--u)*64);height:calc(var(--u)*18);background:#141414;border-radius:999px}
@@ -379,6 +383,16 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
 .hv-strip small svg{width:calc(var(--u)*11);height:calc(var(--u)*11)}
 .hv-strip b{font-size:calc(var(--u)*14.5);color:var(--ink);white-space:nowrap}
 .hv-strip b em{font-style:normal;font-weight:500;font-size:calc(var(--u)*11);color:var(--muted)}
+
+
+/* real-looking collection tubes */
+.tile{display:grid;place-items:center;background:#F1F1F1;border-radius:12px;flex:none}
+.tile svg{width:80%;height:80%;filter:drop-shadow(1px 3px 3px rgba(0,0,0,.18));overflow:visible}
+.test{flex-direction:row!important;align-items:stretch;gap:14px!important}
+.test .tile{width:64px;height:64px;align-self:center}
+.test .tbody{display:flex;flex-direction:column;gap:8px;flex:1;min-width:0}
+.pack .art{height:150px!important;display:grid!important;place-items:center;justify-content:center!important;align-items:center!important;padding:0!important;background:#F1F1F1!important}
+.pack .art svg{width:140px;height:140px;filter:drop-shadow(2px 6px 6px rgba(0,0,0,.18));overflow:visible}
 
 /* mobile basket bar */
 .mbar{display:none}
@@ -441,6 +455,67 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
 </header>
 
 <main id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="tGlass" x1="0" x2="1"><stop offset="0" stop-color="#E3E7EA"/><stop offset=".22" stop-color="#FFFFFF"/><stop offset=".6" stop-color="#F6F7F8"/><stop offset="1" stop-color="#CDD3D7"/></linearGradient>
+    <linearGradient id="tLabel" x1="0" x2="1"><stop offset="0" stop-color="#ECEEEF"/><stop offset=".25" stop-color="#FFFFFF"/><stop offset=".7" stop-color="#FAFAFA"/><stop offset="1" stop-color="#DADEE1"/></linearGradient>
+    <linearGradient id="tShade" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".18"/><stop offset=".3" stop-color="#fff" stop-opacity=".28"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient>
+    <linearGradient id="tBottom" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F5F6"/><stop offset="1" stop-color="#C9CFD3"/></linearGradient>
+  </defs>
+  <!-- Upright collection tube centred on (60,60); rotate it with transform on <use>. Cap colour comes from --cap. -->
+  <symbol id="tube" viewBox="0 0 120 120" overflow="visible"><g transform="translate(60 60) scale(1.25 1.1) translate(-60 -60)">
+    <!-- glass body -->
+    <rect x="49" y="20" width="22" height="104" rx="11" fill="url(#tGlass)" stroke="#C3CACF" stroke-width=".7"/>
+    <rect x="49.4" y="104" width="21.2" height="19.6" rx="10.6" fill="url(#tBottom)" opacity=".9"/>
+    <!-- coloured ring below the cap -->
+    <rect x="49" y="33" width="22" height="2.4" style="fill:var(--cap,#E5421D)"/>
+    <!-- glass highlight -->
+    <rect x="52" y="23" width="2.4" height="96" rx="1.2" fill="#fff" opacity=".75"/>
+    <!-- label -->
+    <rect x="49.3" y="38" width="21.4" height="66" fill="url(#tLabel)"/>
+    <rect x="49" y="102.2" width="22" height="2.4" style="fill:var(--cap,#E5421D)"/>
+    <rect x="50.6" y="40" width="1.3" height="62" fill="#fff" opacity=".9"/>
+    <!-- green brand shape -->
+    <g fill="#8DC63F">
+      <circle cx="56.5" cy="48" r="4"/><circle cx="62.5" cy="46" r="4.5"/><circle cx="64" cy="51.5" r="3.8"/>
+      <rect x="54" y="48" width="13" height="6.5" rx="3"/>
+    </g>
+    <!-- brand text + small print, running along the tube -->
+    <text transform="translate(58.6 100.5) rotate(-90)" font-family="Poppins,Arial,sans-serif" font-size="8.6" font-weight="700" letter-spacing="-.2" textLength="34" lengthAdjust="spacingAndGlyphs" style="fill:var(--cap,#E5421D)">justlife</text>
+    <rect x="61.6" y="76" width="1.5" height="24" rx=".75" fill="#3B4247" opacity=".7"/>
+    <rect x="64.4" y="82" width="1.2" height="18" rx=".6" fill="#8A9399" opacity=".65"/>
+    <rect x="66.8" y="86" width="1" height="14" rx=".5" fill="#A9B0B5" opacity=".6"/>
+    <!-- cap -->
+    <rect x="47.5" y="-6" width="25" height="28" rx="4" style="fill:var(--cap,#E5421D)"/>
+    <rect x="47.5" y="-6" width="25" height="28" rx="4" fill="url(#tShade)"/>
+    <g stroke="#000" stroke-opacity=".12" stroke-width=".8">
+      <line x1="52" y1="-3" x2="52" y2="19"/><line x1="56" y1="-3" x2="56" y2="19"/><line x1="60" y1="-3" x2="60" y2="19"/><line x1="64" y1="-3" x2="64" y2="19"/><line x1="68" y1="-3" x2="68" y2="19"/>
+    </g>
+    <rect x="47" y="18.5" width="26" height="5" rx="1.6" style="fill:var(--cap,#E5421D)"/>
+    <rect x="47" y="18.5" width="26" height="5" rx="1.6" fill="#000" opacity=".16"/>
+    <rect x="49" y="-5" width="22" height="2.2" rx="1.1" fill="#fff" opacity=".35"/>
+  </g></symbol>
+  <linearGradient id="cBody" x1="0" x2="1"><stop offset="0" stop-color="#DDE1E4"/><stop offset=".25" stop-color="#F7F8F9"/><stop offset=".65" stop-color="#F1F3F4"/><stop offset="1" stop-color="#C9CED2"/></linearGradient>
+  <!-- Specimen container (urine / stool) centred on (60,60); cap colour from --cap -->
+  <symbol id="cup" viewBox="0 0 120 120" overflow="visible">
+    <path d="M30 40 H90 L85.5 101 Q85 108 78 108 H42 Q35 108 34.5 101 Z" fill="url(#cBody)" stroke="#C4CACE" stroke-width=".7"/>
+    <path d="M33 44 L36.5 100" stroke="#fff" stroke-width="2.6" stroke-linecap="round" opacity=".8"/>
+    <rect x="38" y="52" width="44" height="40" fill="#FBFBFB" opacity=".95"/>
+    <rect x="38" y="52" width="44" height="3" style="fill:var(--cap,#3F3FD0)"/>
+    <text x="41" y="62.5" font-family="Poppins,Arial,sans-serif" font-size="4.2" font-weight="700" style="fill:var(--cap,#3F3FD0)">justlife</text>
+    <rect x="41" y="65" width="28" height="3.2" rx=".6" fill="#2E3438"/>
+    <rect x="41" y="70" width="12" height="2" rx=".6" fill="#9BA3A8"/>
+    <rect x="41" y="73.5" width="18" height="1.6" rx=".6" fill="#C2C8CC"/>
+    <g fill="#8DC63F"><circle cx="70" cy="80" r="4.4"/><circle cx="76" cy="78.5" r="4.2"/><circle cx="75.5" cy="85" r="3.8"/><rect x="66.5" y="80" width="12" height="7" rx="3"/></g>
+    <rect x="29" y="35.5" width="62" height="5.5" rx="1.5" style="fill:var(--cap,#3F3FD0)"/>
+    <rect x="29" y="35.5" width="62" height="5.5" rx="1.5" fill="#000" opacity=".22"/>
+    <rect x="28" y="14" width="64" height="23" rx="4" style="fill:var(--cap,#3F3FD0)"/>
+    <rect x="28" y="14" width="64" height="23" rx="4" fill="url(#tShade)"/>
+    <g stroke="#000" stroke-opacity=".13" stroke-width=".8"><line x1="34" y1="16" x2="34" y2="35"/><line x1="40" y1="16" x2="40" y2="35"/><line x1="46" y1="16" x2="46" y2="35"/><line x1="52" y1="16" x2="52" y2="35"/><line x1="58" y1="16" x2="58" y2="35"/><line x1="64" y1="16" x2="64" y2="35"/><line x1="70" y1="16" x2="70" y2="35"/><line x1="76" y1="16" x2="76" y2="35"/><line x1="82" y1="16" x2="82" y2="35"/><line x1="88" y1="16" x2="88" y2="35"/></g>
+    <rect x="30" y="15" width="60" height="2.4" rx="1.2" fill="#fff" opacity=".35"/>
+  </symbol>
+</svg>
+
   <section class="hero">
     <div class="wrap">
       <div>
@@ -476,20 +551,7 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
           <small>Ready to book</small></div>
         <div class="hv-chip c3 tg"><span class="hv-ic g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A2 2 0 006.2 21h11.6a2 2 0 001.7-2.5L14 9V3"/><path d="M7 15h10"/></svg></span><span><b>Sample collected at home</b><small>Included, free</small></span></div>
         <div class="hv-chip c4 ty"><span class="hv-ic y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><span><b>Results in 24–48 hours</b><small>Digital report in the Justlife app</small></span></div>
-        <svg class="hv-tube" viewBox="0 0 70 300">
-          <defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".95"/><stop offset=".55" stop-color="#EAF6FA"/><stop offset="1" stop-color="#C9DDE4"/></linearGradient>
-          <linearGradient id="cap" x1="0" x2="1"><stop offset="0" stop-color="#A58BE6"/><stop offset=".5" stop-color="#8263D2"/><stop offset="1" stop-color="#5E43A8"/></linearGradient>
-          <linearGradient id="bl" x1="0" x2="1"><stop offset="0" stop-color="#D63A4E"/><stop offset=".6" stop-color="#B21F35"/><stop offset="1" stop-color="#8A1426"/></linearGradient></defs>
-          <rect x="13" y="56" width="44" height="236" rx="22" fill="url(#gl)" stroke="#B9D3DB" stroke-width="1.5"/>
-          <rect x="17" y="150" width="36" height="138" rx="18" fill="url(#bl)"/>
-          <rect x="15" y="84" width="40" height="92" rx="3" fill="#135163"/>
-          <rect x="15" y="84" width="40" height="10" fill="#00C3FF"/>
-          <text fill="#fff" font-family="Poppins,sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" letter-spacing=".5" transform="rotate(-90 35 128)" x="35" y="131">LAB TEST</text>
-          <rect x="22" y="160" width="26" height="9" rx="2" fill="#fff" opacity=".9"/>
-          <rect x="6" y="6" width="58" height="56" rx="9" fill="url(#cap)"/>
-          <rect x="6" y="20" width="58" height="4" fill="#fff" opacity=".18"/><rect x="6" y="32" width="58" height="4" fill="#fff" opacity=".18"/><rect x="6" y="44" width="58" height="4" fill="#fff" opacity=".18"/>
-          <rect x="19" y="58" width="5" height="226" rx="2.5" fill="#fff" opacity=".55"/>
-        </svg>
+        <svg class="hv-tube" viewBox="0 0 120 120" style="--cap:#A46CF2"><use href="#tube" transform="rotate(26 60 60)"/></svg>
         <div class="hv-phone"><div class="hv-scr">
           <div class="hv-top"><b>Nurse home visit</b><span class="hv-live">7:00</span></div>
           <div class="hv-nurse">
@@ -927,10 +989,31 @@ function viewTests(){
     </div>
     <div id="results">${resultsHTML()}</div>`;
 }
+const TUBE = {red:"#E5421D", teal:"#1E9E92", purple:"#A46CF2", grey:"#8E99A1", blue:"#3D9BE0", yellow:"#F2B21B", brown:"#8A5A3B"};
+const CAT_TUBE = {"Blood health":"purple","Diabetes":"grey","Heart & cholesterol":"red","Liver":"red","Kidney":"red","Thyroid":"red",
+  "Vitamins & minerals":"red","Women's hormones":"red","Men's health":"red","Other hormones":"red","Inflammation & immunity":"teal",
+  "Infections":"teal","Pancreas & digestion":"red","Clotting":"blue"};
+function tubeColor(t){
+  if(t.s==="Urine") return TUBE.yellow;
+  if(t.s==="Stool") return TUBE.brown;
+  if(/HbA1c/.test(t.n)) return TUBE.purple;
+  return TUBE[CAT_TUBE[t.c]||"red"];
+}
+const CUP = {urine:"#3F3FD0", culture:"#3D8FE0", stool:"#C88A3A"};
+const cupSVG = (color) => `<svg viewBox="0 0 120 120" style="--cap:${color}" aria-hidden="true"><use href="#cup" transform="rotate(16 60 60) translate(60 60) scale(1.22) translate(-60 -61)"/></svg>`;
+function sampleIcon(t){
+  if(t.s==="Urine") return cupSVG(/Culture/.test(t.n) ? CUP.culture : CUP.urine);
+  if(t.s==="Stool") return cupSVG(CUP.stool);
+  return tubeSVG(tubeColor(t));
+}
+const tubeSVG = (color, angle=45) => `<svg viewBox="0 0 120 120" style="--cap:${color}" aria-hidden="true"><use href="#tube" transform="rotate(${angle} 60 60)"/></svg>`;
+
 function testRow(t){
   const on = state.sel.has(t.id);
   return `<label class="test ${on?"sel":""}" for="${t.id}">
     <input type="checkbox" id="${t.id}" data-test="${t.id}" ${on?"checked":""}>
+    <span class="tile">${sampleIcon(t)}</span>
+    <span class="tbody">
     <span class="tname">${esc(t.n)}</span>
     <span class="tmeta">
       ${t.pop?'<span class="tag pop">Popular</span>':""}
@@ -938,7 +1021,7 @@ function testRow(t){
       <span class="tag">${t.s} sample</span>
     </span>
     <span class="bot"><span class="price num"><em>AED</em>${t.p}</span>
-      <span class="add"><span class="pl">+ Add</span><span class="ck">✓ Added</span></span></span></label>`;
+      <span class="add"><span class="pl">+ Add</span><span class="ck">✓ Added</span></span></span></span></label>`;
 }
 
 function viewSlots(){
@@ -1085,32 +1168,24 @@ $("#mbarBtn").onclick = next;
 // Sends the booking to Google Apps Script. Works from any host (GitHub Pages, Netlify, your own domain).
 // 1st try: fetch with text/plain (no CORS preflight). Fallback: a hidden form post, which browsers never block.
 async function sendToSheet(payload){
-  // Sent as a normal web form (each field + a JSON copy in "payload").
-  // Works with Google Apps Script, Make.com / Zapier webhooks, or any form endpoint, from any host.
-  // Never waits more than a few seconds: Apps Script saves the row as soon as the request arrives.
+  // Sends the booking two ways at once (the script ignores the duplicate by booking ref):
+  //  A) POST via sendBeacon  B) GET with the fields in the URL.
+  // Works with Google Apps Script from any host. Never waits more than ~6 seconds.
   const fields = {...payload, payload: JSON.stringify(payload)};
-  // 1) sendBeacon: fire-and-forget, never hangs
-  try{
-    if(navigator.sendBeacon && navigator.sendBeacon(SHEET_URL, new URLSearchParams(fields))) return true;
-  }catch(e){}
-  // 2) fetch, with a 6-second time limit
+  let sent = false;
+  try{ if(navigator.sendBeacon) sent = navigator.sendBeacon(SHEET_URL, new URLSearchParams(fields)) || sent; }catch(e){}
+  const getUrl = SHEET_URL + (SHEET_URL.includes("?")?"&":"?") + new URLSearchParams(payload).toString();
   try{
     const ctrl = new AbortController();
     const timer = setTimeout(()=>ctrl.abort(), 6000);
-    await fetch(SHEET_URL, {method:"POST", mode:"no-cors", body:new URLSearchParams(fields), signal:ctrl.signal});
+    await fetch(getUrl, {method:"GET", mode:"no-cors", cache:"no-store", signal:ctrl.signal});
     clearTimeout(timer);
-    return true;
-  }catch(e){}
-  // 3) hidden form post (works everywhere, no waiting)
-  try{
-    const name = "jl_sink_" + Date.now();
-    const frame = document.createElement("iframe"); frame.name = name; frame.hidden = true;
-    const form = document.createElement("form"); form.method = "POST"; form.action = SHEET_URL; form.target = name; form.hidden = true;
-    Object.entries(fields).forEach(([k,v])=>{ const i=document.createElement("input"); i.type="hidden"; i.name=k; i.value=v; form.appendChild(i); });
-    document.body.append(frame, form); form.submit();
-    setTimeout(()=>{ form.remove(); frame.remove(); }, 15000);
-    return true;
-  }catch(e){ return false; }
+    sent = true;
+  }catch(e){
+    // Last resort: an image request carries the GET without any CORS rules
+    try{ const img = new Image(); img.src = getUrl; sent = true; }catch(e2){}
+  }
+  return sent;
 }
 
 async function submit(){
@@ -1158,9 +1233,9 @@ function renderPacks(){
     const ts = p.tests.map(n=>TESTS.find(t=>t.n===n)).filter(Boolean);
     const sum = ts.reduce((a,t)=>a+t.p,0);
     return `<article class="pack">
-      <div class="art" style="background:${["var(--cyan-t)","var(--green-t)","var(--coral-t)"][k]}">
+      <div class="art">
         <span class="tag tagline" style="background:#fff">${esc(p.tag)}</span>
-        ${p.caps.map((c,i)=>`<span class="tube" style="--cap:${c};--fill:${[38,50,30][i]}px"></span>`).join("")}
+        ${tubeSVG(["#E5421D","#1E9E92","#A46CF2"][k])}
       </div>
       <div class="body"><h3>${esc(p.name)}</h3><p class="sm">${esc(p.sm)}</p>
         <ul>${ts.map(t=>`<li>${esc(t.n.replace(/ \(.*\)$/,""))}</li>`).join("")}</ul>

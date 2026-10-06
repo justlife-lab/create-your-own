@@ -1087,21 +1087,30 @@ $("#mbarBtn").onclick = next;
 async function sendToSheet(payload){
   // Sent as a normal web form (each field + a JSON copy in "payload").
   // Works with Google Apps Script, Make.com / Zapier webhooks, or any form endpoint, from any host.
+  // Never waits more than a few seconds: Apps Script saves the row as soon as the request arrives.
   const fields = {...payload, payload: JSON.stringify(payload)};
+  // 1) sendBeacon: fire-and-forget, never hangs
   try{
-    await fetch(SHEET_URL, {method:"POST", mode:"no-cors", body:new URLSearchParams(fields), keepalive:true});
+    if(navigator.sendBeacon && navigator.sendBeacon(SHEET_URL, new URLSearchParams(fields))) return true;
+  }catch(e){}
+  // 2) fetch, with a 6-second time limit
+  try{
+    const ctrl = new AbortController();
+    const timer = setTimeout(()=>ctrl.abort(), 6000);
+    await fetch(SHEET_URL, {method:"POST", mode:"no-cors", body:new URLSearchParams(fields), signal:ctrl.signal});
+    clearTimeout(timer);
     return true;
-  }catch(e){
-    try{
-      const name = "jl_sink_" + Date.now();
-      const frame = document.createElement("iframe"); frame.name = name; frame.hidden = true;
-      const form = document.createElement("form"); form.method = "POST"; form.action = SHEET_URL; form.target = name; form.hidden = true;
-      Object.entries(fields).forEach(([k,v])=>{ const i=document.createElement("input"); i.type="hidden"; i.name=k; i.value=v; form.appendChild(i); });
-      document.body.append(frame, form); form.submit();
-      setTimeout(()=>{ form.remove(); frame.remove(); }, 15000);
-      return true;
-    }catch(e2){ return false; }
-  }
+  }catch(e){}
+  // 3) hidden form post (works everywhere, no waiting)
+  try{
+    const name = "jl_sink_" + Date.now();
+    const frame = document.createElement("iframe"); frame.name = name; frame.hidden = true;
+    const form = document.createElement("form"); form.method = "POST"; form.action = SHEET_URL; form.target = name; form.hidden = true;
+    Object.entries(fields).forEach(([k,v])=>{ const i=document.createElement("input"); i.type="hidden"; i.name=k; i.value=v; form.appendChild(i); });
+    document.body.append(frame, form); form.submit();
+    setTimeout(()=>{ form.remove(); frame.remove(); }, 15000);
+    return true;
+  }catch(e){ return false; }
 }
 
 async function submit(){

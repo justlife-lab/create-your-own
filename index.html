@@ -745,7 +745,6 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
       <button class="btn btn-white" type="button" id="shmPdf">⬇ Download PDF</button>
       <button class="btn btn-white" type="button" id="shmShare"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg> Share</button>
       <button class="btn btn-white" type="button" id="shmWa">WhatsApp</button>
-      <button class="btn btn-white wide" type="button" id="shmCopy">🔗 Copy link to this package</button>
     </div>
     <p class="shm-msg" id="shmMsg" role="status"></p>
   </div>
@@ -1337,8 +1336,8 @@ async function buildPackageImage(){
     y += 30; if(dry) knownCardH = y - cardY;
     y += 50;
     if(!dry){ ctx.font=`600 27px ${F}`; ctx.fillStyle="#135163"; ctx.fillText("Nurse home visit · 6:00 AM – 11:30 PM, daily", CX, y);
-      ctx.font=`400 23px ${F}`; ctx.fillStyle="#8C9194"; const link=packageLink().replace(/^https?:\/\//,""); ctx.fillText(link.length>70? link.slice(0,67)+"…" : link, CX, y+40); }
-    y += 80;
+    }
+    y += 44;
     return y;
   };
   const scratch = document.createElement("canvas").getContext("2d");
@@ -1377,9 +1376,17 @@ function downloadBlob(blob, name){
   setTimeout(()=>URL.revokeObjectURL(url), 4000);
 }
 function shareText(){
-  const pr = pricing();
-  return `My Justlife lab test package (${selected().length} tests, AED ${pr.total.toLocaleString("en-US")}):\n`
-    + selected().map(t=>"• "+t.n).join("\n") + `\n\nHome sample collection, 6 AM – 11:30 PM.\nOpen this package: ${packageLink()}`;
+  const pr = pricing(), n = selected().length, lines = [];
+  lines.push(`*My Justlife lab test package* (${n} ${n===1?"test":"tests"})`, "");
+  if(pr.bundle.length){
+    lines.push(`Starter bundle (minimum visit charge): AED ${MIN_CHARGE}`);
+    pr.bundle.forEach(t=>lines.push(`   • ${t.n} (included)`));
+  }
+  pr.extra.forEach(t=>lines.push(`• ${t.n}: AED ${t.p}`));
+  lines.push("", "Home sample collection: Free", `*Total: AED ${pr.total.toLocaleString("en-US")}*`);
+  if(needsFasting()) lines.push("Fasting 8–12 hours needed before the visit.");
+  lines.push("", "Nurse home visit · 6:00 AM – 11:30 PM, daily");
+  return lines.join("\n");
 }
 let shareCanvas = null;
 function shmMsg(t){ $("#shmMsg").textContent = t; }
@@ -1400,18 +1407,14 @@ document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !$("#shareModal
 $("#shmPng").onclick = ()=> shareCanvas && shareCanvas.toBlob(b=>{ downloadBlob(b, fileStamp()+".png"); shmMsg("Image saved to your downloads."); }, "image/png");
 $("#shmPdf").onclick = ()=>{ if(!shareCanvas) return; downloadBlob(canvasToPdf(shareCanvas), fileStamp()+".pdf"); shmMsg("PDF saved to your downloads."); };
 $("#shmWa").onclick = ()=>{ window.open("https://wa.me/?text=" + encodeURIComponent(shareText()), "_blank", "noopener"); };
-$("#shmCopy").onclick = async ()=>{
-  try{ await navigator.clipboard.writeText(packageLink()); shmMsg("Link copied. Anyone who opens it sees this package."); }
-  catch(e){ shmMsg(packageLink()); }
-};
 $("#shmShare").onclick = async ()=>{
   try{
     const blob = await new Promise(r=>shareCanvas.toBlob(r,"image/png"));
     const file = new File([blob], fileStamp()+".png", {type:"image/png"});
     const data = {title:"My Justlife lab test package", text:shareText()};
-    if(navigator.canShare && navigator.canShare({files:[file]})) data.files = [file]; else data.url = packageLink();
+    if(navigator.canShare && navigator.canShare({files:[file]})) data.files = [file];
     await navigator.share(data);
-  }catch(e){ if(e && e.name!=="AbortError") shmMsg("Sharing isn't available here. Use WhatsApp or Copy link."); }
+  }catch(e){ if(e && e.name!=="AbortError") shmMsg("Sharing isn't available here. Use WhatsApp or Download instead."); }
 };
 document.addEventListener("click", e=>{ if(e.target.closest("[data-share]")) openShare(); });
 $("#mbarShare").onclick = openShare;

@@ -397,6 +397,15 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
 .packchips{margin-top:22px}
 .packs{margin-top:18px!important}
 .discreet{font-size:12px;color:var(--teal);background:var(--cyan-t);border-radius:8px;padding:6px 10px}
+.bundle{margin:14px 0 8px;border:1px dashed #9EE3F8;background:#F5FCFF;border-radius:12px;padding:10px 12px}
+.bundle-hd{display:flex;gap:10px;justify-content:space-between;align-items:baseline;font-size:13.5px;font-weight:600;color:var(--teal)}
+.bundle-hd small{font-weight:400;color:var(--muted);font-size:11.5px}
+.bundle-hd b{color:var(--ink)}
+.blist.sub{margin:8px 0 0}
+.blist.sub li{font-size:12.5px;color:var(--body)}
+.blist.sub li b{font-weight:500;color:var(--muted);text-decoration:line-through}
+.bundle-note{font-size:11.5px;color:var(--teal);margin-top:8px}
+.rtable tr.in-bundle td{font-size:13px;color:var(--body);padding-left:12px}
 /* mobile basket bar */
 .mbar{display:none}
 
@@ -864,7 +873,27 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">"
 const money = v => CURRENCY + " " + v.toLocaleString("en-US");
 const byId = id => TESTS.find(t=>t.id===id);
 const selected = () => [...state.sel].map(byId);
-const total = () => selected().reduce((a,t)=>a+t.p,0);
+/* ===== Minimum charge rule =====
+   Tests are taken in the order the customer added them.
+   - The first test goes into a "starter bundle" charged a flat AED 149
+     (unless that first test already costs more than AED 149 - then it is just charged its own price).
+   - More tests join the bundle for free only while the bundle's tests add up to AED 70 or less.
+   - The first test that takes the bundle over AED 70 is added at its own price, and so is every test after it.
+   Examples: 45 -> 149.  45 + 20 (65) -> 149.  45 + 66 (111) -> 149 + 66 = 215.  Then + 99 -> 314. */
+const MIN_CHARGE = 149, FREE_UP_TO = 70;
+function priceFor(list){
+  const bundle = [], extra = []; let sum = 0, closed = false;
+  list.forEach((t,i)=>{
+    if(i===0 && t.p <= MIN_CHARGE){ bundle.push(t); sum = t.p; return; }
+    if(!closed && bundle.length && sum + t.p <= FREE_UP_TO){ bundle.push(t); sum += t.p; return; }
+    closed = true; extra.push(t);
+  });
+  const bundleCharge = bundle.length ? MIN_CHARGE : 0;
+  const total = bundleCharge + extra.reduce((a,t)=>a+t.p,0);
+  return {bundle, bundleSum:sum, bundleCharge, extra, total, listSum: list.reduce((a,t)=>a+t.p,0)};
+}
+const pricing = () => priceFor(selected());
+const total = () => pricing().total;
 const needsFasting = () => selected().some(t=>t.f);
 const CATS = ["All","Popular",...new Set(TESTS.map(t=>t.c))];
 const check = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>';
@@ -947,13 +976,25 @@ function renderStepper(){
   }).join("");
 }
 
+function basketLines(){
+  const pr = pricing();
+  const li = t => `<li><span>${esc(t.n)}</span><span style="display:flex;align-items:center;gap:8px"><b class="num">${t.p}</b>${state.done?"":`<button class="rm" data-rm="${t.id}" aria-label="Remove ${esc(t.n)}">×</button>`}</span></li>`;
+  let h = "";
+  if(pr.bundle.length){
+    h += `<div class="bundle"><div class="bundle-hd"><span>Starter bundle <small>(minimum visit charge)</small></span><b class="num">${MIN_CHARGE}</b></div>
+      <ul class="blist sub">${pr.bundle.map(li).join("")}</ul>
+      <p class="bundle-note">Minimum visit charge is AED ${MIN_CHARGE}.${!pr.extra.length && pr.bundleSum < FREE_UP_TO ? ` Add tests worth up to AED ${FREE_UP_TO - pr.bundleSum} more at no extra cost.` : ""}</p></div>`;
+  }
+  if(pr.extra.length) h += `<ul class="blist">${pr.extra.map(li).join("")}</ul>`;
+  return h;
+}
+
 function renderBasket(){
   const items = selected();
   const nextLabel = ["Choose date & time","Continue to details","Review booking","Confirm booking"][state.step];
   $("#basket").innerHTML = `
     <h3>Your package <span class="count num">${items.length} ${items.length===1?"test":"tests"}</span></h3>
-    ${items.length ? `<ul class="blist">${items.map(t=>`<li><span>${esc(t.n)}</span><span style="display:flex;align-items:center;gap:8px"><b class="num">${t.p}</b>${state.done?"":`<button class="rm" data-rm="${t.id}" aria-label="Remove ${esc(t.n)}">×</button>`}</span></li>`).join("")}</ul>`
-      : `<p class="bempty"><span class="ico b" style="width:32px;height:32px;border-radius:8px">+</span>Add tests from the list to build your package.</p>`}
+    ${items.length ? basketLines() : `<p class="bempty"><span class="ico b" style="width:32px;height:32px;border-radius:8px">+</span>Add tests from the list to build your package.</p>`}
     <div class="row"><span>Home sample collection</span><span style="color:var(--green);font-weight:600">Free</span></div>
     <div class="total"><span>Total</span><b class="num"><em>AED</em>${total().toLocaleString("en-US")}</b></div>
     ${needsFasting() ? `<p class="note">⚠ Includes fasting tests. Fast 8–12 hours before your visit (water is fine).</p>` : ""}
@@ -1080,6 +1121,16 @@ function viewDetails(){
       <button class="btn btn-cyan" type="button" id="toReview">Review booking</button></div>`;
 }
 
+function reviewRows(){
+  const pr = pricing(); let h = "";
+  if(pr.bundle.length){
+    h += `<tr class="bundle-row"><td><b>Starter bundle</b> <small style="color:var(--muted)">(minimum visit charge)</small></td><td><b>${money(MIN_CHARGE)}</b></td></tr>`;
+    h += pr.bundle.map(t=>`<tr class="in-bundle"><td>${esc(t.n)}</td><td style="color:var(--muted)">incl.</td></tr>`).join("");
+  }
+  h += pr.extra.map(t=>`<tr><td>${esc(t.n)}</td><td>${money(t.p)}</td></tr>`).join("");
+  return h;
+}
+
 function viewReview(){
   const i = state.info, items = selected();
   return `
@@ -1087,7 +1138,7 @@ function viewReview(){
     <p class="sub">Check everything below, then confirm. Our team will call to confirm your visit.</p>
     <div class="review">
       <section class="rblock"><header><h4>Tests (${items.length})</h4><button class="link" type="button" data-go="0">Edit</button></header>
-        <table class="rtable num"><tbody>${items.map(t=>`<tr><td>${esc(t.n)}</td><td>${money(t.p)}</td></tr>`).join("")}
+        <table class="rtable num"><tbody>${reviewRows()}
         <tr><td>Home sample collection</td><td style="color:var(--ok)">Free</td></tr>
         <tr><td><b>Total</b></td><td><b>${money(total())}</b></td></tr></tbody></table>
         ${needsFasting()?`<p class="note">Fast 8–12 hours before your visit. Water is fine.</p>`:""}
@@ -1212,7 +1263,9 @@ async function submit(){
     gender: state.info.gender, area: state.info.area, address: state.info.address.trim(), notes: state.info.notes.trim(),
     date: state.day, dateLabel: dayLabel(state.day,true), slot: slotLabel(state.slot),
     tests: items.map(t=>t.n).join(", "),
-    testsDetailed: items.map(t=>`${t.n} (${t.p})`).join("; "),
+    testsDetailed: (()=>{ const pr = priceFor(items);
+      return (pr.bundle.length ? `[Starter bundle AED ${MIN_CHARGE}: ${pr.bundle.map(t=>`${t.n} (${t.p})`).join(", ")}]` : "")
+        + (pr.extra.length ? (pr.bundle.length?" + ":"") + pr.extra.map(t=>`${t.n} (${t.p})`).join("; ") : ""); })(),
     testCount: items.length, total: total(), fasting: needsFasting() ? "Yes" : "No",
     page: location.href
   };
@@ -1267,7 +1320,7 @@ function renderPacks(){
   document.querySelectorAll("[data-pg]").forEach(b=>b.onclick=()=>{ packGroup=b.dataset.pg; renderPacks(); });
   $("#packList").innerHTML = PACKS.map((p,k)=>({p,k})).filter(({p})=>packGroup==="All"||p.g===packGroup).map(({p,k})=>{
     const ts = p.tests.map(n=>TESTS.find(t=>t.n===n)).filter(Boolean);
-    const sum = ts.reduce((a,t)=>a+t.p,0);
+    const sum = priceFor(ts).total;
     return `<article class="pack">
       <div class="art">
         <span class="tag tagline" style="background:#fff">${esc(p.tag)}</span>

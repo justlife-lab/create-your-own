@@ -186,7 +186,8 @@ a{color:inherit}
 .basket{position:sticky;top:84px}
 .basket h3{font-size:18px;display:flex;justify-content:space-between;align-items:center}
 .count{background:var(--cyan-t);color:var(--cyan-d);border-radius:999px;font-size:12px;padding:2px 10px;font-weight:600}
-.blist{list-style:none;padding:0;margin:16px 0 10px;max-height:300px;overflow:auto;display:grid;gap:8px}
+.blist{list-style:none;padding:0;margin:16px 0 10px;max-height:300px;overflow-y:auto;overflow-x:hidden;display:grid;gap:8px}
+.blist li span:first-child{overflow-wrap:anywhere}
 .blist li{display:flex;justify-content:space-between;gap:8px;font-size:13.5px;align-items:center;color:var(--ink)}
 .blist li span{min-width:0}
 .rm{border:0;background:var(--bg-alt);color:var(--muted);cursor:pointer;width:22px;height:22px;border-radius:50%;font-size:14px;line-height:1;display:inline-grid;place-items:center}
@@ -406,6 +407,21 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
 .blist.sub li b{font-weight:500;color:var(--muted);text-decoration:line-through}
 .bundle-note{font-size:11.5px;color:var(--teal);margin-top:8px}
 .rtable tr.in-bundle td{font-size:13px;color:var(--body);padding-left:12px}
+.share-btn{width:100%;margin-top:10px!important;gap:8px}
+.shm{position:fixed;inset:0;z-index:100;background:rgba(12,40,50,.55);display:grid;place-items:center;padding:16px}
+.shm[hidden]{display:none}
+.shm-box{background:#fff;border-radius:20px;width:min(460px,100%);max-height:calc(100vh - 32px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.4)}
+.shm-hd{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
+.shm-hd h3{font-size:17px}
+.shm-x{border:0;background:var(--bg-alt);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;line-height:1}
+.shm-prev{overflow:auto;background:var(--bg-alt);padding:16px;flex:1;min-height:0}
+.shm-prev img{display:block;width:100%;border-radius:12px;box-shadow:var(--shadow)}
+.shm-act{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px 20px}
+.shm-act .btn{padding:12px 10px;font-size:14px}
+.shm-act .wide{grid-column:1/-1}
+.shm-msg{font-size:12.5px;color:var(--teal);text-align:center;padding:0 20px 14px;min-height:18px}
+.mbar .t{min-width:0}
+.mshare{width:46px;height:46px;flex:none;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);display:grid;place-items:center;cursor:pointer}
 /* mobile basket bar */
 .mbar{display:none}
 
@@ -716,7 +732,23 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
 
 <div class="mbar" id="mbar" hidden>
   <div class="t"><small id="mbarCount">0 tests</small><b class="num" id="mbarTotal">AED 0</b></div>
+  <button class="mshare" id="mbarShare" type="button" aria-label="Save or share package"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg></button>
   <button class="btn btn-cyan" id="mbarBtn" type="button">Continue</button>
+</div>
+
+<div class="shm" id="shareModal" hidden role="dialog" aria-modal="true" aria-labelledby="shmTitle">
+  <div class="shm-box">
+    <div class="shm-hd"><h3 id="shmTitle">Save or share your package</h3><button class="shm-x" type="button" id="shmClose" aria-label="Close">×</button></div>
+    <div class="shm-prev"><img id="shmImg" alt="Your lab test package"></div>
+    <div class="shm-act">
+      <button class="btn btn-cyan" type="button" id="shmPng">⬇ Download image</button>
+      <button class="btn btn-white" type="button" id="shmPdf">⬇ Download PDF</button>
+      <button class="btn btn-white" type="button" id="shmShare"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg> Share</button>
+      <button class="btn btn-white" type="button" id="shmWa">WhatsApp</button>
+      <button class="btn btn-white wide" type="button" id="shmCopy">🔗 Copy link to this package</button>
+    </div>
+    <p class="shm-msg" id="shmMsg" role="status"></p>
+  </div>
 </div>
 
 <script>
@@ -999,7 +1031,8 @@ function renderBasket(){
     <div class="total"><span>Total</span><b class="num"><em>AED</em>${total().toLocaleString("en-US")}</b></div>
     ${needsFasting() ? `<p class="note">⚠ Includes fasting tests. Fast 8–12 hours before your visit (water is fine).</p>` : ""}
     ${(state.day && state.slot!==null) ? `<div class="bmeta">Nurse visit: <b>${dayLabel(state.day)} · ${slotLabel(state.slot)}</b></div>` : ""}
-    ${state.done ? "" : `<button class="btn btn-cyan" type="button" id="bNext" ${nextOk()?"":"disabled"}>${nextLabel} →</button><p class="secure">🔒 Pay on visit · Your details are kept private</p>`}`;
+    ${state.done ? "" : `<button class="btn btn-cyan" type="button" id="bNext" ${nextOk()?"":"disabled"}>${nextLabel} →</button><p class="secure">🔒 Pay on visit · Your details are kept private</p>`}
+    ${items.length ? `<button class="btn btn-white btn-sm share-btn" type="button" data-share><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg> Save or share package</button>` : ""}`;
 }
 
 function renderMobileBar(){
@@ -1137,7 +1170,7 @@ function viewReview(){
     <h3>Review and book</h3>
     <p class="sub">Check everything below, then confirm. Our team will call to confirm your visit.</p>
     <div class="review">
-      <section class="rblock"><header><h4>Tests (${items.length})</h4><button class="link" type="button" data-go="0">Edit</button></header>
+      <section class="rblock"><header><h4>Tests (${items.length})</h4><span style="display:flex;gap:14px"><button class="link" type="button" data-share>Save / share</button><button class="link" type="button" data-go="0">Edit</button></span></header>
         <table class="rtable num"><tbody>${reviewRows()}
         <tr><td>Home sample collection</td><td style="color:var(--ok)">Free</td></tr>
         <tr><td><b>Total</b></td><td><b>${money(total())}</b></td></tr></tbody></table>
@@ -1166,7 +1199,7 @@ function viewDone(){
     <div class="ref num">${d.ref}</div>
     <p>${d.count} tests · ${money(d.total)} · pay on visit</p>
     ${d.preview?`<p class="preview">Preview mode: this booking was not saved. Add your Google Sheet link in SHEET_URL to collect bookings.</p>`:""}
-    <div class="actions" style="justify-content:center"><button class="btn btn-white" type="button" id="again">Book another test</button></div>
+    <div class="actions" style="justify-content:center"><button class="btn btn-cyan" type="button" data-share><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg> Save or share package</button><button class="btn btn-white" type="button" id="again">Book another test</button></div>
   </div>`;
 }
 
@@ -1225,6 +1258,173 @@ function bindBasket(){
 }
 function bindStepper(){ document.querySelectorAll("#stepper [data-go]").forEach(b=>b.onclick=()=>go(+b.dataset.go)); }
 $("#mbarBtn").onclick = next;
+
+/* ============ SAVE / SHARE PACKAGE ============ */
+const LOGO_SRC = (document.querySelector('link[rel="icon"][href^="data:"]')||{}).href || "";
+function packageLink(){
+  const ids = [...state.sel].map(id=>id.slice(1)).join(".");
+  const base = /^https?:/.test(location.protocol) ? location.origin + location.pathname : location.href.split("?")[0];
+  return base + "?pkg=" + ids + "#build";
+}
+function wrapText(ctx, text, maxW){
+  const words = text.split(" "), lines = []; let line = "";
+  for(const w of words){ const t = line ? line + " " + w : w; if(ctx.measureText(t).width > maxW && line){ lines.push(line); line = w; } else line = t; }
+  if(line) lines.push(line); return lines;
+}
+function rrect(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+function loadImg(src){ return new Promise(res=>{ if(!src) return res(null); const i=new Image(); i.onload=()=>res(i); i.onerror=()=>res(null); i.src=src; }); }
+
+async function buildPackageImage(){
+  try{ await document.fonts.ready; }catch(e){}
+  const logo = await loadImg(LOGO_SRC);
+  const pr = pricing(), F = 'Poppins, "Segoe UI", Arial, sans-serif';
+  const W = 1080, CX = 48, CW = W - CX*2, IN = 56, nameW = CW - IN*2 - 190;
+  let knownCardH = 0;
+  const draw = (ctx, dry) => {
+    // background + header
+    if(!dry){ ctx.fillStyle="#FAF8F3"; ctx.fillRect(0,0,W,ctx.canvas.height);
+      const g=ctx.createLinearGradient(0,0,W,260); g.addColorStop(0,"#00C3FF"); g.addColorStop(1,"#0AA6DB"); ctx.fillStyle=g; ctx.fillRect(0,0,W,260);
+      if(logo){ ctx.save(); rrect(ctx,CX,52,96,96,24); ctx.clip(); ctx.drawImage(logo,CX,52,96,96); ctx.restore(); }
+      ctx.fillStyle="#fff"; ctx.font=`700 54px ${F}`; ctx.fillText("justlife", CX+120, 112);
+      ctx.font=`500 26px ${F}`; ctx.globalAlpha=.9; ctx.fillText("Healthcare at Home · Lab tests", CX+122, 148); ctx.globalAlpha=1; }
+    let y = 200;
+    // card (height known from the measuring pass)
+    const cardY = y;
+    if(!dry){ ctx.save(); ctx.shadowColor="rgba(19,81,99,.18)"; ctx.shadowBlur=40; ctx.shadowOffsetY=12; ctx.fillStyle="#fff"; rrect(ctx,CX,cardY,CW,knownCardH,32); ctx.fill(); ctx.restore(); }
+    y += 70;
+    if(!dry){ ctx.font=`700 42px ${F}`; ctx.fillStyle="#1C1C1C"; ctx.fillText("My lab test package", CX+IN, y); }
+    y += 46;
+    if(!dry){ ctx.font=`400 25px ${F}`; ctx.fillStyle="#8C9194";
+      const d=new Date().toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric",timeZone:TIMEZONE});
+      ctx.fillText(`${selected().length} ${selected().length===1?"test":"tests"} · Created ${d}`, CX+IN, y); }
+    y += 40;
+    const row = (name, priceTxt, opts={}) => {
+      ctx.font = `${opts.w||500} ${opts.size||29}px ${F}`;
+      const lines = wrapText(ctx, name, nameW - (opts.indent||0));
+      const lh = (opts.size||29) * 1.35;
+      if(!dry){
+        ctx.fillStyle = opts.color || "#1C1C1C";
+        lines.forEach((l,i)=>ctx.fillText(l, CX+IN+(opts.indent||0), y + lh*(i+1) - 8));
+        ctx.font = `${opts.pw||600} ${opts.size||29}px ${F}`; ctx.textAlign="right"; ctx.fillStyle = opts.pcolor || "#1C1C1C";
+        ctx.fillText(priceTxt, CX+CW-IN-(opts.pr||0), y + lh - 8);
+        if(opts.strike){ const tw=ctx.measureText(priceTxt).width; ctx.fillRect(CX+CW-IN-(opts.pr||0)-tw, y+lh-8-((opts.size||29)*.32), tw, 2.5); }
+        ctx.textAlign="left";
+      }
+      y += lh*lines.length + 14;
+    };
+    if(pr.bundle.length){
+      const bTop = y; y += 22;
+      row("Starter bundle (minimum visit charge)", `AED ${MIN_CHARGE}`, {w:600, color:"#135163", indent:24, pr:24});
+      pr.bundle.forEach(t=>row(t.n, String(t.p), {size:26, color:"#5F6467", pcolor:"#8C9194", pw:500, strike:1, indent:24, pr:24}));
+      y += 10;
+      if(!dry){ ctx.save(); ctx.setLineDash([10,8]); ctx.strokeStyle="#9EE3F8"; ctx.lineWidth=2.5; rrect(ctx,CX+IN-6,bTop,CW-IN*2+12,y-bTop,18); ctx.stroke(); ctx.restore(); }
+      y += 22;
+    }
+    pr.extra.forEach(t=>row(t.n, `AED ${t.p}`));
+    // divider + collection
+    y += 6; if(!dry){ ctx.fillStyle="#ECEAE3"; ctx.fillRect(CX+IN, y, CW-IN*2, 2); } y += 22;
+    row("Home sample collection", "Free", {color:"#5F6467", pcolor:"#22B35E"});
+    if(!dry){ ctx.fillStyle="#ECEAE3"; ctx.fillRect(CX+IN, y, CW-IN*2, 2); } y += 70;
+    if(!dry){ ctx.font=`500 32px ${F}`; ctx.fillStyle="#5F6467"; ctx.fillText("Total", CX+IN, y);
+      ctx.textAlign="right"; ctx.font=`700 64px ${F}`; ctx.fillStyle="#1C1C1C"; const tt=pr.total.toLocaleString("en-US"); ctx.fillText(tt, CX+CW-IN, y+6);
+      const tw=ctx.measureText(tt).width; ctx.font=`500 26px ${F}`; ctx.fillStyle="#8C9194"; ctx.fillText("AED", CX+CW-IN-tw-14, y+4); ctx.textAlign="left"; }
+    y += 40;
+    if(needsFasting()){
+      y += 10; const h=64;
+      if(!dry){ ctx.fillStyle="#FFF6D9"; rrect(ctx,CX+IN,y,CW-IN*2,h,14); ctx.fill(); ctx.fillStyle="#7A5A00"; ctx.font=`500 24px ${F}`; ctx.fillText("Includes fasting tests: fast 8–12 hours before the visit.", CX+IN+22, y+41); }
+      y += h + 10;
+    }
+    y += 30; if(dry) knownCardH = y - cardY;
+    y += 50;
+    if(!dry){ ctx.font=`600 27px ${F}`; ctx.fillStyle="#135163"; ctx.fillText("Nurse home visit · 6:00 AM – 11:30 PM, daily", CX, y);
+      ctx.font=`400 23px ${F}`; ctx.fillStyle="#8C9194"; const link=packageLink().replace(/^https?:\/\//,""); ctx.fillText(link.length>70? link.slice(0,67)+"…" : link, CX, y+40); }
+    y += 80;
+    return y;
+  };
+  const scratch = document.createElement("canvas").getContext("2d");
+  const H = Math.ceil(draw(scratch, true));
+  const cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+  const ctx = cv.getContext("2d");
+  // paint background first so destination-over card shadow lands correctly
+  draw(ctx, false);
+  return cv;
+}
+
+// Minimal one-page PDF that embeds the package picture as a JPEG (no library needed)
+function canvasToPdf(cv){
+  const jpg = atob(cv.toDataURL("image/jpeg", .93).split(",")[1]);
+  const pw = 595.28, ph = +(cv.height * pw / cv.width).toFixed(2);
+  const enc = new TextEncoder(), parts = [], offsets = []; let len = 0;
+  const push = (x)=>{ const b = typeof x === "string" ? enc.encode(x) : x; parts.push(b); len += b.length; };
+  const bin = new Uint8Array(jpg.length); for(let i=0;i<jpg.length;i++) bin[i] = jpg.charCodeAt(i);
+  const content = `q ${pw} 0 0 ${ph} 0 0 cm /Im0 Do Q`;
+  push("%PDF-1.4\n%\xE2\xE3\xCF\xD3\n");
+  const obj = (n, body, stream) => { offsets[n] = len; push(`${n} 0 obj\n${body}\n`); if(stream){ push("stream\n"); push(stream); push("\nendstream\n"); } push("endobj\n"); };
+  obj(1, "<< /Type /Catalog /Pages 2 0 R >>");
+  obj(2, "<< /Type /Pages /Kids [3 0 R] /Count 1 >>");
+  obj(3, `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pw} ${ph}] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>`);
+  obj(4, `<< /Type /XObject /Subtype /Image /Width ${cv.width} /Height ${cv.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${bin.length} >>`, bin);
+  obj(5, `<< /Length ${content.length} >>`, content);
+  const xref = len;
+  push(`xref\n0 6\n0000000000 65535 f \n` + [1,2,3,4,5].map(n=>String(offsets[n]).padStart(10,"0")+" 00000 n \n").join(""));
+  push(`trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`);
+  return new Blob(parts, {type:"application/pdf"});
+}
+
+function downloadBlob(blob, name){
+  const url = URL.createObjectURL(blob), a = document.createElement("a");
+  a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url), 4000);
+}
+function shareText(){
+  const pr = pricing();
+  return `My Justlife lab test package (${selected().length} tests, AED ${pr.total.toLocaleString("en-US")}):\n`
+    + selected().map(t=>"• "+t.n).join("\n") + `\n\nHome sample collection, 6 AM – 11:30 PM.\nOpen this package: ${packageLink()}`;
+}
+let shareCanvas = null;
+function shmMsg(t){ $("#shmMsg").textContent = t; }
+async function openShare(){
+  if(!state.sel.size) return;
+  shmMsg("");
+  $("#shareModal").hidden = false; document.body.style.overflow = "hidden";
+  shareCanvas = await buildPackageImage();
+  $("#shmImg").src = shareCanvas.toDataURL("image/png");
+  $("#shmShare").hidden = !navigator.share;
+  $("#shmClose").focus();
+}
+function closeShare(){ $("#shareModal").hidden = true; document.body.style.overflow = ""; }
+const fileStamp = () => "justlife-lab-package-" + new Date().toISOString().slice(0,10);
+$("#shmClose").onclick = closeShare;
+$("#shareModal").addEventListener("click", e=>{ if(e.target.id==="shareModal") closeShare(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !$("#shareModal").hidden) closeShare(); });
+$("#shmPng").onclick = ()=> shareCanvas && shareCanvas.toBlob(b=>{ downloadBlob(b, fileStamp()+".png"); shmMsg("Image saved to your downloads."); }, "image/png");
+$("#shmPdf").onclick = ()=>{ if(!shareCanvas) return; downloadBlob(canvasToPdf(shareCanvas), fileStamp()+".pdf"); shmMsg("PDF saved to your downloads."); };
+$("#shmWa").onclick = ()=>{ window.open("https://wa.me/?text=" + encodeURIComponent(shareText()), "_blank", "noopener"); };
+$("#shmCopy").onclick = async ()=>{
+  try{ await navigator.clipboard.writeText(packageLink()); shmMsg("Link copied. Anyone who opens it sees this package."); }
+  catch(e){ shmMsg(packageLink()); }
+};
+$("#shmShare").onclick = async ()=>{
+  try{
+    const blob = await new Promise(r=>shareCanvas.toBlob(r,"image/png"));
+    const file = new File([blob], fileStamp()+".png", {type:"image/png"});
+    const data = {title:"My Justlife lab test package", text:shareText()};
+    if(navigator.canShare && navigator.canShare({files:[file]})) data.files = [file]; else data.url = packageLink();
+    await navigator.share(data);
+  }catch(e){ if(e && e.name!=="AbortError") shmMsg("Sharing isn't available here. Use WhatsApp or Copy link."); }
+};
+document.addEventListener("click", e=>{ if(e.target.closest("[data-share]")) openShare(); });
+$("#mbarShare").onclick = openShare;
+
+// Open a shared package link: ?pkg=12.40.7
+(function loadSharedPackage(){
+  try{
+    const pkg = new URLSearchParams(location.search).get("pkg");
+    if(!pkg) return;
+    pkg.split(".").forEach(n=>{ const id = "t"+parseInt(n,10); if(TESTS.some(t=>t.id===id)) state.sel.add(id); });
+  }catch(e){}
+})();
+
 
 /* ============ SUBMIT → GOOGLE SHEET ============ */
 // Sends the booking to Google Apps Script. Works from any host (GitHub Pages, Netlify, your own domain).

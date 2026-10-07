@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head> 
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Build your own lab test in Dubai. Choose individual blood tests, pick a home visit from 6 AM to 11:30 PM, and a DHA-licensed nurse comes to you.">
@@ -1334,10 +1334,7 @@ async function buildPackageImage(){
       y += h + 10;
     }
     y += 30; if(dry) knownCardH = y - cardY;
-    y += 50;
-    if(!dry){ ctx.font=`600 27px ${F}`; ctx.fillStyle="#135163"; ctx.fillText("Nurse home visit · 6:00 AM – 11:30 PM, daily", CX, y);
-    }
-    y += 44;
+    y += 40;
     return y;
   };
   const scratch = document.createElement("canvas").getContext("2d");
@@ -1385,7 +1382,6 @@ function shareText(){
   pr.extra.forEach(t=>lines.push(`• ${t.n}: AED ${t.p}`));
   lines.push("", "Home sample collection: Free", `*Total: AED ${pr.total.toLocaleString("en-US")}*`);
   if(needsFasting()) lines.push("Fasting 8–12 hours needed before the visit.");
-  lines.push("", "Nurse home visit · 6:00 AM – 11:30 PM, daily");
   return lines.join("\n");
 }
 let shareCanvas = null;

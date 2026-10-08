@@ -905,23 +905,15 @@ const money = v => CURRENCY + " " + v.toLocaleString("en-US");
 const byId = id => TESTS.find(t=>t.id===id);
 const selected = () => [...state.sel].map(byId);
 /* ===== Minimum charge rule =====
-   Tests are taken in the order the customer added them.
-   - The first test goes into a "starter bundle" charged a flat AED 149
-     (unless that first test already costs more than AED 149 - then it is just charged its own price).
-   - More tests join the bundle for free only while the bundle's tests add up to AED 70 or less.
-   - The first test that takes the bundle over AED 70 is added at its own price, and so is every test after it.
-   Examples: 45 -> 149.  45 + 20 (65) -> 149.  45 + 66 (111) -> 149 + 66 = 215.  Then + 99 -> 314. */
-const MIN_CHARGE = 149, FREE_UP_TO = 70;
+   Order does not matter: every test is charged at its real price.
+   If the tests add up to less than AED 140, the order is charged the minimum of AED 149
+   (shown as a "minimum visit charge" top-up). From AED 140 upwards, the customer pays the plain total.
+   Examples: 49 -> 149.  79 + 40 + 40 = 159 -> 159.  49 + 129 = 178 -> 178 (either order). */
+const MIN_CHARGE = 149, MIN_APPLIES_BELOW = 140;
 function priceFor(list){
-  const bundle = [], extra = []; let sum = 0, closed = false;
-  list.forEach((t,i)=>{
-    if(i===0 && t.p <= MIN_CHARGE){ bundle.push(t); sum = t.p; return; }
-    if(!closed && bundle.length && sum + t.p <= FREE_UP_TO){ bundle.push(t); sum += t.p; return; }
-    closed = true; extra.push(t);
-  });
-  const bundleCharge = bundle.length ? MIN_CHARGE : 0;
-  const total = bundleCharge + extra.reduce((a,t)=>a+t.p,0);
-  return {bundle, bundleSum:sum, bundleCharge, extra, total, listSum: list.reduce((a,t)=>a+t.p,0)};
+  const sum = list.reduce((a,t)=>a+t.p,0);
+  const topUp = (list.length && sum < MIN_APPLIES_BELOW) ? MIN_CHARGE - sum : 0;
+  return {bundle:[], extra:list, sum, topUp, total: sum + topUp, listSum: sum};
 }
 const pricing = () => priceFor(selected());
 const total = () => pricing().total;
@@ -1011,12 +1003,9 @@ function basketLines(){
   const pr = pricing();
   const li = t => `<li><span>${esc(t.n)}</span><span style="display:flex;align-items:center;gap:8px"><b class="num">${t.p}</b>${state.done?"":`<button class="rm" data-rm="${t.id}" aria-label="Remove ${esc(t.n)}">×</button>`}</span></li>`;
   let h = "";
-  if(pr.bundle.length){
-    h += `<div class="bundle"><div class="bundle-hd"><span>Starter bundle <small>(minimum visit charge)</small></span><b class="num">${MIN_CHARGE}</b></div>
-      <ul class="blist sub">${pr.bundle.map(li).join("")}</ul>
-      <p class="bundle-note">Minimum visit charge is AED ${MIN_CHARGE}.${!pr.extra.length && pr.bundleSum < FREE_UP_TO ? ` Add tests worth up to AED ${FREE_UP_TO - pr.bundleSum} more at no extra cost.` : ""}</p></div>`;
-  }
   if(pr.extra.length) h += `<ul class="blist">${pr.extra.map(li).join("")}</ul>`;
+  if(pr.topUp) h += `<div class="bundle"><div class="bundle-hd"><span>Minimum visit charge top-up</span><b class="num">+${pr.topUp}</b></div>
+      <p class="bundle-note">Orders under AED ${MIN_APPLIES_BELOW} are charged AED ${MIN_CHARGE}. Add tests worth AED ${MIN_APPLIES_BELOW - pr.sum} more and pay only for your tests.</p></div>`;
   return h;
 }
 
@@ -1154,12 +1143,9 @@ function viewDetails(){
 }
 
 function reviewRows(){
-  const pr = pricing(); let h = "";
-  if(pr.bundle.length){
-    h += `<tr class="bundle-row"><td><b>Starter bundle</b> <small style="color:var(--muted)">(minimum visit charge)</small></td><td><b>${money(MIN_CHARGE)}</b></td></tr>`;
-    h += pr.bundle.map(t=>`<tr class="in-bundle"><td>${esc(t.n)}</td><td style="color:var(--muted)">incl.</td></tr>`).join("");
-  }
-  h += pr.extra.map(t=>`<tr><td>${esc(t.n)}</td><td>${money(t.p)}</td></tr>`).join("");
+  const pr = pricing();
+  let h = pr.extra.map(t=>`<tr><td>${esc(t.n)}</td><td>${money(t.p)}</td></tr>`).join("");
+  if(pr.topUp) h += `<tr><td>Minimum visit charge top-up <small style="color:var(--muted)">(orders under AED ${MIN_APPLIES_BELOW})</small></td><td>${money(pr.topUp)}</td></tr>`;
   return h;
 }
 
@@ -1311,15 +1297,8 @@ async function buildPackageImage(){
       }
       y += lh*lines.length + 14;
     };
-    if(pr.bundle.length){
-      const bTop = y; y += 22;
-      row("Starter bundle (minimum visit charge)", `AED ${MIN_CHARGE}`, {w:600, color:"#135163", indent:24, pr:24});
-      pr.bundle.forEach(t=>row(t.n, String(t.p), {size:26, color:"#5F6467", pcolor:"#8C9194", pw:500, strike:1, indent:24, pr:24}));
-      y += 10;
-      if(!dry){ ctx.save(); ctx.setLineDash([10,8]); ctx.strokeStyle="#9EE3F8"; ctx.lineWidth=2.5; rrect(ctx,CX+IN-6,bTop,CW-IN*2+12,y-bTop,18); ctx.stroke(); ctx.restore(); }
-      y += 22;
-    }
     pr.extra.forEach(t=>row(t.n, `AED ${t.p}`));
+    if(pr.topUp) row("Minimum visit charge top-up", `AED ${pr.topUp}`, {color:"#135163"});
     // divider + collection
     y += 6; if(!dry){ ctx.fillStyle="#ECEAE3"; ctx.fillRect(CX+IN, y, CW-IN*2, 2); } y += 22;
     row("Home sample collection", "Free", {color:"#5F6467", pcolor:"#22B35E"});
@@ -1375,11 +1354,8 @@ function downloadBlob(blob, name){
 function shareText(){
   const pr = pricing(), n = selected().length, lines = [];
   lines.push(`*My Justlife lab test package* (${n} ${n===1?"test":"tests"})`, "");
-  if(pr.bundle.length){
-    lines.push(`Starter bundle (minimum visit charge): AED ${MIN_CHARGE}`);
-    pr.bundle.forEach(t=>lines.push(`   • ${t.n} (included)`));
-  }
   pr.extra.forEach(t=>lines.push(`• ${t.n}: AED ${t.p}`));
+  if(pr.topUp) lines.push(`• Minimum visit charge top-up: AED ${pr.topUp}`);
   lines.push("", "Home sample collection: Free", `*Total: AED ${pr.total.toLocaleString("en-US")}*`);
   if(needsFasting()) lines.push("Fasting 8–12 hours needed before the visit.");
   return lines.join("\n");
@@ -1463,8 +1439,7 @@ async function submit(){
     date: state.day, dateLabel: dayLabel(state.day,true), slot: slotLabel(state.slot),
     tests: items.map(t=>t.n).join(", "),
     testsDetailed: (()=>{ const pr = priceFor(items);
-      return (pr.bundle.length ? `[Starter bundle AED ${MIN_CHARGE}: ${pr.bundle.map(t=>`${t.n} (${t.p})`).join(", ")}]` : "")
-        + (pr.extra.length ? (pr.bundle.length?" + ":"") + pr.extra.map(t=>`${t.n} (${t.p})`).join("; ") : ""); })(),
+      return items.map(t=>`${t.n} (${t.p})`).join("; ") + (pr.topUp ? ` + Minimum visit charge top-up (${pr.topUp})` : ""); })(),
     testCount: items.length, total: total(), fasting: needsFasting() ? "Yes" : "No",
     page: location.href
   };

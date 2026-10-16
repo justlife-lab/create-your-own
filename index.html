@@ -476,6 +476,17 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
 .nbar{height:6px;border-radius:999px;background:#fff;margin-top:8px;overflow:hidden}
 .nbar i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--green));border-radius:999px;transition:width .3s}
 .sym-sum .nudge{margin-top:8px}
+.mview{flex:none;height:46px;padding:0 14px;border-radius:12px;border:1.5px solid var(--cyan);background:#fff;color:var(--cyan-d);font-weight:600;font-size:14px;cursor:pointer;white-space:nowrap}
+.msheet{position:fixed;inset:0;z-index:90;background:rgba(12,40,50,.5);display:flex;align-items:flex-end}
+.msheet[hidden]{display:none}
+.msheet-box{position:relative;width:100%;max-height:85vh;overflow:auto;background:#fff;border-radius:22px 22px 0 0;padding:10px 0 calc(16px + env(safe-area-inset-bottom,0px));animation:sheetUp .22s ease-out}
+.msheet-grab{width:44px;height:5px;border-radius:999px;background:var(--line);margin:4px auto 6px}
+.msheet-x{position:absolute;right:14px;top:12px}
+.basket-m{box-shadow:none;border-radius:0;padding:8px 20px 4px}
+.basket-m .blist{max-height:none}
+@keyframes sheetUp{from{transform:translateY(40px);opacity:.6}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.msheet-box{animation:none}}
+@media (min-width:1001px){.msheet{display:none!important}}
 /* mobile basket bar */
 .mbar{display:none}
 
@@ -827,8 +838,16 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
 
 <div class="mbar" id="mbar" hidden>
   <div class="t"><small id="mbarCount">0 tests</small><small id="mbarFree" style="color:var(--teal);font-weight:600"></small><b class="num" id="mbarTotal">AED 0</b></div>
-  <button class="mshare" id="mbarShare" type="button" aria-label="Save or share package"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg></button>
+  <button class="mview" id="mbarView" type="button" aria-haspopup="dialog">View <span id="mbarViewN">0</span> ▴</button>
   <button class="btn btn-cyan" id="mbarBtn" type="button">Continue</button>
+</div>
+
+<div class="msheet" id="mSheet" hidden role="dialog" aria-modal="true" aria-label="Your package">
+  <div class="msheet-box">
+    <div class="msheet-grab" aria-hidden="true"></div>
+    <button class="shm-x msheet-x" type="button" id="mSheetClose" aria-label="Close">×</button>
+    <div class="panel basket-m" id="mBasket"></div>
+  </div>
 </div>
 
 <div class="shm" id="shareModal" hidden role="dialog" aria-modal="true" aria-labelledby="shmTitle">
@@ -1421,15 +1440,18 @@ function basketLines(){
 function renderBasket(){
   const items = selected();
   const nextLabel = ["Choose date & time","Continue to details","Review booking","Confirm booking"][state.step];
-  $("#basket").innerHTML = `
+  const html = `
     <h3>Your package <span class="count num">${items.length} ${items.length===1?"test":"tests"}</span></h3>
     ${items.length ? basketLines() : `<p class="bempty"><span class="ico b" style="width:32px;height:32px;border-radius:8px">+</span>Add tests from the list to build your package.</p>`}
     ${items.length ? `<div class="row"><span>Home collection</span><b class="num" style="${pricing().service?"":"color:var(--green)"}">${collectionLabel(pricing())}</b></div>${freeNudge(pricing())}` : ""}
     <div class="total"><span>Total</span><b class="num"><em>AED</em>${total().toLocaleString("en-US")}</b></div>
     ${needsFasting() ? `<p class="note">⚠ Includes fasting tests. Fast 8–12 hours before your visit (water is fine).</p>` : ""}
     ${(state.day && state.slot!==null) ? `<div class="bmeta">Nurse visit: <b>${dayLabel(state.day)} · ${slotLabel(state.slot)}</b></div>` : ""}
-    ${state.done ? "" : `<button class="btn btn-cyan" type="button" id="bNext" ${nextOk()?"":"disabled"}>${nextLabel} →</button><p class="secure">🔒 Pay on visit · Your details are kept private</p>`}
+    ${state.done ? "" : `<button class="btn btn-cyan" type="button" data-next ${nextOk()?"":"disabled"}>${nextLabel} →</button><p class="secure">🔒 Pay on visit · Your details are kept private</p>`}
     ${items.length ? `<button class="btn btn-white btn-sm share-btn" type="button" data-share><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg> Save or share package</button>` : ""}`;
+  $("#basket").innerHTML = html;
+  const mb = document.getElementById("mBasket"); if(mb) mb.innerHTML = html;
+  if(!state.sel.size || state.done) closeMSheet();
 }
 
 function renderMobileBar(){
@@ -1438,6 +1460,7 @@ function renderMobileBar(){
   document.body.classList.toggle("has-bar", show);
   $("#mbarCount").textContent = state.sel.size + (state.sel.size===1?" test":" tests");
   $("#mbarTotal").textContent = money(total());
+  $("#mbarViewN").textContent = state.sel.size;
   { const pr = pricing(); $("#mbarFree").textContent = !state.sel.size ? "" : pr.free ? "✓ Free collection" : `Add AED ${pr.toFree} for free collection`; }
   const b = $("#mbarBtn");
   b.textContent = ["Pick a slot","Continue","Review","Confirm"][state.step];
@@ -1658,7 +1681,7 @@ function bindBasket(){
     if(state.sel.size===0) state.step=0;
     render();
   });
-  const bn = $("#bNext"); if(bn) bn.onclick = next;
+  document.querySelectorAll("[data-next]").forEach(bn=>bn.onclick=()=>{ closeMSheet(); next(); });
   bindStepper();
 }
 function bindStepper(){ document.querySelectorAll("#stepper [data-go]").forEach(b=>b.onclick=()=>go(+b.dataset.go)); }
@@ -1813,8 +1836,13 @@ $("#shmShare").onclick = async ()=>{
     await navigator.share(data);
   }catch(e){ if(e && e.name!=="AbortError") shmMsg("Sharing isn't available here. Use WhatsApp or Download instead."); }
 };
-document.addEventListener("click", e=>{ if(e.target.closest("[data-share]")) openShare(); });
-$("#mbarShare").onclick = ()=>openShare();
+document.addEventListener("click", e=>{ if(e.target.closest("[data-share]")){ closeMSheet(); openShare(); } });
+function openMSheet(){ const sh=$("#mSheet"); if(!sh) return; sh.hidden=false; document.body.style.overflow="hidden"; }
+function closeMSheet(){ const sh=document.getElementById("mSheet"); if(sh && !sh.hidden){ sh.hidden=true; if(document.getElementById("shareModal").hidden) document.body.style.overflow=""; } }
+$("#mbarView").onclick = openMSheet;
+$("#mSheetClose").onclick = closeMSheet;
+$("#mSheet").addEventListener("click", e=>{ if(e.target.id==="mSheet") closeMSheet(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeMSheet(); });
 
 // Open a shared package link: ?pkg=12.40.7
 (function loadSharedPackage(){

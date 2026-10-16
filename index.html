@@ -422,6 +422,60 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
 .shm-msg{font-size:12.5px;color:var(--teal);text-align:center;padding:0 20px 14px;min-height:18px}
 .mbar .t{min-width:0}
 .mshare{width:46px;height:46px;flex:none;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.ctag{display:inline-flex;align-items:center;gap:5px}
+.ctag i{width:9px;height:9px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.collect{margin-top:4px}
+.collect li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.collect li:last-child{border-bottom:0}
+.collect li i{width:12px;height:12px;border-radius:50%;flex:none;margin-top:4px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.collect li b{display:block;color:var(--ink);font-weight:600}
+.collect li small{color:var(--muted)}
+/* symptom finder */
+.sym{padding-block:56px 24px}
+.sym-box{background:#fff;border-radius:22px;box-shadow:var(--shadow);padding:22px;margin-top:24px}
+.search.big input{padding:16px 16px 16px 50px;font-size:16px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg)}
+.search.big input:focus{border-color:var(--cyan);background:#fff;box-shadow:0 0 0 4px rgba(0,195,255,.14)}
+.search.big svg{left:17px}
+.symtags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.stag{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font-size:13.5px;font-weight:500;cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+.stag:hover{border-color:var(--cyan)}
+.stag.on{background:var(--cyan);border-color:var(--cyan);color:#fff}
+.stag.hit{border-color:var(--cyan);background:var(--cyan-t)}
+.stag.more{background:var(--bg-alt);color:var(--teal);font-weight:600}
+.sym-empty{margin-top:18px;padding:16px;border-radius:14px;background:var(--bg);color:var(--muted);font-size:14px}
+.sym-res{margin-top:20px;border-top:1px solid var(--line);padding-top:18px}
+.sym-hd{display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:space-between}
+.sym-hd h3{font-size:18px}
+.sym-group{margin-top:16px}
+.sym-group h4{font-size:13px;color:var(--teal);margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.srow{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:8px;cursor:pointer;background:#fff}
+.srow:hover{border-color:#9EE3F8}
+.srow.pick{border-color:var(--cyan);background:#F5FCFF}
+.srow input{width:18px;height:18px;accent-color:var(--cyan);flex:none}
+.srow .tile{width:46px;height:46px;border-radius:10px}
+.srow .sname{flex:1;min-width:0}
+.srow .sname b{display:block;font-size:14px;color:var(--ink);font-weight:600;overflow-wrap:anywhere}
+.srow .sname small{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.srow .why{font-size:11px;background:var(--bg-alt);border-radius:999px;padding:1px 8px;color:var(--body)}
+.srow .inpkg{font-size:11px;background:var(--green-t);color:#3E7A14;border-radius:999px;padding:1px 8px}
+.srow .sp{font-weight:700;color:var(--ink);white-space:nowrap}
+.srow .sp em{font-style:normal;font-size:11px;color:var(--muted);font-weight:500;margin-right:3px}
+.sym-note{font-size:12.5px;padding:10px 12px;border-radius:10px;margin-top:10px;background:var(--yellow-t);color:#7A5A00}
+.sym-foot{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--line);margin:16px -22px -22px;padding:14px 22px;border-radius:0 0 22px 22px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.sym-sum{font-size:13.5px;color:var(--body)}
+.sym-sum b{font-size:20px;color:var(--ink)}
+.sym-btns{display:flex;flex-wrap:wrap;gap:8px}
+.sym-btns .btn{padding:11px 16px;font-size:14px}
+.sym-ok{margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--green-t);color:#2E6B10;font-size:14px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.sym-disc{font-size:12px;color:var(--muted);margin-top:12px}
+@media (max-width:640px){.sym-box{padding:16px}.sym-foot{position:static;margin:16px -16px -16px;padding:12px 16px}.sym-btns .btn{flex:1}}
+.incl{font-size:12px;color:var(--body);line-height:1.5;background:var(--bg);border-radius:8px;padding:6px 9px}
+.nudge{margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--cyan-t);color:var(--teal);font-size:13px;line-height:1.45}
+.nudge b{color:var(--ink)}
+.nudge.ok{background:var(--green-t);color:#2E6B10}
+.nbar{height:6px;border-radius:999px;background:#fff;margin-top:8px;overflow:hidden}
+.nbar i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--green));border-radius:999px;transition:width .3s}
+.sym-sum .nudge{margin-top:8px}
 /* mobile basket bar */
 .mbar{display:none}
 
@@ -473,6 +527,7 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
   <div class="wrap">
     <a class="logo" href="#top"><b>justlife</b><span>Create Your Own Test</span></a>
     <ul>
+      <li><a href="#symptoms">Symptom finder</a></li>
       <li><a href="#build">Tests</a></li>
       <li><a href="#packs">Popular</a></li>
       <li><a href="#how">How it works</a></li>
@@ -524,6 +579,33 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
     <rect x="49" y="-5" width="22" height="2.2" rx="1.1" fill="#fff" opacity=".35"/>
   </g></symbol>
   <linearGradient id="cBody" x1="0" x2="1"><stop offset="0" stop-color="#DDE1E4"/><stop offset=".25" stop-color="#F7F8F9"/><stop offset=".65" stop-color="#F1F3F4"/><stop offset="1" stop-color="#C9CED2"/></linearGradient>
+  <!-- Swab transport tube + swab stick, centred on (60,60). --cap = cap colour, --med = transport medium colour -->
+  <symbol id="swab" viewBox="0 0 120 120" overflow="visible">
+    <g transform="translate(60 60) scale(1.2 1.08) translate(-60 -60)">
+    <!-- swab stick lying beside the tube -->
+    <rect x="76.5" y="0" width="2.6" height="96" rx="1.3" fill="#F3F4F5" stroke="#C3CACF" stroke-width=".6"/>
+    <ellipse cx="77.8" cy="102" rx="4.6" ry="9" fill="#FFFFFF" stroke="#C3CACF" stroke-width=".7"/>
+    <ellipse cx="76.4" cy="100" rx="1.6" ry="5" fill="#E8ECEE"/>
+    <!-- tube body -->
+    <rect x="50" y="18" width="20" height="104" rx="10" fill="url(#tGlass)" stroke="#C3CACF" stroke-width=".7"/>
+    <rect x="51" y="92" width="18" height="29" rx="9" style="fill:var(--med,transparent)" opacity=".9"/>
+    <rect x="51" y="90" width="18" height="4" style="fill:var(--med,transparent)" opacity=".55"/>
+    <rect x="50.4" y="36" width="19.2" height="50" fill="url(#tLabel)"/>
+    <rect x="50" y="34.5" width="20" height="2.2" style="fill:var(--cap,#2F6FD6)"/>
+    <rect x="50" y="85.5" width="20" height="2.2" style="fill:var(--cap,#2F6FD6)"/>
+    <g fill="#8DC63F"><circle cx="56.5" cy="45" r="3.4"/><circle cx="61.5" cy="43.5" r="3.8"/><circle cx="62.5" cy="48" r="3.2"/><rect x="54.5" y="45" width="10.5" height="5" rx="2.4"/></g>
+    <text transform="translate(58.8 83.5) rotate(-90)" font-family="Poppins,Arial,sans-serif" font-size="7.2" font-weight="700" textLength="29" lengthAdjust="spacingAndGlyphs" style="fill:var(--cap,#2F6FD6)" stroke="#5F6467" stroke-width=".0">justlife</text>
+    <rect x="61.6" y="64" width="1.3" height="19" rx=".65" fill="#3B4247" opacity=".7"/>
+    <rect x="64.2" y="69" width="1.1" height="14" rx=".55" fill="#8A9399" opacity=".65"/>
+    <rect x="52.6" y="22" width="2" height="96" rx="1" fill="#fff" opacity=".6"/>
+    <!-- cap -->
+    <rect x="47.5" y="-4" width="25" height="24" rx="4" style="fill:var(--cap,#2F6FD6)" stroke="#B7BEC3" stroke-width=".6"/>
+    <rect x="47.5" y="-4" width="25" height="24" rx="4" fill="url(#tShade)"/>
+    <g stroke="#000" stroke-opacity=".12" stroke-width=".8"><line x1="52" y1="-1" x2="52" y2="17"/><line x1="56" y1="-1" x2="56" y2="17"/><line x1="60" y1="-1" x2="60" y2="17"/><line x1="64" y1="-1" x2="64" y2="17"/><line x1="68" y1="-1" x2="68" y2="17"/></g>
+    <rect x="47" y="16.5" width="26" height="4.5" rx="1.5" style="fill:var(--cap,#2F6FD6)"/>
+    <rect x="47" y="16.5" width="26" height="4.5" rx="1.5" fill="#000" opacity=".16"/>
+    </g>
+  </symbol>
   <!-- Specimen container (urine / stool) centred on (60,60); cap colour from --cap -->
   <symbol id="cup" viewBox="0 0 120 120" overflow="visible">
     <path d="M30 40 H90 L85.5 101 Q85 108 78 108 H42 Q35 108 34.5 101 Z" fill="url(#cBody)" stroke="#C4CACE" stroke-width=".7"/>
@@ -550,7 +632,7 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
         <span class="pill">Home lab tests in Dubai</span>
         <h1>Build your own <em>lab test.</em></h1>
         <p class="sub">Pick only the tests you need. A nurse comes to your home from 6 AM.</p>
-        <p class="lede">Choose from <span class="num" id="statCount">100+</span> individual blood, urine and stool tests, see your price as you build, and book a home visit from a DHA-licensed nurse at a time that suits you.</p>
+        <p class="lede">Choose from <span class="num" id="statCount">100+</span> individual blood, urine, stool and swab tests, see your price as you build, and book a home visit from a DHA-licensed nurse at a time that suits you.</p>
         <div class="hero-cta">
           <a class="btn btn-cyan" href="#build">Build Your Test
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -558,7 +640,7 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
         </div>
         <div class="ticks-row">
           <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>No fixed packages</span>
-          <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>AED 149 home visit</span>
+          <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Free collection over AED 449</span>
           <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Results in 24–48 hours</span>
         </div>
         <div class="feat3">
@@ -605,10 +687,10 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
         </div></div>
         <div class="hv-strip num">
           <span class="hv-lbl">Popular tests</span>
-          <div><h4>Vitamin D</h4><small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 01-12 0c0-4.5 6-11 6-11z"/></svg>25-OH</small><b><em>AED </em>149</b></div>
-          <div><h4>HbA1c</h4><small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 01-12 0c0-4.5 6-11 6-11z"/></svg>Diabetes</small><b><em>AED </em>89</b></div>
-          <div><h4>TSH</h4><small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 01-12 0c0-4.5 6-11 6-11z"/></svg>Thyroid</small><b><em>AED </em>79</b></div>
-          <div><h4>CBC</h4><small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 01-12 0c0-4.5 6-11 6-11z"/></svg>Blood count</small><b><em>AED </em>79</b></div>
+          <div><h4>Vitamin D</h4><small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 01-12 0c0-4.5 6-11 6-11z"/></svg>25-OH</small><b><em>AED </em>88</b></div>
+          <div><h4>HbA1c</h4><small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 01-12 0c0-4.5 6-11 6-11z"/></svg>Diabetes</small><b><em>AED </em>69</b></div>
+          <div><h4>TSH</h4><small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 01-12 0c0-4.5 6-11 6-11z"/></svg>Thyroid</small><b><em>AED </em>51</b></div>
+          <div><h4>CBC</h4><small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 01-12 0c0-4.5 6-11 6-11z"/></svg>Blood count</small><b><em>AED </em>39</b></div>
         </div>
       </div></div>
     </div>
@@ -619,11 +701,24 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
       <div>
         <h2>Your home lab test is one tap away</h2>
         <p>Choose your tests, pick a time, and a nurse comes to you.</p>
-        <div class="chipsrow"><span>✓ No minimum order</span><span>✓ AED 149 home visit</span><span>✓ Pay on visit</span></div>
+        <div class="chipsrow"><span>✓ No minimum order</span><span>✓ Free collection over AED 449</span><span>✓ Pay on visit</span></div>
       </div>
       <a class="btn btn-yellow" href="#build"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M9 15l2 2 4-4"/></svg>Build Your Test</a>
     </div>
   </div>
+
+  <section class="sec sym" id="symptoms">
+    <div class="wrap">
+      <span class="eyebrow">Not sure which test?</span>
+      <h2 class="h2">Find tests by symptom or health concern</h2>
+      <p class="lede">Type how you feel or tap a concern. We'll suggest the tests usually done for it, and you choose what to add.</p>
+      <div class="sym-box">
+        <label class="search big"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="symQ" type="search" placeholder="Try: fever, tired, UTI, hair loss, STD, thyroid" autocomplete="off" aria-label="Search symptoms or tests"></label>
+        <div class="symtags" id="symTags" aria-label="Health concerns"></div>
+        <div id="symOut" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
 
   <section class="sec" id="build">
     <div class="wrap">
@@ -660,7 +755,7 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
       <div class="how">
         <div class="hcard"><div class="hd"><div class="ico b"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div><small>Step 01</small></div>
           <h3>Build your test</h3><p>Pick individual parameters online. Your price updates as you go.</p>
-          <ul class="ticks"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>100+ tests across 14 categories</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Fasting tests clearly marked</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>No minimum order</li></ul></div>
+          <ul class="ticks"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>400+ tests across 20 categories</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Fasting tests clearly marked</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>No minimum order</li></ul></div>
         <div class="hcard"><div class="hd"><div class="ico g"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></div><small>Step 02</small></div>
           <h3>Nurse visits your home</h3><p>Choose a 1-hour window. A DHA-licensed nurse collects your sample.</p>
           <ul class="ticks"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>6:00 AM – 11:30 PM, daily</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Book up to 1 hour before</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Takes about 10 minutes</li></ul></div>
@@ -682,7 +777,7 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
       <div class="faq">
         <details open><summary>What is a create-your-own lab test?</summary><p>Instead of buying a fixed package, you choose individual tests (parameters) such as Vitamin D, HbA1c or TSH. You only pay for the tests you add.</p></details>
         <details><summary>Do I need to fast?</summary><p>Some tests, like fasting blood sugar, lipid profile and insulin, need 8–12 hours of fasting. Water is fine. These tests carry a "Fasting" tag, and we remind you before you book. Morning slots work best for fasting tests.</p></details>
-        <details><summary>Is there a minimum order?</summary><p>No. You can book a single test. A home visit service charge of AED 149 is added once to every booking, whether you choose 1 test or 20.</p></details>
+        <details><summary>Is there a minimum order?</summary><p>No. You can book a single test. Home sample collection is free when your tests add up to AED 449 or more. Below that, a collection charge of AED 99 is added once per booking.</p></details>
         <details><summary>What times can the nurse come?</summary><p>Every day from 6:00 AM to 11:30 PM in 1-hour windows. Same-day slots close 1 hour before they start.</p></details>
         <details><summary>How do I get my results?</summary><p>Results are shared digitally once the lab releases them, usually within 24–48 hours. Some specialised tests can take longer.</p></details>
         <details><summary>Can I change my slot?</summary><p>Yes. Our team calls to confirm your booking and can move it to another available slot.</p></details>
@@ -726,12 +821,12 @@ footer p{font-size:12px;color:var(--muted);margin-top:16px;max-width:80ch}
 <footer>
   <div class="wrap">
     <div class="top"><span class="logo"><b>justlife</b></span><nav><a href="#faq">FAQ</a><a href="https://www.justlife.com/en-AE/terms" target="_blank" rel="noopener">Terms</a><a href="https://www.justlife.com/en-AE/privacy-policy" target="_blank" rel="noopener">Privacy</a></nav></div>
-    <p>Page version 2026.10.07-share · Prices are in AED. A home visit service charge of AED 149 is added once to every booking. Lab tests are processed by an accredited partner laboratory. Results are for information and should be reviewed with a licensed doctor. Turnaround times vary by test. © 2026 Justlife.</p>
+    <p>Page version 2026.10.07-share · Prices are in AED. Home collection is free for orders of AED 449 or more; otherwise AED 99 per booking. Lab tests are processed by an accredited partner laboratory. Results are for information and should be reviewed with a licensed doctor. Turnaround times vary by test. © 2026 Justlife.</p>
   </div>
 </footer>
 
 <div class="mbar" id="mbar" hidden>
-  <div class="t"><small id="mbarCount">0 tests</small><b class="num" id="mbarTotal">AED 0</b></div>
+  <div class="t"><small id="mbarCount">0 tests</small><small id="mbarFree" style="color:var(--teal);font-weight:600"></small><b class="num" id="mbarTotal">AED 0</b></div>
   <button class="mshare" id="mbarShare" type="button" aria-label="Save or share package"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg></button>
   <button class="btn btn-cyan" id="mbarBtn" type="button">Continue</button>
 </div>
@@ -764,131 +859,436 @@ const DAYS_AHEAD = 7;
 const CURRENCY = "AED";
 
 /* ============ TEST CATALOG ============
-   n = name, c = category, p = price (AED), s = sample, f = fasting needed, pop = popular
-   Edit this list to change names/prices. */
+   Generated from final_lab_prices.xlsx. n = name, c = category, p = price (AED), s = sample,
+   k = collection container (see CONTAINERS), f = fasting, pop = popular, note = collection note */
+const CONTAINERS = {"SST": {"kind": "tube", "cap": "#E2B33C", "text": "Gold top tube (SST, gel)", "sample": "Blood", "short": "Gold top · SST gel"}, "EDTA": {"kind": "tube", "cap": "#A46CF2", "text": "Lavender top tube (EDTA)", "sample": "Blood", "short": "Lavender top · EDTA"}, "EDTAI": {"kind": "tube", "cap": "#A46CF2", "text": "Lavender top tube (EDTA), on ice, to lab within 1 hour", "sample": "Blood", "short": "Lavender top · EDTA on ice"}, "CIT": {"kind": "tube", "cap": "#6EC1F0", "text": "Light-blue top tube (citrate), fill to the line", "sample": "Blood", "short": "Light-blue top · citrate"}, "FLU": {"kind": "tube", "cap": "#8E99A1", "text": "Grey top tube (fluoride)", "sample": "Blood", "short": "Grey top · fluoride"}, "RED": {"kind": "tube", "cap": "#E5421D", "text": "Red top tube (plain, no gel)", "sample": "Blood", "short": "Red top · plain"}, "TRACE": {"kind": "tube", "cap": "#2846C8", "text": "Royal-blue top tube (trace-element)", "sample": "Blood", "short": "Royal-blue top · trace"}, "BC": {"kind": "tube", "cap": "#3B4A9C", "text": "Blood culture bottles (aerobic + anaerobic)", "sample": "Blood", "short": "Blood culture bottles"}, "QFT": {"kind": "tube", "cap": "#2E9E5B", "text": "QuantiFERON-TB Gold Plus 4-tube kit", "sample": "Blood", "short": "QuantiFERON 4-tube kit"}, "OGTT": {"kind": "tube", "cap": "#8E99A1", "text": "Grey top tubes (fluoride), timed draws + glucose drink", "sample": "Blood", "short": "Grey tops · timed"}, "URINE": {"kind": "cup", "cap": "#3F3FD0", "text": "Sterile urine container (random / mid-stream)", "sample": "Urine", "short": "Urine container"}, "URINEC": {"kind": "cup", "cap": "#3D8FE0", "text": "Sterile urine container, mid-stream (culture)", "sample": "Urine", "short": "Sterile urine container"}, "URINE24": {"kind": "cup", "cap": "#F08A24", "text": "24-hour urine container (patient collects 24 h)", "sample": "Urine", "short": "24-hour urine container"}, "STOOL": {"kind": "cup", "cap": "#C88A3A", "text": "Stool container with spoon", "sample": "Stool", "short": "Stool container"}, "STOOLT": {"kind": "cup", "cap": "#A8632C", "text": "Stool in Cary-Blair transport container", "sample": "Stool", "short": "Stool transport (Cary-Blair)"}, "SWABG": {"kind": "swab", "cap": "#2F6FD6", "text": "Swab in Amies gel transport (gel)", "sample": "Swab", "short": "Gel swab (Amies)"}, "SWABW": {"kind": "swab", "cap": "#E5421D", "text": "Flocked swab in liquid UTM/VTM (wet)", "sample": "Swab", "short": "Wet swab (UTM/VTM)"}, "SWABD": {"kind": "swab", "cap": "#AEB6BC", "text": "Dry swab, no medium (dry)", "sample": "Swab", "short": "Dry swab"}, "STDPCR": {"kind": "swab", "cap": "#E5421D", "text": "First-void urine OR vaginal/urethral swab in liquid UTM (wet)", "sample": "Urine or swab", "short": "Urine or wet swab (UTM)"}, "LBC": {"kind": "cup", "cap": "#1E9E92", "text": "LBC vial (ThinPrep / SurePath) + cervical brush", "sample": "Swab", "short": "LBC vial + brush"}, "VPIII": {"kind": "swab", "cap": "#7B5BD6", "text": "BD Affirm VPIII swab kit", "sample": "Swab", "short": "Affirm VPIII swab"}, "SEMEN": {"kind": "cup", "cap": "#8E99A1", "text": "Sterile semen container, to lab within 1 hour", "sample": "Semen", "short": "Semen container"}, "SPUTUM": {"kind": "cup", "cap": "#2E9E5B", "text": "Sterile sputum container (early-morning sample)", "sample": "Sputum", "short": "Sputum container"}, "FUNGAL": {"kind": "cup", "cap": "#9AA5AD", "text": "Sterile container for hair / nail / skin scrapings", "sample": "Hair, nail or skin", "short": "Scrapings container"}, "BREATH": {"kind": "cup", "cap": "#00C3FF", "text": "Urea breath test kit (patient fasting 6 h)", "sample": "Breath", "short": "Breath test kit"}, "DOCTOR": {"kind": "cup", "cap": "#5F6467", "text": "Doctor-collected specimen, confirm with lab before booking", "sample": "Clinic sample", "short": "Doctor-collected"}};
+const CATEGORY_ORDER = ["Health panels", "Blood health", "Diabetes", "Heart & cholesterol", "Liver", "Kidney & urine", "Thyroid", "Vitamins & minerals", "Hormones", "Pregnancy & fertility", "Sexual health", "Infections", "Immunity & autoimmune", "Allergy & intolerance", "Tumour markers", "Stool & digestive", "Cultures & swabs", "Clotting", "Drugs & toxicology", "Specialist samples"];
 const TESTS = [
-  // Blood health
-  {n:"Complete Blood Count (CBC)",c:"Blood health",p:79,s:"Blood",pop:1},
-  {n:"ESR (Erythrocyte Sedimentation Rate)",c:"Blood health",p:49,s:"Blood"},
-  {n:"Blood Group & Rh Typing",c:"Blood health",p:59,s:"Blood"},
-  {n:"Reticulocyte Count",c:"Blood health",p:69,s:"Blood"},
-  {n:"Peripheral Blood Smear",c:"Blood health",p:89,s:"Blood"},
-  {n:"G6PD (Quantitative)",c:"Blood health",p:129,s:"Blood"},
-  {n:"Hemoglobin Electrophoresis",c:"Blood health",p:249,s:"Blood"},
-  // Diabetes
-  {n:"Fasting Blood Sugar (FBS)",c:"Diabetes",p:39,s:"Blood",f:1},
-  {n:"Random Blood Sugar (RBS)",c:"Diabetes",p:39,s:"Blood"},
-  {n:"HbA1c (Glycated Hemoglobin)",c:"Diabetes",p:89,s:"Blood",pop:1},
-  {n:"Fasting Insulin",c:"Diabetes",p:129,s:"Blood",f:1},
-  {n:"HOMA-IR (Insulin Resistance)",c:"Diabetes",p:169,s:"Blood",f:1},
-  {n:"C-Peptide",c:"Diabetes",p:179,s:"Blood",f:1},
-  // Heart & cholesterol
-  {n:"Lipid Profile",c:"Heart & cholesterol",p:99,s:"Blood",f:1,pop:1},
-  {n:"Total Cholesterol",c:"Heart & cholesterol",p:39,s:"Blood",f:1},
-  {n:"Triglycerides",c:"Heart & cholesterol",p:39,s:"Blood",f:1},
-  {n:"HDL Cholesterol",c:"Heart & cholesterol",p:49,s:"Blood"},
-  {n:"LDL Cholesterol (Direct)",c:"Heart & cholesterol",p:59,s:"Blood"},
-  {n:"Lipoprotein (a)",c:"Heart & cholesterol",p:159,s:"Blood"},
-  {n:"Apolipoprotein A1",c:"Heart & cholesterol",p:129,s:"Blood"},
-  {n:"Apolipoprotein B",c:"Heart & cholesterol",p:129,s:"Blood"},
-  {n:"hs-CRP (High-Sensitivity CRP)",c:"Heart & cholesterol",p:119,s:"Blood"},
-  {n:"Homocysteine",c:"Heart & cholesterol",p:169,s:"Blood",f:1},
-  {n:"CPK (Creatine Kinase)",c:"Heart & cholesterol",p:79,s:"Blood"},
-  // Liver
-  {n:"Liver Function Test (LFT)",c:"Liver",p:129,s:"Blood",pop:1},
-  {n:"ALT (SGPT)",c:"Liver",p:39,s:"Blood"},
-  {n:"AST (SGOT)",c:"Liver",p:39,s:"Blood"},
-  {n:"GGT (Gamma GT)",c:"Liver",p:49,s:"Blood"},
-  {n:"Alkaline Phosphatase (ALP)",c:"Liver",p:39,s:"Blood"},
-  {n:"Bilirubin (Total & Direct)",c:"Liver",p:59,s:"Blood"},
-  {n:"Albumin",c:"Liver",p:39,s:"Blood"},
-  {n:"Total Protein",c:"Liver",p:39,s:"Blood"},
-  // Kidney
-  {n:"Kidney Function Test (KFT)",c:"Kidney",p:129,s:"Blood",pop:1},
-  {n:"Creatinine",c:"Kidney",p:39,s:"Blood"},
-  {n:"Urea / BUN",c:"Kidney",p:39,s:"Blood"},
-  {n:"Uric Acid",c:"Kidney",p:49,s:"Blood"},
-  {n:"eGFR",c:"Kidney",p:49,s:"Blood"},
-  {n:"Electrolytes (Na, K, Cl)",c:"Kidney",p:89,s:"Blood"},
-  {n:"Urine Routine & Microscopy",c:"Kidney",p:59,s:"Urine"},
-  {n:"Urine Microalbumin",c:"Kidney",p:99,s:"Urine"},
-  {n:"Urine Albumin/Creatinine Ratio",c:"Kidney",p:119,s:"Urine"},
-  // Thyroid
-  {n:"TSH",c:"Thyroid",p:79,s:"Blood",pop:1},
-  {n:"Free T3 (FT3)",c:"Thyroid",p:79,s:"Blood"},
-  {n:"Free T4 (FT4)",c:"Thyroid",p:79,s:"Blood"},
-  {n:"Total T3",c:"Thyroid",p:79,s:"Blood"},
-  {n:"Total T4",c:"Thyroid",p:79,s:"Blood"},
-  {n:"Thyroid Profile (TSH, FT3, FT4)",c:"Thyroid",p:199,s:"Blood"},
-  {n:"Anti-TPO Antibodies",c:"Thyroid",p:169,s:"Blood"},
-  {n:"Anti-Thyroglobulin Antibodies",c:"Thyroid",p:169,s:"Blood"},
-  // Vitamins & minerals
-  {n:"Vitamin D (25-OH)",c:"Vitamins & minerals",p:149,s:"Blood",pop:1},
-  {n:"Vitamin B12",c:"Vitamins & minerals",p:119,s:"Blood",pop:1},
-  {n:"Folate (Folic Acid)",c:"Vitamins & minerals",p:119,s:"Blood"},
-  {n:"Vitamin A",c:"Vitamins & minerals",p:249,s:"Blood"},
-  {n:"Vitamin B6",c:"Vitamins & minerals",p:249,s:"Blood"},
-  {n:"Vitamin E",c:"Vitamins & minerals",p:249,s:"Blood"},
-  {n:"Iron (Serum)",c:"Vitamins & minerals",p:59,s:"Blood",f:1},
-  {n:"Ferritin",c:"Vitamins & minerals",p:99,s:"Blood",pop:1},
-  {n:"TIBC (Total Iron Binding Capacity)",c:"Vitamins & minerals",p:69,s:"Blood"},
-  {n:"Iron Profile (Iron, TIBC, Ferritin)",c:"Vitamins & minerals",p:179,s:"Blood",f:1},
-  {n:"Calcium",c:"Vitamins & minerals",p:49,s:"Blood"},
-  {n:"Magnesium",c:"Vitamins & minerals",p:59,s:"Blood"},
-  {n:"Phosphorus",c:"Vitamins & minerals",p:49,s:"Blood"},
-  {n:"Zinc",c:"Vitamins & minerals",p:129,s:"Blood"},
-  {n:"Copper",c:"Vitamins & minerals",p:149,s:"Blood"},
-  {n:"Selenium",c:"Vitamins & minerals",p:249,s:"Blood"},
-  // Women's hormones
-  {n:"FSH",c:"Women's hormones",p:99,s:"Blood"},
-  {n:"LH",c:"Women's hormones",p:99,s:"Blood"},
-  {n:"Estradiol (E2)",c:"Women's hormones",p:109,s:"Blood"},
-  {n:"Progesterone",c:"Women's hormones",p:109,s:"Blood"},
-  {n:"Prolactin",c:"Women's hormones",p:99,s:"Blood"},
-  {n:"AMH (Anti-Müllerian Hormone)",c:"Women's hormones",p:349,s:"Blood"},
-  {n:"Beta hCG (Pregnancy, Quantitative)",c:"Women's hormones",p:99,s:"Blood"},
-  {n:"DHEA-S",c:"Women's hormones",p:129,s:"Blood"},
-  // Men's health
-  {n:"Testosterone (Total)",c:"Men's health",p:109,s:"Blood"},
-  {n:"Free Testosterone",c:"Men's health",p:179,s:"Blood"},
-  {n:"SHBG",c:"Men's health",p:139,s:"Blood"},
-  {n:"PSA (Total)",c:"Men's health",p:139,s:"Blood"},
-  {n:"PSA (Free)",c:"Men's health",p:149,s:"Blood"},
-  // Other hormones
-  {n:"Cortisol (Morning)",c:"Other hormones",p:119,s:"Blood"},
-  {n:"Parathyroid Hormone (PTH)",c:"Other hormones",p:179,s:"Blood"},
-  {n:"Growth Hormone (GH)",c:"Other hormones",p:179,s:"Blood"},
-  // Inflammation & immunity
-  {n:"CRP (C-Reactive Protein)",c:"Inflammation & immunity",p:69,s:"Blood"},
-  {n:"Rheumatoid Factor (RF)",c:"Inflammation & immunity",p:89,s:"Blood"},
-  {n:"ANA (Antinuclear Antibodies)",c:"Inflammation & immunity",p:169,s:"Blood"},
-  {n:"ASO Titre",c:"Inflammation & immunity",p:89,s:"Blood"},
-  {n:"Total IgE",c:"Inflammation & immunity",p:139,s:"Blood"},
-  // Infections
-  {n:"HIV 1 & 2 Antibodies",c:"Infections",p:99,s:"Blood"},
-  {n:"Hepatitis B Surface Antigen (HBsAg)",c:"Infections",p:89,s:"Blood"},
-  {n:"Hepatitis B Surface Antibody (Anti-HBs)",c:"Infections",p:99,s:"Blood"},
-  {n:"Hepatitis C Antibody (Anti-HCV)",c:"Infections",p:119,s:"Blood"},
-  {n:"Syphilis (VDRL / RPR)",c:"Infections",p:79,s:"Blood"},
-  {n:"H. pylori Antibody",c:"Infections",p:149,s:"Blood"},
-  {n:"Stool Routine",c:"Infections",p:59,s:"Stool"},
-  {n:"Urine Culture",c:"Infections",p:129,s:"Urine"},
-  {n:"Rubella IgG",c:"Infections",p:99,s:"Blood"},
-  // Sexual health
-  {n:"Chlamydia trachomatis PCR",c:"Sexual health",p:199,s:"Urine"},
-  {n:"Neisseria gonorrhoeae PCR",c:"Sexual health",p:199,s:"Urine"},
-  {n:"Trichomonas vaginalis PCR",c:"Sexual health",p:199,s:"Urine"},
-  {n:"Mycoplasma genitalium PCR",c:"Sexual health",p:249,s:"Urine"},
-  {n:"Herpes Simplex Virus 1 & 2 IgG",c:"Sexual health",p:179,s:"Blood"},
-  // Pancreas & digestion
-  {n:"Amylase",c:"Pancreas & digestion",p:69,s:"Blood"},
-  {n:"Lipase",c:"Pancreas & digestion",p:79,s:"Blood"},
-  {n:"Stool Occult Blood",c:"Pancreas & digestion",p:69,s:"Stool"},
-  // Clotting
-  {n:"PT / INR",c:"Clotting",p:79,s:"Blood"},
-  {n:"APTT",c:"Clotting",p:79,s:"Blood"},
-  {n:"D-Dimer",c:"Clotting",p:179,s:"Blood"},
-  {n:"Fibrinogen",c:"Clotting",p:99,s:"Blood"},
+  {n:"Complete Blood Count (CBC)",c:"Health panels",p:39,s:"Blood",k:"EDTA",pop:1},
+  {n:"Lipid Profile (Cholesterol, HDL, LDL, Triglycerides)",c:"Health panels",p:69,s:"Blood",k:"SST",f:1,pop:1},
+  {n:"Liver Function Profile",c:"Health panels",p:50,s:"Blood",k:"SST",pop:1},
+  {n:"Renal Function Profile (10 parameters)",c:"Health panels",p:69,s:"Blood",k:"SST",pop:1},
+  {n:"Thyroid Profile",c:"Health panels",p:79,s:"Blood",k:"SST",pop:1},
+  {n:"Comprehensive Metabolic Panel (fasting glucose)",c:"Health panels",p:249,s:"Blood",k:"SST",f:1},
+  {n:"Comprehensive Metabolic Panel (random glucose)",c:"Health panels",p:249,s:"Blood",k:"SST"},
+  {n:"Electrolytes Panel (Na, K, Cl)",c:"Health panels",p:59,s:"Blood",k:"SST"},
+  {n:"ABO and Rh",c:"Blood health",p:39,s:"Blood",k:"EDTA"},
+  {n:"Antibody Screening (Indirect Coombs' Test)",c:"Blood health",p:59,s:"Blood",k:"EDTA"},
+  {n:"Blood Cross Matching",c:"Blood health",p:129,s:"Blood",k:"EDTA"},
+  {n:"Direct Coombs' Test (DAT)",c:"Blood health",p:59,s:"Blood",k:"EDTA"},
+  {n:"Erythrocyte Sedimentation Rate (ESR)",c:"Blood health",p:19,s:"Blood",k:"EDTA"},
+  {n:"Filaria blood film",c:"Blood health",p:69,s:"Blood",k:"EDTA"},
+  {n:"G6PD Activity (qualitative)",c:"Blood health",p:59,s:"Blood",k:"EDTA"},
+  {n:"G6PD Activity (quantitative)",c:"Blood health",p:59,s:"Blood",k:"EDTA"},
+  {n:"Hemoglobin Electrophoresis (Capillary)",c:"Blood health",p:139,s:"Blood",k:"EDTA"},
+  {n:"Hemoglobin Level",c:"Blood health",p:19,s:"Blood",k:"EDTA"},
+  {n:"Malaria Blood Film",c:"Blood health",p:69,s:"Blood",k:"EDTA"},
+  {n:"Peripheral Blood Film Consultation",c:"Blood health",p:49,s:"Blood",k:"EDTA"},
+  {n:"Platelet Count",c:"Blood health",p:25,s:"Blood",k:"EDTA"},
+  {n:"Reticulocyte Count",c:"Blood health",p:19,s:"Blood",k:"EDTA"},
+  {n:"Sickle Cell Solubility Test",c:"Blood health",p:49,s:"Blood",k:"EDTA"},
+  {n:"Glycated Haemoglobin (HbA1c)",c:"Diabetes",p:69,s:"Blood",k:"EDTA",pop:1},
+  {n:"C-Peptide Level",c:"Diabetes",p:89,s:"Blood",k:"SST",f:1},
+  {n:"Glucose in Plasma (2hrs Postprandial)",c:"Diabetes",p:19,s:"Blood",k:"FLU",note:"2 hours after a meal"},
+  {n:"Glucose in Plasma (Fasting)",c:"Diabetes",p:19,s:"Blood",k:"FLU",f:1},
+  {n:"Glucose in Plasma (Random)",c:"Diabetes",p:19,s:"Blood",k:"FLU"},
+  {n:"Glucose in Urine Quantitative",c:"Diabetes",p:19,s:"Urine",k:"URINE"},
+  {n:"Glucose Tolerance Test-OGTT (75g)",c:"Diabetes",p:49,s:"Blood",k:"OGTT",f:1},
+  {n:"HOMA-IR (Estimated Insulin Resistance)",c:"Diabetes",p:149,s:"Blood",k:"SST",f:1},
+  {n:"Insulin Level",c:"Diabetes",p:69,s:"Blood",k:"SST",f:1},
+  {n:"Apo B / Apo A1 ratio",c:"Heart & cholesterol",p:89,s:"Blood",k:"SST"},
+  {n:"Apolipoprotein A1",c:"Heart & cholesterol",p:59,s:"Blood",k:"SST"},
+  {n:"Apolipoprotein B",c:"Heart & cholesterol",p:59,s:"Blood",k:"SST"},
+  {n:"Cholesterol",c:"Heart & cholesterol",p:19,s:"Blood",k:"SST"},
+  {n:"Creatine Kinase (CK) Total",c:"Heart & cholesterol",p:19,s:"Blood",k:"SST"},
+  {n:"Creatine Kinase MB (CK-MB)",c:"Heart & cholesterol",p:59,s:"Blood",k:"SST"},
+  {n:"CRP H.S",c:"Heart & cholesterol",p:38,s:"Blood",k:"SST"},
+  {n:"Direct LDL",c:"Heart & cholesterol",p:19,s:"Blood",k:"SST"},
+  {n:"High Density Lipoprotein (HDL)",c:"Heart & cholesterol",p:19,s:"Blood",k:"SST"},
+  {n:"Homocysteine",c:"Heart & cholesterol",p:99,s:"Blood",k:"EDTA",f:1},
+  {n:"Lactate in Plasma",c:"Heart & cholesterol",p:119,s:"Blood",k:"FLU"},
+  {n:"Lipoprotein (a)",c:"Heart & cholesterol",p:69,s:"Blood",k:"SST"},
+  {n:"Low Density Lipoprotein (LDL)",c:"Heart & cholesterol",p:19,s:"Blood",k:"SST",f:1},
+  {n:"NT-Pro BNP",c:"Heart & cholesterol",p:99,s:"Blood",k:"EDTA"},
+  {n:"Triglycerides (TG) in Serum",c:"Heart & cholesterol",p:19,s:"Blood",k:"SST",f:1},
+  {n:"Troponin I (Qualitative)",c:"Heart & cholesterol",p:39,s:"Blood",k:"SST"},
+  {n:"Troponin I (Quantitative)",c:"Heart & cholesterol",p:199,s:"Blood",k:"SST"},
+  {n:"Troponin I High-Sensitivity",c:"Heart & cholesterol",p:39,s:"Blood",k:"SST"},
+  {n:"Troponin T High - Sensitive",c:"Heart & cholesterol",p:199,s:"Blood",k:"SST"},
+  {n:"VLDL Cholesterol",c:"Heart & cholesterol",p:19,s:"Blood",k:"SST",f:1},
+  {n:"A/G Ratio",c:"Liver",p:59,s:"Blood",k:"SST"},
+  {n:"Alanine Aminotransferase (ALT)",c:"Liver",p:19,s:"Blood",k:"SST"},
+  {n:"Albumin in Serum",c:"Liver",p:19,s:"Blood",k:"SST"},
+  {n:"Alkaline Phosphatase",c:"Liver",p:19,s:"Blood",k:"SST"},
+  {n:"Alpha-1 Antitrypsin",c:"Liver",p:89,s:"Blood",k:"SST"},
+  {n:"Ammonia",c:"Liver",p:49,s:"Blood",k:"EDTAI"},
+  {n:"Anti Liver Kidney Microsomal (LKM) Antibody",c:"Liver",p:89,s:"Blood",k:"SST"},
+  {n:"Anti Mitochondrial Abs",c:"Liver",p:129,s:"Blood",k:"SST"},
+  {n:"Anti Smooth Muscle Abs (ASMA) IFA",c:"Liver",p:99,s:"Blood",k:"SST"},
+  {n:"Aspartate Aminotransferase (AST)",c:"Liver",p:19,s:"Blood",k:"SST"},
+  {n:"Bile Acids Total in Serum",c:"Liver",p:189,s:"Blood",k:"SST",f:1},
+  {n:"Bilirubin (Direct)",c:"Liver",p:19,s:"Blood",k:"SST"},
+  {n:"Bilirubin (Indirect)",c:"Liver",p:19,s:"Blood",k:"SST"},
+  {n:"Bilirubin (Total)",c:"Liver",p:19,s:"Blood",k:"SST"},
+  {n:"Ceruloplasmin",c:"Liver",p:69,s:"Blood",k:"SST"},
+  {n:"Cholinesterase, Serum",c:"Liver",p:99,s:"Blood",k:"SST"},
+  {n:"Gamma Glutamyl Transferase (GGT)",c:"Liver",p:24,s:"Blood",k:"SST"},
+  {n:"Globulin in Serum",c:"Liver",p:37,s:"Blood",k:"SST"},
+  {n:"Lactate Dehydrogenase (LDH)",c:"Liver",p:29,s:"Blood",k:"SST"},
+  {n:"Soluble Liver Antigen Autoantibody",c:"Liver",p:99,s:"Blood",k:"SST"},
+  {n:"Total Protein in Serum",c:"Liver",p:19,s:"Blood",k:"SST"},
+  {n:"Urine Analysis",c:"Kidney & urine",p:39,s:"Urine",k:"URINE",pop:1},
+  {n:"24 Hour Urine Protein",c:"Kidney & urine",p:29,s:"Urine",k:"URINE24"},
+  {n:"Albumin in 24 hours Urine",c:"Kidney & urine",p:19,s:"Urine",k:"URINE24"},
+  {n:"Albumin in Urine (Random Sample)",c:"Kidney & urine",p:19,s:"Urine",k:"URINE"},
+  {n:"Bicarbonate",c:"Kidney & urine",p:39,s:"Blood",k:"SST"},
+  {n:"Blood Urea Nitrogen (BUN)",c:"Kidney & urine",p:19,s:"Blood",k:"SST"},
+  {n:"BUN/Creatinine Ratio",c:"Kidney & urine",p:49,s:"Blood",k:"SST"},
+  {n:"Calcium In Urine",c:"Kidney & urine",p:19,s:"Urine",k:"URINE"},
+  {n:"Chloride in Serum",c:"Kidney & urine",p:19,s:"Blood",k:"SST"},
+  {n:"Chloride in Urine",c:"Kidney & urine",p:19,s:"Urine",k:"URINE"},
+  {n:"Creatinine 24 Hours Urine",c:"Kidney & urine",p:29,s:"Urine",k:"URINE24"},
+  {n:"Creatinine Clearance",c:"Kidney & urine",p:59,s:"Urine",k:"URINE24"},
+  {n:"Creatinine in Serum",c:"Kidney & urine",p:19,s:"Blood",k:"SST"},
+  {n:"Creatinine in Urine",c:"Kidney & urine",p:29,s:"Urine",k:"URINE"},
+  {n:"Cystatin C",c:"Kidney & urine",p:119,s:"Blood",k:"SST"},
+  {n:"Estimated Glomerular Filtration Rate (eGFR)",c:"Kidney & urine",p:39,s:"Blood",k:"SST"},
+  {n:"Magnesium (Mg) In Urine",c:"Kidney & urine",p:19,s:"Urine",k:"URINE"},
+  {n:"Microalbumin Random Urine",c:"Kidney & urine",p:19,s:"Urine",k:"URINE"},
+  {n:"Microalbuminuria (Albumin-Creatinine Ratio)",c:"Kidney & urine",p:89,s:"Urine",k:"URINE"},
+  {n:"Phosphorus (P) in Urine",c:"Kidney & urine",p:19,s:"Urine",k:"URINE"},
+  {n:"Potassium (K) in Serum",c:"Kidney & urine",p:19,s:"Blood",k:"SST"},
+  {n:"Potassium (K) in Urine",c:"Kidney & urine",p:29,s:"Urine",k:"URINE"},
+  {n:"Reducing Substance in Urine",c:"Kidney & urine",p:29,s:"Urine",k:"URINE"},
+  {n:"Sodium (Na) in Serum",c:"Kidney & urine",p:19,s:"Blood",k:"SST"},
+  {n:"Sodium (Na) in Urine",c:"Kidney & urine",p:19,s:"Urine",k:"URINE"},
+  {n:"Total Protein / Creatinine Ratio In urine",c:"Kidney & urine",p:59,s:"Urine",k:"URINE"},
+  {n:"Total Protein Random Urine without Creatinine",c:"Kidney & urine",p:19,s:"Urine",k:"URINE"},
+  {n:"Urea in Serum",c:"Kidney & urine",p:19,s:"Blood",k:"SST"},
+  {n:"Urea in Urine",c:"Kidney & urine",p:19,s:"Urine",k:"URINE"},
+  {n:"Urea Nitrogen, 24-Hour Urine",c:"Kidney & urine",p:19,s:"Urine",k:"URINE24"},
+  {n:"Uric Acid in Serum",c:"Kidney & urine",p:19,s:"Blood",k:"SST"},
+  {n:"Uric Acid in Urine",c:"Kidney & urine",p:19,s:"Urine",k:"URINE"},
+  {n:"Urine Bile Salts",c:"Kidney & urine",p:39,s:"Urine",k:"URINE"},
+  {n:"Urine Calcium-Creatinine Ratio (Random)",c:"Kidney & urine",p:29,s:"Urine",k:"URINE"},
+  {n:"Thyroid Stimulating Hormone (TSH)",c:"Thyroid",p:51,s:"Blood",k:"SST",pop:1},
+  {n:"Anti Thyroglobulin Abs",c:"Thyroid",p:89,s:"Blood",k:"SST"},
+  {n:"Anti Thyroid Peroxidase Abs (TPO)",c:"Thyroid",p:79,s:"Blood",k:"SST"},
+  {n:"Free T3",c:"Thyroid",p:49,s:"Blood",k:"SST"},
+  {n:"Reverse T3",c:"Thyroid",p:267,s:"Blood",k:"SST"},
+  {n:"T3",c:"Thyroid",p:49,s:"Blood",k:"SST"},
+  {n:"T4",c:"Thyroid",p:49,s:"Blood",k:"SST"},
+  {n:"T4 (Free)",c:"Thyroid",p:39,s:"Blood",k:"SST"},
+  {n:"TSH Receptor Abs",c:"Thyroid",p:199,s:"Blood",k:"SST"},
+  {n:"TSI (thyroid stimulating immunoglobulin)",c:"Thyroid",p:199,s:"Blood",k:"SST"},
+  {n:"Ferritin In Serum",c:"Vitamins & minerals",p:39,s:"Blood",k:"SST",pop:1},
+  {n:"Vitamin B12 (Cyanocobalamin)",c:"Vitamins & minerals",p:89,s:"Blood",k:"SST",pop:1},
+  {n:"Vitamin D (25-OH, Total)",c:"Vitamins & minerals",p:88,s:"Blood",k:"SST",pop:1},
+  {n:"Calcium in Serum (Ionized)",c:"Vitamins & minerals",p:189,s:"Blood",k:"SST",note:"Fill tube fully, do not open"},
+  {n:"Calcium in Serum (Total)",c:"Vitamins & minerals",p:39,s:"Blood",k:"SST"},
+  {n:"Copper in Plasma",c:"Vitamins & minerals",p:69,s:"Blood",k:"TRACE"},
+  {n:"Folic Acid in Serum",c:"Vitamins & minerals",p:69,s:"Blood",k:"SST"},
+  {n:"Iron (Fe) in Serum",c:"Vitamins & minerals",p:29,s:"Blood",k:"SST",f:1},
+  {n:"Magnesium (Mg) in Serum",c:"Vitamins & minerals",p:29,s:"Blood",k:"SST"},
+  {n:"Phosphorus (P) in Serum",c:"Vitamins & minerals",p:19,s:"Blood",k:"SST"},
+  {n:"Total Iron Binding Capacity (TIBC)",c:"Vitamins & minerals",p:29,s:"Blood",k:"SST",f:1},
+  {n:"Transferrin",c:"Vitamins & minerals",p:99,s:"Blood",k:"SST"},
+  {n:"Transferrin Saturation Ratio",c:"Vitamins & minerals",p:78,s:"Blood",k:"SST",f:1},
+  {n:"Unsaturated Iron Binding Capacity (UIBC)",c:"Vitamins & minerals",p:25,s:"Blood",k:"SST",f:1},
+  {n:"Zinc in Serum",c:"Vitamins & minerals",p:99,s:"Blood",k:"TRACE"},
+  {n:"17-Hydroxy-Progesterone",c:"Hormones",p:99,s:"Blood",k:"SST",note:"Morning sample preferred"},
+  {n:"ACTH (Adrenocorticotrophic Hormone), evening",c:"Hormones",p:109,s:"Blood",k:"EDTAI"},
+  {n:"ACTH (Adrenocorticotrophic Hormone), morning",c:"Hormones",p:109,s:"Blood",k:"EDTAI"},
+  {n:"Aldosterone",c:"Hormones",p:89,s:"Blood",k:"SST"},
+  {n:"Aldosterone / Direct Renin Ratio",c:"Hormones",p:249,s:"Blood",k:"SST"},
+  {n:"Androstenedione",c:"Hormones",p:119,s:"Blood",k:"SST"},
+  {n:"Anti Mullerian Hormone",c:"Hormones",p:109,s:"Blood",k:"SST"},
+  {n:"Beta Crosslaps",c:"Hormones",p:129,s:"Blood",k:"SST"},
+  {n:"Cortisol in Serum (am)",c:"Hormones",p:69,s:"Blood",k:"SST",note:"Collect 7–10 AM"},
+  {n:"Cortisol in Serum (pm)",c:"Hormones",p:69,s:"Blood",k:"SST",note:"Collect 4–6 PM"},
+  {n:"DHEA Dehydroepiandrosterone",c:"Hormones",p:199,s:"Blood",k:"SST"},
+  {n:"DHEA-S",c:"Hormones",p:89,s:"Blood",k:"SST"},
+  {n:"Estradiol (E2)",c:"Hormones",p:49,s:"Blood",k:"SST",note:"Day 2–5 of cycle if possible"},
+  {n:"Follicular Stimulating Hormone (FSH)",c:"Hormones",p:49,s:"Blood",k:"SST",note:"Day 2–5 of cycle if possible"},
+  {n:"Free Androgen Index",c:"Hormones",p:139,s:"Blood",k:"SST"},
+  {n:"Growth Hormone",c:"Hormones",p:99,s:"Blood",k:"SST"},
+  {n:"Insulin like Growth Factor 1 (IGF-1)",c:"Hormones",p:189,s:"Blood",k:"SST"},
+  {n:"Luteinizing Hormone (LH)",c:"Hormones",p:49,s:"Blood",k:"SST",note:"Day 2–5 of cycle if possible"},
+  {n:"Macroprolactin",c:"Hormones",p:59,s:"Blood",k:"SST"},
+  {n:"Osteocalcin",c:"Hormones",p:89,s:"Blood",k:"SST"},
+  {n:"Parathyroid Hormone (PTH)",c:"Hormones",p:199,s:"Blood",k:"SST"},
+  {n:"Plasma Renin (Direct)",c:"Hormones",p:89,s:"Blood",k:"EDTA"},
+  {n:"Progesterone",c:"Hormones",p:49,s:"Blood",k:"SST",note:"Day 21 of cycle"},
+  {n:"Prolactin",c:"Hormones",p:49,s:"Blood",k:"SST"},
+  {n:"Sex Hormone Binding Globulin (SHBG)",c:"Hormones",p:89,s:"Blood",k:"SST"},
+  {n:"Testosterone (Bioavailable)",c:"Hormones",p:99,s:"Blood",k:"SST",note:"Morning sample preferred"},
+  {n:"Testosterone (Free)",c:"Hormones",p:89,s:"Blood",k:"SST",note:"Morning sample preferred"},
+  {n:"Testosterone (Total)",c:"Hormones",p:58,s:"Blood",k:"SST",note:"Morning sample preferred"},
+  {n:"Beta Human Chorionic Gonadotrophin",c:"Pregnancy & fertility",p:39,s:"Blood",k:"SST"},
+  {n:"Double Marker Test",c:"Pregnancy & fertility",p:169,s:"Blood",k:"SST"},
+  {n:"Estriol (E3)",c:"Pregnancy & fertility",p:79,s:"Blood",k:"SST"},
+  {n:"Glucose Tolerance Test-OGTT (100g)",c:"Pregnancy & fertility",p:49,s:"Blood",k:"OGTT",f:1},
+  {n:"Glucose Tolerance Test-OGTT (50g)",c:"Pregnancy & fertility",p:49,s:"Blood",k:"OGTT",f:1},
+  {n:"HCG - Free Beta Chain - Subunit",c:"Pregnancy & fertility",p:39,s:"Blood",k:"SST"},
+  {n:"Pregnancy Test",c:"Pregnancy & fertility",p:19,s:"Urine",k:"URINE"},
+  {n:"Pregnant 75 gm OGTT",c:"Pregnancy & fertility",p:49,s:"Blood",k:"OGTT",f:1},
+  {n:"Rubella (IgG)",c:"Pregnancy & fertility",p:48,s:"Blood",k:"SST"},
+  {n:"Rubella (IgM)",c:"Pregnancy & fertility",p:48,s:"Blood",k:"SST"},
+  {n:"Semen Examination",c:"Pregnancy & fertility",p:39,s:"Semen",k:"SEMEN",note:"2–5 days abstinence"},
+  {n:"Semen Processing",c:"Pregnancy & fertility",p:329,s:"Semen",k:"SEMEN",note:"2–5 days abstinence"},
+  {n:"TORCH IgG Profile",c:"Pregnancy & fertility",p:281,s:"Blood",k:"SST"},
+  {n:"TORCH IgM Profile",c:"Pregnancy & fertility",p:282,s:"Blood",k:"SST"},
+  {n:"Toxoplasma (IgG)",c:"Pregnancy & fertility",p:59,s:"Blood",k:"SST"},
+  {n:"Toxoplasma (IgM)",c:"Pregnancy & fertility",p:49,s:"Blood",k:"SST"},
+  {n:"Triple Marker Test",c:"Pregnancy & fertility",p:249,s:"Blood",k:"SST"},
+  {n:"Discreet STD 14 Test (PCR)",c:"Sexual health",p:409,s:"Urine or swab",k:"STDPCR",pop:1,incl:["Chlamydia trachomatis", "Neisseria gonorrhoeae", "Trichomonas vaginalis", "Mycoplasma hominis", "Mycoplasma genitalium", "Ureaplasma urealyticum", "Ureaplasma parvum", "Herpes simplex virus 1 (HSV-1)", "Herpes simplex virus 2 (HSV-2)", "Treponema pallidum (syphilis)", "Haemophilus ducreyi", "Candida albicans", "Gardnerella vaginalis", "Group B Streptococcus"]},
+  {n:"Discreet STD 7 Test (PCR)",c:"Sexual health",p:329,s:"Urine or swab",k:"STDPCR",pop:1,incl:["Chlamydia trachomatis", "Neisseria gonorrhoeae", "Trichomonas vaginalis", "Mycoplasma hominis", "Mycoplasma genitalium", "Ureaplasma urealyticum", "Ureaplasma parvum"]},
+  {n:"HIV Test (HIV-1 & HIV-2, Ag/Ab Combo)",c:"Sexual health",p:49,s:"Blood",k:"SST",pop:1,incl:["HIV-1", "HIV-2", "p24 antigen"]},
+  {n:"Candida Albicans by PCR",c:"Sexual health",p:229,s:"Swab",k:"SWABW"},
+  {n:"Chlamydia Ag",c:"Sexual health",p:49,s:"Swab",k:"SWABD"},
+  {n:"Chlamydia trachomatis (IgA)",c:"Sexual health",p:49,s:"Blood",k:"SST"},
+  {n:"Chlamydia Trachomatis Abs (IGM)",c:"Sexual health",p:49,s:"Blood",k:"SST"},
+  {n:"Chlamydia trachomatis Antibody (IgG)",c:"Sexual health",p:49,s:"Blood",k:"SST"},
+  {n:"Herpes Virus (HSV) 1 IgG",c:"Sexual health",p:89,s:"Blood",k:"SST"},
+  {n:"Herpes Virus (HSV) 1 IgM",c:"Sexual health",p:79,s:"Blood",k:"SST"},
+  {n:"Herpes Virus (HSV) 2 IgG",c:"Sexual health",p:79,s:"Blood",k:"SST"},
+  {n:"Herpes Virus (HSV) 2 IgM",c:"Sexual health",p:89,s:"Blood",k:"SST"},
+  {n:"Human Papilloma Virus (HPV) detection and genotyping by PCR",c:"Sexual health",p:329,s:"Swab",k:"LBC"},
+  {n:"Liquid Based Pap (LBC Sure Path)",c:"Sexual health",p:99,s:"Swab",k:"LBC"},
+  {n:"Liquid Based Pap (LBC ThinPrep)",c:"Sexual health",p:99,s:"Swab",k:"LBC"},
+  {n:"Molecular Detection of Chlamydia trachomatis DNA by Real-Time PCR",c:"Sexual health",p:209,s:"Urine or swab",k:"STDPCR"},
+  {n:"Molecular Detection of Gardnerella vaginalis DNA by Real-Time PCR",c:"Sexual health",p:249,s:"Urine or swab",k:"STDPCR"},
+  {n:"Molecular Detection of HSV 1 And 2 DNA by Real-Time PCR",c:"Sexual health",p:230,s:"Swab",k:"SWABW"},
+  {n:"Molecular Detection of Mycoplasma genitalium DNA by Real-Time PCR",c:"Sexual health",p:249,s:"Urine or swab",k:"STDPCR"},
+  {n:"Molecular Detection of Mycoplasma Hominis by Real Time PCR",c:"Sexual health",p:249,s:"Urine or swab",k:"STDPCR"},
+  {n:"Molecular Detection of Neisseria gonorrhoeae DNA by Real-Time PCR",c:"Sexual health",p:199,s:"Urine or swab",k:"STDPCR"},
+  {n:"Molecular Detection of Trichomonas vaginalis DNA by Real-Time PCR",c:"Sexual health",p:249,s:"Urine or swab",k:"STDPCR"},
+  {n:"Molecular Detection of Ureaplasma urealyticum DNA by Real-Time PCR",c:"Sexual health",p:200,s:"Urine or swab",k:"STDPCR"},
+  {n:"Mycoplasma hominis and Ureaplasma urealyticum culture",c:"Sexual health",p:109,s:"Swab",k:"SWABG"},
+  {n:"Neisseria Gonorrhea Culture",c:"Sexual health",p:59,s:"Swab",k:"SWABG"},
+  {n:"Rapid Plasma Reagin (RPR)",c:"Sexual health",p:59,s:"Blood",k:"SST"},
+  {n:"Treponema Pallidum (TPHA) (qualitative)",c:"Sexual health",p:69,s:"Blood",k:"SST"},
+  {n:"Treponema Pallidum (TPHA) (titer)",c:"Sexual health",p:69,s:"Blood",k:"SST"},
+  {n:"Treponema Pallidum Antibody (IgG, IgM)",c:"Sexual health",p:39,s:"Blood",k:"SST"},
+  {n:"Treponema Screen Antibodies",c:"Sexual health",p:39,s:"Blood",k:"SST"},
+  {n:"Ureaplasma parvum by PCR",c:"Sexual health",p:249,s:"Urine or swab",k:"STDPCR"},
+  {n:"Vaginal Microbial Identification Test (VPIII)",c:"Sexual health",p:169,s:"Swab",k:"VPIII"},
+  {n:"Adenovirus Antigen, DFA",c:"Infections",p:49,s:"Swab",k:"SWABW"},
+  {n:"Antistreptolysin O Titre (ASOT)",c:"Infections",p:49,s:"Blood",k:"SST"},
+  {n:"Brucella Species",c:"Infections",p:49,s:"Blood",k:"SST"},
+  {n:"CMV (IgG)",c:"Infections",p:99,s:"Blood",k:"SST"},
+  {n:"CMV (IgM)",c:"Infections",p:89,s:"Blood",k:"SST"},
+  {n:"Dengue Fever- NS1 Antigen",c:"Infections",p:79,s:"Blood",k:"SST"},
+  {n:"Dengue virus Abs IgG",c:"Infections",p:69,s:"Blood",k:"SST"},
+  {n:"Dengue virus Abs IgM",c:"Infections",p:69,s:"Blood",k:"SST"},
+  {n:"Dengue Virus RNA, Qualitative, Real-Time PCR",c:"Infections",p:299,s:"Blood",k:"EDTA"},
+  {n:"Donor, HTLV-I/II Antibody Screen",c:"Infections",p:149,s:"Blood",k:"SST"},
+  {n:"Epstein Barr Virus (EBNA) Ab IgG",c:"Infections",p:89,s:"Blood",k:"SST"},
+  {n:"Epstein Barr Virus (EBV) VCA IgG",c:"Infections",p:199,s:"Blood",k:"SST"},
+  {n:"Epstein Barr Virus (EBV) VCA IgM",c:"Infections",p:169,s:"Blood",k:"SST"},
+  {n:"Epstein-Barr Virus Early Antigen D Antibody (IgG)",c:"Infections",p:79,s:"Blood",k:"SST"},
+  {n:"Hepatitis A Virus (HAV) IgM",c:"Infections",p:59,s:"Blood",k:"SST"},
+  {n:"Hepatitis A Virus (HAV) Total",c:"Infections",p:89,s:"Blood",k:"SST"},
+  {n:"Hepatitis B core (HBc) IgM",c:"Infections",p:89,s:"Blood",k:"SST"},
+  {n:"Hepatitis B core (HBc) Total",c:"Infections",p:59,s:"Blood",k:"SST"},
+  {n:"Hepatitis B envelope (HBe) Abs",c:"Infections",p:49,s:"Blood",k:"SST"},
+  {n:"Hepatitis B envelope (HBe) Ag",c:"Infections",p:59,s:"Blood",k:"SST"},
+  {n:"Hepatitis B surface (HBs) Abs",c:"Infections",p:59,s:"Blood",k:"SST"},
+  {n:"Hepatitis B surface (HBs) Ag",c:"Infections",p:59,s:"Blood",k:"SST"},
+  {n:"Hepatitis B Virus by PCR (qualitative)",c:"Infections",p:259,s:"Blood",k:"EDTA"},
+  {n:"Hepatitis B Virus by PCR (quantitative)",c:"Infections",p:259,s:"Blood",k:"EDTA"},
+  {n:"Hepatitis C Virus (HCV) Abs",c:"Infections",p:49,s:"Blood",k:"SST"},
+  {n:"Hepatitis C Virus by PCR (Qualitative) HCV",c:"Infections",p:259,s:"Blood",k:"EDTA"},
+  {n:"Hepatitis C Virus by PCR (quantitative) HCV",c:"Infections",p:259,s:"Blood",k:"EDTA"},
+  {n:"Influenza (A and B) Antigen",c:"Infections",p:89,s:"Swab",k:"SWABW"},
+  {n:"Legionella Ag (urine)",c:"Infections",p:139,s:"Urine",k:"URINE"},
+  {n:"Malaria Antigen",c:"Infections",p:59,s:"Blood",k:"EDTA"},
+  {n:"Measles abs IgM",c:"Infections",p:109,s:"Blood",k:"SST"},
+  {n:"Measles Antibody (IgG)",c:"Infections",p:109,s:"Blood",k:"SST"},
+  {n:"Monospot Test",c:"Infections",p:19,s:"Blood",k:"EDTA"},
+  {n:"Mumps Virus Antibody (IgG)",c:"Infections",p:55,s:"Blood",k:"SST"},
+  {n:"Mumps Virus Antibody (IgM)",c:"Infections",p:99,s:"Blood",k:"SST"},
+  {n:"Mycoplasma Pneumoniae Ab IgG",c:"Infections",p:119,s:"Blood",k:"SST"},
+  {n:"Mycoplasma Pneumoniae Ab IgM",c:"Infections",p:123,s:"Blood",k:"SST"},
+  {n:"Procalcitonin",c:"Infections",p:289,s:"Blood",k:"SST"},
+  {n:"QuantiFERON-TB Gold Plus (4 tube)",c:"Infections",p:399,s:"Blood",k:"QFT"},
+  {n:"Respiratory Syncytial Virus (RSV) Antigen",c:"Infections",p:89,s:"Swab",k:"SWABW"},
+  {n:"Respiratory syncytial virus rapid test",c:"Infections",p:89,s:"Swab",k:"SWABW"},
+  {n:"Respiratory Virus Panel",c:"Infections",p:569,s:"Swab",k:"SWABW"},
+  {n:"Streptococcal A Antigen (GAS)",c:"Infections",p:49,s:"Swab",k:"SWABD"},
+  {n:"Varicella Zoster IgG",c:"Infections",p:129,s:"Blood",k:"SST"},
+  {n:"Varicella Zoster IgM",c:"Infections",p:79,s:"Blood",k:"SST"},
+  {n:"Widal Test",c:"Infections",p:129,s:"Blood",k:"SST"},
+  {n:"Amyloid A Protein",c:"Immunity & autoimmune",p:249,s:"Blood",k:"SST"},
+  {n:"ANA Profile",c:"Immunity & autoimmune",p:249,s:"Blood",k:"SST"},
+  {n:"Angiotensin Converting Enzyme (ACE)",c:"Immunity & autoimmune",p:129,s:"Blood",k:"SST"},
+  {n:"Anti Cardiolipin IgG",c:"Immunity & autoimmune",p:89,s:"Blood",k:"SST"},
+  {n:"Anti Cardiolipin IgM",c:"Immunity & autoimmune",p:89,s:"Blood",k:"SST"},
+  {n:"Anti CCP Abs",c:"Immunity & autoimmune",p:149,s:"Blood",k:"SST"},
+  {n:"Anti ds DNA Abs",c:"Immunity & autoimmune",p:89,s:"Blood",k:"SST"},
+  {n:"Anti Intrinsic Factor Abs",c:"Immunity & autoimmune",p:99,s:"Blood",k:"SST"},
+  {n:"Anti JO1 Abs",c:"Immunity & autoimmune",p:79,s:"Blood",k:"SST"},
+  {n:"Anti La (SS-B) Abs",c:"Immunity & autoimmune",p:119,s:"Blood",k:"SST"},
+  {n:"Anti Nuclear Abs (ANA)",c:"Immunity & autoimmune",p:99,s:"Blood",k:"SST"},
+  {n:"Anti Nucleosome Antibodies",c:"Immunity & autoimmune",p:129,s:"Blood",k:"SST"},
+  {n:"Anti Parietal Cell Abs (APCA) ELISA",c:"Immunity & autoimmune",p:99,s:"Blood",k:"SST"},
+  {n:"Anti RNP Abs",c:"Immunity & autoimmune",p:79,s:"Blood",k:"SST"},
+  {n:"Anti Ro (SS-A) Abs",c:"Immunity & autoimmune",p:99,s:"Blood",k:"SST"},
+  {n:"Antiphospholipid IgG",c:"Immunity & autoimmune",p:89,s:"Blood",k:"SST"},
+  {n:"Antiphospholipid IgM",c:"Immunity & autoimmune",p:89,s:"Blood",k:"SST"},
+  {n:"Beta 2 Glycoprotein Ab I (IGG)",c:"Immunity & autoimmune",p:199,s:"Blood",k:"SST"},
+  {n:"Beta 2 Glycoprotein Ab I (IGM)",c:"Immunity & autoimmune",p:199,s:"Blood",k:"SST"},
+  {n:"C-ANCA",c:"Immunity & autoimmune",p:99,s:"Blood",k:"SST"},
+  {n:"C-Reactive Protein (CRP)",c:"Immunity & autoimmune",p:39,s:"Blood",k:"SST"},
+  {n:"C3 Complement",c:"Immunity & autoimmune",p:69,s:"Blood",k:"SST"},
+  {n:"C4 Complement",c:"Immunity & autoimmune",p:79,s:"Blood",k:"SST"},
+  {n:"ENA Profile (6-Parameters)",c:"Immunity & autoimmune",p:259,s:"Blood",k:"SST"},
+  {n:"Extractable Nuclear Antigens Abs (ENA)",c:"Immunity & autoimmune",p:69,s:"Blood",k:"SST"},
+  {n:"HLA B27",c:"Immunity & autoimmune",p:299,s:"Blood",k:"EDTA"},
+  {n:"Immunoglobulin A (IgA)",c:"Immunity & autoimmune",p:49,s:"Blood",k:"SST"},
+  {n:"Immunoglobulin G (IgG)",c:"Immunity & autoimmune",p:59,s:"Blood",k:"SST"},
+  {n:"Immunoglobulin M (IgM)",c:"Immunity & autoimmune",p:59,s:"Blood",k:"SST"},
+  {n:"MI2 Abs",c:"Immunity & autoimmune",p:79,s:"Blood",k:"SST"},
+  {n:"P-ANCA",c:"Immunity & autoimmune",p:89,s:"Blood",k:"SST"},
+  {n:"Protein Electrophoresis in Serum",c:"Immunity & autoimmune",p:119,s:"Blood",k:"SST"},
+  {n:"Rheumatoid Factor (quantitative)",c:"Immunity & autoimmune",p:59,s:"Blood",k:"SST"},
+  {n:"Scleroderma antibody (Anti scl70)",c:"Immunity & autoimmune",p:79,s:"Blood",k:"SST"},
+  {n:"Allergens specific IgE Screening (Food panel)",c:"Allergy & intolerance",p:259,s:"Blood",k:"SST"},
+  {n:"Allergens specific IgE Screening (Inhalant)",c:"Allergy & intolerance",p:259,s:"Blood",k:"SST"},
+  {n:"Comprehensive Allergy Panel (ALEX)",c:"Allergy & intolerance",p:1139,s:"Blood",k:"SST"},
+  {n:"Food Print",c:"Allergy & intolerance",p:1299,s:"Blood",k:"SST"},
+  {n:"Fox Food Intolerance Test",c:"Allergy & intolerance",p:1139,s:"Blood",k:"SST"},
+  {n:"Immunoglobulin E (IgE) Total",c:"Allergy & intolerance",p:49,s:"Blood",k:"SST"},
+  {n:"Lactose Tolerance Test",c:"Allergy & intolerance",p:89,s:"Blood",k:"OGTT",f:1},
+  {n:"Alpha Feto Protein (AFP)",c:"Tumour markers",p:89,s:"Blood",k:"SST"},
+  {n:"CA 125",c:"Tumour markers",p:99,s:"Blood",k:"SST"},
+  {n:"CA 15-3",c:"Tumour markers",p:89,s:"Blood",k:"SST"},
+  {n:"CA 19.9",c:"Tumour markers",p:109,s:"Blood",k:"SST"},
+  {n:"Calcitonin",c:"Tumour markers",p:199,s:"Blood",k:"SST"},
+  {n:"Carcinoembryonic Antigen (CEA)",c:"Tumour markers",p:89,s:"Blood",k:"SST"},
+  {n:"Prostatic Specific Antigen (PSA) Free",c:"Tumour markers",p:69,s:"Blood",k:"SST"},
+  {n:"Prostatic Specific Antigen (PSA) Total",c:"Tumour markers",p:69,s:"Blood",k:"SST"},
+  {n:"Thyroglobulin",c:"Tumour markers",p:89,s:"Blood",k:"SST"},
+  {n:"Adenovirus Stool Antigen",c:"Stool & digestive",p:49,s:"Stool",k:"STOOL"},
+  {n:"Amylase in Serum",c:"Stool & digestive",p:49,s:"Blood",k:"SST"},
+  {n:"Amylase in Urine",c:"Stool & digestive",p:19,s:"Urine",k:"URINE"},
+  {n:"Amylase Pancreatic",c:"Stool & digestive",p:15,s:"Blood",k:"SST"},
+  {n:"Anti Endomysium antibodies IgA IFA",c:"Stool & digestive",p:69,s:"Blood",k:"SST"},
+  {n:"Anti Endomysium antibodies IgG IFA",c:"Stool & digestive",p:69,s:"Blood",k:"SST"},
+  {n:"Anti Gliadin (DGP) IgA",c:"Stool & digestive",p:59,s:"Blood",k:"SST"},
+  {n:"Anti Gliadin (DGP) IgG",c:"Stool & digestive",p:59,s:"Blood",k:"SST"},
+  {n:"Anti tissue Transglutaminase Abs IgA",c:"Stool & digestive",p:99,s:"Blood",k:"SST"},
+  {n:"Anti tissue Transglutaminase Abs IgG",c:"Stool & digestive",p:59,s:"Blood",k:"SST"},
+  {n:"Calprotectin",c:"Stool & digestive",p:149,s:"Stool",k:"STOOL"},
+  {n:"Clostridium Difficile Toxins A and B (Stool)",c:"Stool & digestive",p:99,s:"Stool",k:"STOOLT"},
+  {n:"Fecal immunochemical test (FIT)",c:"Stool & digestive",p:89,s:"Stool",k:"STOOL"},
+  {n:"Gastrointestinal Panel",c:"Stool & digestive",p:499,s:"Stool",k:"STOOLT"},
+  {n:"Giardia Antigen In Stool",c:"Stool & digestive",p:109,s:"Stool",k:"STOOL"},
+  {n:"Helicobacter Pylori IgG by ELISA",c:"Stool & digestive",p:49,s:"Blood",k:"SST"},
+  {n:"Helicobacter Pylori Stool Antigen (HpSA)",c:"Stool & digestive",p:139,s:"Stool",k:"STOOL"},
+  {n:"Lipase",c:"Stool & digestive",p:39,s:"Blood",k:"SST"},
+  {n:"Occult Blood In Stool",c:"Stool & digestive",p:34,s:"Stool",k:"STOOL"},
+  {n:"Reducing Substance in Stool",c:"Stool & digestive",p:29,s:"Stool",k:"STOOL"},
+  {n:"Rotavirus Antigen",c:"Stool & digestive",p:59,s:"Stool",k:"STOOL"},
+  {n:"Saccharomyces cerevisiae Antibodies (ASCA) (IgA)",c:"Stool & digestive",p:139,s:"Blood",k:"SST"},
+  {n:"Saccharomyces cerevisiae Antibodies (ASCA) (IgG)",c:"Stool & digestive",p:139,s:"Blood",k:"SST"},
+  {n:"Stool Examination",c:"Stool & digestive",p:59,s:"Stool",k:"STOOL"},
+  {n:"Stool PH",c:"Stool & digestive",p:29,s:"Stool",k:"STOOL"},
+  {n:"Urea Breath Test (C13)",c:"Stool & digestive",p:399,s:"Breath",k:"BREATH",f:1},
+  {n:"Bacterial Culture and Sensitivity",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Blood Culture",c:"Cultures & swabs",p:69,s:"Blood",k:"BC"},
+  {n:"Conjunctival Discharge C/S",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Conjunctival Discharge C/S (Left)",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Conjunctival Discharge Examination (Left)",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Conjunctival Swab Examination And C/S",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Ear Discharge C/S",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Ear Discharge C/S (Left)",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Ear Discharge Examination",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Ear Discharge Examination (Left)",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Ear Discharge Examination, C/S",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Fungal Culture",c:"Cultures & swabs",p:49,s:"Hair, nail or skin",k:"FUNGAL"},
+  {n:"Fungal Culture (Candida Auris)",c:"Cultures & swabs",p:49,s:"Hair, nail or skin",k:"FUNGAL"},
+  {n:"Fungal Culture (Hair)",c:"Cultures & swabs",p:49,s:"Hair, nail or skin",k:"FUNGAL"},
+  {n:"Fungal Culture (Skin)",c:"Cultures & swabs",p:49,s:"Hair, nail or skin",k:"FUNGAL"},
+  {n:"Fungal Examination",c:"Cultures & swabs",p:49,s:"Hair, nail or skin",k:"FUNGAL"},
+  {n:"Fungal Examination And Culture (Skin)",c:"Cultures & swabs",p:49,s:"Hair, nail or skin",k:"FUNGAL"},
+  {n:"Gram Stain (Direct Smear)",c:"Cultures & swabs",p:29,s:"Swab",k:"SWABG"},
+  {n:"Group B Streptococci (GBS) Screening",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Hair Examination For Fungi",c:"Cultures & swabs",p:49,s:"Hair, nail or skin",k:"FUNGAL"},
+  {n:"Infection Control Culture",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"MRSA screening",c:"Cultures & swabs",p:69,s:"Swab",k:"SWABG"},
+  {n:"Nail Examination For Fungi",c:"Cultures & swabs",p:49,s:"Hair, nail or skin",k:"FUNGAL"},
+  {n:"Nasopharyngeal Swab C/S",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Nasopharyngeal Swab Examination",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Nipple discharge C/S",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Nipple discharge Examination (Left)",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Nipple Discharge Examination C/S",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Nose Swab C/S",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Nose Swab Examination C/S",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Pus Examination C/S",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Semen Culture",c:"Cultures & swabs",p:49,s:"Semen",k:"SEMEN",note:"2–5 days abstinence"},
+  {n:"Sputum C/S",c:"Cultures & swabs",p:49,s:"Sputum",k:"SPUTUM"},
+  {n:"Sputum Examination C/S",c:"Cultures & swabs",p:49,s:"Sputum",k:"SPUTUM"},
+  {n:"Stool Culture",c:"Cultures & swabs",p:69,s:"Stool",k:"STOOLT"},
+  {n:"Stool Examination C/S",c:"Cultures & swabs",p:49,s:"Stool",k:"STOOLT"},
+  {n:"Swab Culture And Sensitivity",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"TB (AFB) Film",c:"Cultures & swabs",p:49,s:"Sputum",k:"SPUTUM"},
+  {n:"Throat Swab C/S",c:"Cultures & swabs",p:69,s:"Swab",k:"SWABG"},
+  {n:"Throat Swab Examination, C/S",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Urethral Discharge C/S",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Urethral Discharge Examination C/S",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Urine Analysis And C/S",c:"Cultures & swabs",p:49,s:"Urine",k:"URINEC"},
+  {n:"Urine Culture",c:"Cultures & swabs",p:69,s:"Urine",k:"URINEC"},
+  {n:"Vaginal Discharge Examination",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Vaginal Swab Examination C/S",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Vulval Swab C/S",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Vulval Swab Examination",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Vulval Swab Examination C/S",c:"Cultures & swabs",p:49,s:"Swab",k:"SWABG"},
+  {n:"Antithrombin III (AT III)",c:"Clotting",p:149,s:"Blood",k:"CIT"},
+  {n:"D-Dimer (Quantitative)",c:"Clotting",p:59,s:"Blood",k:"CIT"},
+  {n:"Factor V (F5) Leiden (G1691A - R506Q) Mutation by PCR",c:"Clotting",p:499,s:"Blood",k:"EDTA"},
+  {n:"Factor VIII Activity",c:"Clotting",p:189,s:"Blood",k:"CIT"},
+  {n:"Fibrinogen",c:"Clotting",p:149,s:"Blood",k:"CIT"},
+  {n:"Lupus Anticoagulant Profile",c:"Clotting",p:199,s:"Blood",k:"CIT"},
+  {n:"Partial Thromboplastin Time (PTT)",c:"Clotting",p:28,s:"Blood",k:"CIT"},
+  {n:"Protein C Activity",c:"Clotting",p:246,s:"Blood",k:"CIT"},
+  {n:"Protein S Activity",c:"Clotting",p:265,s:"Blood",k:"CIT"},
+  {n:"Prothrombin Time (PT)",c:"Clotting",p:28,s:"Blood",k:"CIT"},
+  {n:"Alcohol Ethyl (U)",c:"Drugs & toxicology",p:49,s:"Urine",k:"URINE"},
+  {n:"CDT (Carbohydrate deficient transferrin)",c:"Drugs & toxicology",p:489,s:"Blood",k:"SST"},
+  {n:"Cotinine (Qualitative)",c:"Drugs & toxicology",p:89,s:"Urine",k:"URINE"},
+  {n:"Depakine (Valproic acid)",c:"Drugs & toxicology",p:139,s:"Blood",k:"RED",note:"Just before the next dose"},
+  {n:"Ethyl Alcohol In Blood",c:"Drugs & toxicology",p:89,s:"Blood",k:"FLU",note:"Clean skin without alcohol swab"},
+  {n:"Gentamycin (peak)",c:"Drugs & toxicology",p:89,s:"Blood",k:"RED",note:"30 min after the dose"},
+  {n:"Gentamycin (trough)",c:"Drugs & toxicology",p:89,s:"Blood",k:"RED",note:"Just before the next dose"},
+  {n:"Lithium (Li)",c:"Drugs & toxicology",p:149,s:"Blood",k:"RED",note:"Just before the next dose"},
+  {n:"Urine Drug Screening",c:"Drugs & toxicology",p:139,s:"Urine",k:"URINE"},
+  {n:"Vancomycin",c:"Drugs & toxicology",p:89,s:"Blood",k:"RED",note:"Just before the next dose"},
+  {n:"Albumin In CSF",c:"Specialist samples",p:19,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Albumin, Pleural Fluid",c:"Specialist samples",p:19,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Amylase, Pleural Fluid",c:"Specialist samples",p:19,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Biopsy (Large)",c:"Specialist samples",p:329,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Biopsy (Medium)",c:"Specialist samples",p:209,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Biopsy (Small)",c:"Specialist samples",p:149,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Body Fluid Cell Count",c:"Specialist samples",p:49,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Chloride CSF",c:"Specialist samples",p:19,s:"Clinic sample",k:"DOCTOR"},
+  {n:"CSF C/S",c:"Specialist samples",p:49,s:"Clinic sample",k:"DOCTOR"},
+  {n:"CSF Examination",c:"Specialist samples",p:49,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Cytology (Fluids, Effusions, Aspirate)",c:"Specialist samples",p:99,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Cytology Non-Gyn on Liquid-Based Preparations (LBC Non-Gyn)",c:"Specialist samples",p:99,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Fine Needle Aspiration (FNA)",c:"Specialist samples",p:119,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Glucose CSF",c:"Specialist samples",p:19,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Lymph Node Aspiration Examination C/S",c:"Specialist samples",p:49,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Peritoneal Fluid C/S",c:"Specialist samples",p:49,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Pleural Fluid C/S",c:"Specialist samples",p:49,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Pleural Fluid Examination",c:"Specialist samples",p:49,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Prostatic Fluid C/S",c:"Specialist samples",p:49,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Protein CSF",c:"Specialist samples",p:19,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Synovial Fluid C/S",c:"Specialist samples",p:49,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Synovial Fluid Examination",c:"Specialist samples",p:49,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Synovial Fluid Examination C/S",c:"Specialist samples",p:49,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Uric Acid Synovial fluid",c:"Specialist samples",p:19,s:"Clinic sample",k:"DOCTOR"},
+  {n:"Vitreous Tap C/S",c:"Specialist samples",p:49,s:"Clinic sample",k:"DOCTOR"},
 ].map((t,i)=>({...t,id:"t"+i}));
 
 const AREAS = ["Dubai Marina","JBR","JLT","Downtown Dubai","Business Bay","DIFC","Palm Jumeirah","Jumeirah","Umm Suqeim","Al Barsha","Arabian Ranches","Dubai Hills Estate","Jumeirah Village Circle (JVC)","Jumeirah Village Triangle (JVT)","Motor City","Sports City","Damac Hills","Mirdif","Al Qusais","Deira","Bur Dubai","Al Nahda","Silicon Oasis","International City","Discovery Gardens","Al Furjan","Meydan","Town Square","Other"];
@@ -905,19 +1305,30 @@ const money = v => CURRENCY + " " + v.toLocaleString("en-US");
 const byId = id => TESTS.find(t=>t.id===id);
 const selected = () => [...state.sel].map(byId);
 /* ===== Pricing rule =====
-   Every test is charged at its real price, and a home visit service charge of AED 149
-   is added once to every booking (1 test or many). Order does not matter.
-   Examples: 66 -> 66 + 149 = 215.  49 + 129 -> 178 + 149 = 327. */
-const SERVICE_CHARGE = 149;
+   Every test is charged at its real price. Home collection costs AED 99,
+   and is FREE when the tests add up to AED 449 or more. Order does not matter.
+   Examples: 66 -> 66 + 99 = 165.  300 -> 399.  449 -> 449 (free collection). */
+const COLLECTION_CHARGE = 99, FREE_COLLECTION_FROM = 449;
+const SERVICE_CHARGE = COLLECTION_CHARGE; // kept for older code paths
 function priceFor(list){
   const sum = list.reduce((a,t)=>a+t.p,0);
-  const service = list.length ? SERVICE_CHARGE : 0;
-  return {bundle:[], extra:list, sum, service, total: sum + service, listSum: sum};
+  const free = sum >= FREE_COLLECTION_FROM;
+  const service = list.length && !free ? COLLECTION_CHARGE : 0;
+  const toFree = list.length && !free ? FREE_COLLECTION_FROM - sum : 0;
+  return {bundle:[], extra:list, sum, service, free: list.length>0 && free, toFree, total: sum + service, listSum: sum};
+}
+const collectionLabel = pr => pr.service ? `AED ${pr.service}` : "Free";
+function freeNudge(pr, compact){
+  if(!pr.sum && !pr.service) return "";
+  const pct = Math.min(100, Math.round(pr.sum / FREE_COLLECTION_FROM * 100));
+  return pr.free
+    ? `<div class="nudge ok">🎉 You've unlocked <b>FREE home collection</b></div>`
+    : `<div class="nudge"><div>Add <b class="num">AED ${pr.toFree}</b> more to get <b>FREE home collection</b>${compact?"":` (save AED ${COLLECTION_CHARGE})`}</div><div class="nbar"><i style="width:${pct}%"></i></div></div>`;
 }
 const pricing = () => priceFor(selected());
 const total = () => pricing().total;
 const needsFasting = () => selected().some(t=>t.f);
-const CATS = ["All","Popular",...new Set(TESTS.map(t=>t.c))];
+const CATS = ["All","Popular",...CATEGORY_ORDER.filter(c=>TESTS.some(t=>t.c===c))];
 const check = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>';
 
 // Current wall-clock time in Dubai, as {y,m,d,mins}
@@ -980,6 +1391,7 @@ const infoValid = () => Object.keys(infoErrors()).length===0;
 
 /* ============ RENDER ============ */
 function render(){
+  if(typeof renderSymOut==="function" && document.getElementById("symOut")) setTimeout(()=>{ try{ renderSymOut(); }catch(e){} },0);
   renderStepper(); renderBasket(); renderMobileBar();
   const st = $("#stage");
   if(state.done) st.innerHTML = viewDone();
@@ -1012,7 +1424,7 @@ function renderBasket(){
   $("#basket").innerHTML = `
     <h3>Your package <span class="count num">${items.length} ${items.length===1?"test":"tests"}</span></h3>
     ${items.length ? basketLines() : `<p class="bempty"><span class="ico b" style="width:32px;height:32px;border-radius:8px">+</span>Add tests from the list to build your package.</p>`}
-    ${items.length ? `<div class="row"><span>Home visit service charge</span><b class="num">${SERVICE_CHARGE}</b></div>` : ""}
+    ${items.length ? `<div class="row"><span>Home collection</span><b class="num" style="${pricing().service?"":"color:var(--green)"}">${collectionLabel(pricing())}</b></div>${freeNudge(pricing())}` : ""}
     <div class="total"><span>Total</span><b class="num"><em>AED</em>${total().toLocaleString("en-US")}</b></div>
     ${needsFasting() ? `<p class="note">⚠ Includes fasting tests. Fast 8–12 hours before your visit (water is fine).</p>` : ""}
     ${(state.day && state.slot!==null) ? `<div class="bmeta">Nurse visit: <b>${dayLabel(state.day)} · ${slotLabel(state.slot)}</b></div>` : ""}
@@ -1026,6 +1438,7 @@ function renderMobileBar(){
   document.body.classList.toggle("has-bar", show);
   $("#mbarCount").textContent = state.sel.size + (state.sel.size===1?" test":" tests");
   $("#mbarTotal").textContent = money(total());
+  { const pr = pricing(); $("#mbarFree").textContent = !state.sel.size ? "" : pr.free ? "✓ Free collection" : `Add AED ${pr.toFree} for free collection`; }
   const b = $("#mbarBtn");
   b.textContent = ["Pick a slot","Continue","Review","Confirm"][state.step];
   b.disabled = !nextOk();
@@ -1049,7 +1462,7 @@ function resultsHTML(){
 function viewTests(){
   return `
     <h3>Choose your tests</h3>
-    <p class="sub">${TESTS.length} parameters. Test prices shown; a AED 149 home visit charge is added once per booking.</p>
+    <p class="sub">${TESTS.length} parameters. Free home collection over AED 449, otherwise AED 99.</p>
     <div class="tools">
       <label class="search">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
@@ -1059,22 +1472,14 @@ function viewTests(){
     </div>
     <div id="results">${resultsHTML()}</div>`;
 }
-const TUBE = {red:"#E5421D", teal:"#1E9E92", purple:"#A46CF2", grey:"#8E99A1", blue:"#3D9BE0", yellow:"#F2B21B", brown:"#8A5A3B"};
-const CAT_TUBE = {"Blood health":"purple","Diabetes":"grey","Heart & cholesterol":"red","Liver":"red","Kidney":"red","Thyroid":"red",
-  "Vitamins & minerals":"red","Women's hormones":"red","Men's health":"red","Other hormones":"red","Inflammation & immunity":"teal",
-  "Infections":"teal","Sexual health":"teal","Pancreas & digestion":"red","Clotting":"blue"};
-function tubeColor(t){
-  if(t.s==="Urine") return TUBE.yellow;
-  if(t.s==="Stool") return TUBE.brown;
-  if(/HbA1c/.test(t.n)) return TUBE.purple;
-  return TUBE[CAT_TUBE[t.c]||"red"];
-}
-const CUP = {urine:"#3F3FD0", culture:"#3D8FE0", stool:"#C88A3A"};
 const cupSVG = (color, k=1.22) => `<svg viewBox="0 0 120 120" style="--cap:${color}" aria-hidden="true"><use href="#cup" transform="rotate(16 60 60) translate(60 62) scale(${k}) translate(-60 -61)"/></svg>`;
+const SWAB_MED = {SWABG:"#8DB8F2", SWABW:"#F6A9BC", STDPCR:"#F6A9BC", SWABD:"transparent", VPIII:"#CDBBF5"};
+const swabSVG = (color, med="transparent") => `<svg viewBox="0 0 120 120" style="--cap:${color};--med:${med}" aria-hidden="true"><use href="#swab" transform="rotate(40 60 60)"/></svg>`;
 function sampleIcon(t){
-  if(t.s==="Urine") return cupSVG(/Culture/.test(t.n) ? CUP.culture : CUP.urine);
-  if(t.s==="Stool") return cupSVG(CUP.stool);
-  return tubeSVG(tubeColor(t));
+  const c = CONTAINERS[t.k] || CONTAINERS.SST;
+  if(c.kind==="cup") return cupSVG(c.cap);
+  if(c.kind==="swab") return swabSVG(c.cap, SWAB_MED[t.k]);
+  return tubeSVG(c.cap);
 }
 const tubeSVG = (color, angle=45) => `<svg viewBox="0 0 120 120" style="--cap:${color}" aria-hidden="true"><use href="#tube" transform="rotate(${angle} 60 60)"/></svg>`;
 
@@ -1088,7 +1493,11 @@ function testRow(t){
     <span class="tmeta">
       ${t.pop?'<span class="tag pop">Popular</span>':""}
       ${t.f?'<span class="tag fast">Fasting 8–12h</span>':""}
-      <span class="tag">${t.s} sample</span>
+      <span class="tag ctag"><i style="background:${(CONTAINERS[t.k]||CONTAINERS.SST).cap}"></i>${esc((CONTAINERS[t.k]||CONTAINERS.SST).short)}</span>
+      ${t.note?`<span class="tag">${esc(t.note)}</span>`:""}
+    </span>
+    ${t.incl?`<span class="incl">Includes ${t.incl.length}: ${esc(t.incl.join(", "))}</span>`:""}
+    <span class="tmeta" style="display:none">
     </span>
     <span class="bot"><span class="price num"><em>AED</em>${t.p}</span>
       <span class="add"><span class="pl">+ Add</span><span class="ck">✓ Added</span></span></span></span></label>`;
@@ -1139,6 +1548,18 @@ function viewDetails(){
       <button class="btn btn-cyan" type="button" id="toReview">Review booking</button></div>`;
 }
 
+/* Collection plan for the nurse: one line per container type, with the tests that go in it */
+function collectionPlan(items){
+  const groups = {};
+  items.forEach(t=>{ (groups[t.k] ||= []).push(t); });
+  return Object.entries(groups).map(([k,ts])=>({k, c: CONTAINERS[k]||CONTAINERS.SST, tests: ts}));
+}
+function collectionText(items){
+  const lines = collectionPlan(items).map(g=>`${g.c.text}: ${g.tests.map(t=>t.n + (t.note?` [${t.note}]`:"")).join(", ")}`);
+  if(items.some(t=>t.f)) lines.unshift("FASTING 8–12 h required");
+  return lines.join(" | ");
+}
+
 function reviewRows(){
   const pr = pricing();
   let h = pr.extra.map(t=>`<tr><td>${esc(t.n)}</td><td>${money(t.p)}</td></tr>`).join("");
@@ -1153,9 +1574,12 @@ function viewReview(){
     <div class="review">
       <section class="rblock"><header><h4>Tests (${items.length})</h4><span style="display:flex;gap:14px"><button class="link" type="button" data-share>Save / share</button><button class="link" type="button" data-go="0">Edit</button></span></header>
         <table class="rtable num"><tbody>${reviewRows()}
-        <tr><td>Home visit service charge</td><td>${money(SERVICE_CHARGE)}</td></tr>
+        <tr><td>Home collection${pricing().free?' <small style="color:var(--green)">(free over AED '+FREE_COLLECTION_FROM+')</small>':''}</td><td style="${pricing().service?"":"color:var(--green)"}">${collectionLabel(pricing())}</td></tr>
         <tr><td><b>Total</b></td><td><b>${money(total())}</b></td></tr></tbody></table>
         ${needsFasting()?`<p class="note">Fast 8–12 hours before your visit. Water is fine.</p>`:""}
+      </section>
+      <section class="rblock"><header><h4>Sample collection <small style="font-weight:400;color:var(--muted)">(for the nurse)</small></h4></header>
+        <ul class="collect" style="list-style:none;padding:0;margin:0">${collectionPlan(items).map(g=>`<li><i style="background:${g.c.cap}"></i><span><b>${esc(g.c.text)}</b><small>${g.tests.map(t=>esc(t.n)+(t.note?` · ${esc(t.note)}`:"")).join(", ")}</small></span></li>`).join("")}</ul>
       </section>
       <section class="rblock"><header><h4>Visit</h4><button class="link" type="button" data-go="1">Edit</button></header>
         <dl class="kv"><dt>Date</dt><dd>${dayLabel(state.day,true)}</dd><dt>Time</dt><dd class="num">${slotLabel(state.slot)}</dd></dl>
@@ -1258,7 +1682,7 @@ function loadImg(src){ return new Promise(res=>{ if(!src) return res(null); cons
 async function buildPackageImage(){
   try{ await document.fonts.ready; }catch(e){}
   const logo = await loadImg(LOGO_SRC);
-  const pr = pricing(), F = 'Poppins, "Segoe UI", Arial, sans-serif';
+  const items = SHARE.items || selected(), pr = priceFor(items), F = 'Poppins, "Segoe UI", Arial, sans-serif';
   const W = 1080, CX = 48, CW = W - CX*2, IN = 56, nameW = CW - IN*2 - 190;
   let knownCardH = 0;
   const draw = (ctx, dry) => {
@@ -1273,12 +1697,14 @@ async function buildPackageImage(){
     const cardY = y;
     if(!dry){ ctx.save(); ctx.shadowColor="rgba(19,81,99,.18)"; ctx.shadowBlur=40; ctx.shadowOffsetY=12; ctx.fillStyle="#fff"; rrect(ctx,CX,cardY,CW,knownCardH,32); ctx.fill(); ctx.restore(); }
     y += 70;
-    if(!dry){ ctx.font=`700 42px ${F}`; ctx.fillStyle="#1C1C1C"; ctx.fillText("My lab test package", CX+IN, y); }
+    if(!dry){ ctx.font=`700 42px ${F}`; ctx.fillStyle="#1C1C1C"; ctx.fillText(SHARE.title || "My lab test package", CX+IN, y); }
     y += 46;
     if(!dry){ ctx.font=`400 25px ${F}`; ctx.fillStyle="#8C9194";
       const d=new Date().toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric",timeZone:TIMEZONE});
-      ctx.fillText(`${selected().length} ${selected().length===1?"test":"tests"} · Created ${d}`, CX+IN, y); }
+      ctx.fillText(`${items.length} ${items.length===1?"test":"tests"} · Created ${d}`, CX+IN, y); }
     y += 40;
+    if(SHARE.sub){ y += 4; if(!dry){ ctx.font=`500 24px ${F}`; ctx.fillStyle="#135163"; wrapText(ctx, SHARE.sub, CW-IN*2).forEach((l,i)=>ctx.fillText(l, CX+IN, y+30*i+6)); }
+      ctx.font=`500 24px ${F}`; y += 30*wrapText(ctx, SHARE.sub, CW-IN*2).length + 10; }
     const row = (name, priceTxt, opts={}) => {
       ctx.font = `${opts.w||500} ${opts.size||29}px ${F}`;
       const lines = wrapText(ctx, name, nameW - (opts.indent||0));
@@ -1297,13 +1723,13 @@ async function buildPackageImage(){
 
     // divider + collection
     y += 6; if(!dry){ ctx.fillStyle="#ECEAE3"; ctx.fillRect(CX+IN, y, CW-IN*2, 2); } y += 22;
-    row("Home visit service charge", `AED ${pr.service}`, {color:"#5F6467"});
+    row("Home collection", collectionLabel(pr), {color:"#5F6467", pcolor: pr.service ? "#1C1C1C" : "#22B35E"});
     if(!dry){ ctx.fillStyle="#ECEAE3"; ctx.fillRect(CX+IN, y, CW-IN*2, 2); } y += 70;
     if(!dry){ ctx.font=`500 32px ${F}`; ctx.fillStyle="#5F6467"; ctx.fillText("Total", CX+IN, y);
       ctx.textAlign="right"; ctx.font=`700 64px ${F}`; ctx.fillStyle="#1C1C1C"; const tt=pr.total.toLocaleString("en-US"); ctx.fillText(tt, CX+CW-IN, y+6);
       const tw=ctx.measureText(tt).width; ctx.font=`500 26px ${F}`; ctx.fillStyle="#8C9194"; ctx.fillText("AED", CX+CW-IN-tw-14, y+4); ctx.textAlign="left"; }
     y += 40;
-    if(needsFasting()){
+    if(items.some(t=>t.f)){
       y += 10; const h=64;
       if(!dry){ ctx.fillStyle="#FFF6D9"; rrect(ctx,CX+IN,y,CW-IN*2,h,14); ctx.fill(); ctx.fillStyle="#7A5A00"; ctx.font=`500 24px ${F}`; ctx.fillText("Includes fasting tests: fast 8–12 hours before the visit.", CX+IN+22, y+41); }
       y += h + 10;
@@ -1347,18 +1773,22 @@ function downloadBlob(blob, name){
   a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
   setTimeout(()=>URL.revokeObjectURL(url), 4000);
 }
+const SHARE = {items:null, title:null, sub:null};
 function shareText(){
-  const pr = pricing(), n = selected().length, lines = [];
-  lines.push(`*My Justlife lab test package* (${n} ${n===1?"test":"tests"})`, "");
+  const items = SHARE.items || selected(), pr = priceFor(items), n = items.length, lines = [];
+  lines.push(`*${SHARE.title ? "Justlife · " + SHARE.title : "My Justlife lab test package"}* (${n} ${n===1?"test":"tests"})`, "");
+  if(SHARE.sub) lines.push(SHARE.sub, "");
   pr.extra.forEach(t=>lines.push(`• ${t.n}: AED ${t.p}`));
-  lines.push("", `Home visit service charge: AED ${pr.service}`, `*Total: AED ${pr.total.toLocaleString("en-US")}*`);
-  if(needsFasting()) lines.push("Fasting 8–12 hours needed before the visit.");
+  lines.push("", `Home collection: ${collectionLabel(pr)}`, `*Total: AED ${pr.total.toLocaleString("en-US")}*`);
+  if(items.some(t=>t.f)) lines.push("Fasting 8–12 hours needed before the visit.");
   return lines.join("\n");
 }
 let shareCanvas = null;
 function shmMsg(t){ $("#shmMsg").textContent = t; }
-async function openShare(){
-  if(!state.sel.size) return;
+async function openShare(items, title, sub){
+  SHARE.items = Array.isArray(items) && items.length ? items : null;
+  SHARE.title = SHARE.items ? (title||null) : null; SHARE.sub = SHARE.items ? (sub||null) : null;
+  if(!SHARE.items && !state.sel.size) return;
   shmMsg("");
   $("#shareModal").hidden = false; document.body.style.overflow = "hidden";
   shareCanvas = await buildPackageImage();
@@ -1384,7 +1814,7 @@ $("#shmShare").onclick = async ()=>{
   }catch(e){ if(e && e.name!=="AbortError") shmMsg("Sharing isn't available here. Use WhatsApp or Download instead."); }
 };
 document.addEventListener("click", e=>{ if(e.target.closest("[data-share]")) openShare(); });
-$("#mbarShare").onclick = openShare;
+$("#mbarShare").onclick = ()=>openShare();
 
 // Open a shared package link: ?pkg=12.40.7
 (function loadSharedPackage(){
@@ -1434,8 +1864,9 @@ async function submit(){
     date: state.day, dateLabel: dayLabel(state.day,true), slot: slotLabel(state.slot),
     tests: items.map(t=>t.n).join(", "),
     testsDetailed: (()=>{ const pr = priceFor(items);
-      return items.map(t=>`${t.n} (${t.p})`).join("; ") + (pr.service ? ` + Home visit service charge (${pr.service})` : ""); })(),
+      return items.map(t=>`${t.n} (${t.p})`).join("; ") + (pr.service ? ` + Home collection charge (${pr.service})` : " + Home collection FREE"); })(),
     testCount: items.length, total: total(), fasting: needsFasting() ? "Yes" : "No",
+    collection: collectionText(items),
     page: location.href
   };
   let preview = !/^https:\/\/\S+$/.test(SHEET_URL) || SHEET_URL.includes("PASTE_");
@@ -1458,29 +1889,29 @@ $("#statCount").textContent = TESTS.length;
 /* ============ POPULAR STARTING POINTS ============ */
 const PACKS = [
   {g:"Wellness", name:"Everyday energy check", sm:"Tired all the time? Start here.", tag:"Most booked", icon:"#E5421D",
-   tests:["Complete Blood Count (CBC)","Vitamin D (25-OH)","Vitamin B12","Ferritin","TSH"]},
+   tests:["Complete Blood Count (CBC)","Vitamin D (25-OH, Total)","Vitamin B12 (Cyanocobalamin)","Ferritin In Serum","Thyroid Stimulating Hormone (TSH)"]},
   {g:"Wellness", name:"Full body check-up", sm:"Your yearly check of blood, organs, sugar and vitamins.", tag:"Annual check-up", icon:"#A46CF2",
-   tests:["Complete Blood Count (CBC)","Liver Function Test (LFT)","Kidney Function Test (KFT)","Lipid Profile","Fasting Blood Sugar (FBS)","HbA1c (Glycated Hemoglobin)","TSH","Vitamin D (25-OH)","Vitamin B12","Urine Routine & Microscopy"]},
+   tests:["Complete Blood Count (CBC)","Liver Function Profile","Renal Function Profile (10 parameters)","Lipid Profile (Cholesterol, HDL, LDL, Triglycerides)","Glucose in Plasma (Fasting)","Glycated Haemoglobin (HbA1c)","Thyroid Stimulating Hormone (TSH)","Vitamin D (25-OH, Total)","Vitamin B12 (Cyanocobalamin)","Urine Analysis"]},
   {g:"Wellness", name:"Diabetes & heart", sm:"Blood sugar and cholesterol in one visit.", tag:"Fasting", icon:"#1E9E92",
-   tests:["Fasting Blood Sugar (FBS)","HbA1c (Glycated Hemoglobin)","Lipid Profile","Kidney Function Test (KFT)"]},
+   tests:["Glucose in Plasma (Fasting)","Glycated Haemoglobin (HbA1c)","Lipid Profile (Cholesterol, HDL, LDL, Triglycerides)","Renal Function Profile (10 parameters)"]},
   {g:"Wellness", name:"Weight loss baseline", sm:"The markers doctors check before starting GLP-1 treatment.", tag:"Before GLP-1", icon:"#8E99A1",
-   tests:["HbA1c (Glycated Hemoglobin)","Fasting Insulin","HOMA-IR (Insulin Resistance)","Lipid Profile","Liver Function Test (LFT)","Kidney Function Test (KFT)","TSH"]},
+   tests:["Glycated Haemoglobin (HbA1c)","Insulin Level","HOMA-IR (Estimated Insulin Resistance)","Lipid Profile (Cholesterol, HDL, LDL, Triglycerides)","Liver Function Profile","Renal Function Profile (10 parameters)","Thyroid Stimulating Hormone (TSH)"]},
   {g:"Wellness", name:"Hair loss & skin", sm:"Common deficiencies behind hair fall and dull skin.", tag:"Popular in UAE", icon:"#E5421D",
-   tests:["Ferritin","Vitamin D (25-OH)","Zinc","Vitamin B12","TSH","DHEA-S"]},
+   tests:["Ferritin In Serum","Vitamin D (25-OH, Total)","Zinc in Serum","Vitamin B12 (Cyanocobalamin)","Thyroid Stimulating Hormone (TSH)","DHEA-S"]},
   {g:"Wellness", name:"Gut health", sm:"Stomach pain, bloating or reflux? Check the common causes.", tag:"Digestive", cup:"#C88A3A",
-   tests:["H. pylori Antibody","Stool Routine","Stool Occult Blood","Amylase","Lipase"]},
+   tests:["Helicobacter Pylori Stool Antigen (HpSA)","Stool Examination","Occult Blood In Stool","Calprotectin","Amylase in Serum","Lipase"]},
   {g:"Women", name:"Women's hormones", sm:"Cycle, fertility and thyroid markers.", tag:"Day 2–5 of cycle", icon:"#A46CF2",
-   tests:["FSH","LH","Estradiol (E2)","Prolactin","AMH (Anti-Müllerian Hormone)","TSH"]},
+   tests:["Follicular Stimulating Hormone (FSH)","Luteinizing Hormone (LH)","Estradiol (E2)","Prolactin","Anti Mullerian Hormone","Thyroid Stimulating Hormone (TSH)"]},
   {g:"Women", name:"PCOS check", sm:"Hormone and insulin markers linked to PCOS.", tag:"Day 2–5 of cycle", icon:"#A46CF2",
-   tests:["LH","FSH","Testosterone (Total)","Fasting Insulin","AMH (Anti-Müllerian Hormone)","Prolactin","TSH"]},
+   tests:["Luteinizing Hormone (LH)","Follicular Stimulating Hormone (FSH)","Testosterone (Total)","Sex Hormone Binding Globulin (SHBG)","Insulin Level","Anti Mullerian Hormone","Prolactin","Thyroid Stimulating Hormone (TSH)"]},
   {g:"Men", name:"Men's health", sm:"Testosterone, prostate and heart markers for men 40+.", tag:"Men 40+", icon:"#3D9BE0",
-   tests:["Testosterone (Total)","Free Testosterone","PSA (Total)","Lipid Profile","HbA1c (Glycated Hemoglobin)","Vitamin D (25-OH)"]},
+   tests:["Testosterone (Total)","Testosterone (Free)","Prostatic Specific Antigen (PSA) Total","Lipid Profile (Cholesterol, HDL, LDL, Triglycerides)","Glycated Haemoglobin (HbA1c)","Vitamin D (25-OH, Total)"]},
   {g:"Sexual health", name:"Basic STD screen", sm:"Blood test for the four most common blood-borne infections.", tag:"Discreet", icon:"#1E9E92", discreet:1,
-   tests:["HIV 1 & 2 Antibodies","Hepatitis B Surface Antigen (HBsAg)","Hepatitis C Antibody (Anti-HCV)","Syphilis (VDRL / RPR)"]},
-  {g:"Sexual health", name:"Complete STD screen", sm:"Blood and urine tests for 9 common sexually transmitted infections.", tag:"Most complete", cup:"#3F3FD0", discreet:1,
-   tests:["HIV 1 & 2 Antibodies","Hepatitis B Surface Antigen (HBsAg)","Hepatitis C Antibody (Anti-HCV)","Syphilis (VDRL / RPR)","Herpes Simplex Virus 1 & 2 IgG","Chlamydia trachomatis PCR","Neisseria gonorrhoeae PCR","Trichomonas vaginalis PCR","Mycoplasma genitalium PCR"]},
+   tests:["HIV Test (HIV-1 & HIV-2, Ag/Ab Combo)","Hepatitis B surface (HBs) Ag","Hepatitis C Virus (HCV) Abs","Rapid Plasma Reagin (RPR)"]},
+  {g:"Sexual health", name:"Complete STD screen", sm:"HIV, hepatitis B & C and syphilis blood tests plus the Discreet STD 14 PCR test (urine).", tag:"Most complete", cup:"#3F3FD0", discreet:1,
+   tests:["HIV Test (HIV-1 & HIV-2, Ag/Ab Combo)","Hepatitis B surface (HBs) Ag","Hepatitis C Virus (HCV) Abs","Rapid Plasma Reagin (RPR)","Discreet STD 14 Test (PCR)"]},
   {g:"Sexual health", name:"Pre-marital screen", sm:"Common pre-marital markers. Official certificates are issued only by approved centres.", tag:"Before marriage", icon:"#1E9E92",
-   tests:["Complete Blood Count (CBC)","Hemoglobin Electrophoresis","Blood Group & Rh Typing","HIV 1 & 2 Antibodies","Hepatitis B Surface Antigen (HBsAg)","Hepatitis C Antibody (Anti-HCV)","Syphilis (VDRL / RPR)","Rubella IgG"]},
+   tests:["Complete Blood Count (CBC)","Hemoglobin Electrophoresis (Capillary)","ABO and Rh","HIV Test (HIV-1 & HIV-2, Ag/Ab Combo)","Hepatitis B surface (HBs) Ag","Hepatitis C Virus (HCV) Abs","Rapid Plasma Reagin (RPR)","Rubella (IgG)"]},
 ];
 const PACK_GROUPS = ["All","Wellness","Women","Men","Sexual health"];
 let packGroup = "All";
@@ -1498,7 +1929,7 @@ function renderPacks(){
       <div class="body"><h3>${esc(p.name)}</h3><p class="sm">${esc(p.sm)}</p>
         <ul>${ts.map(t=>`<li>${esc(t.n.replace(/ \(.*\)$/,""))}</li>`).join("")}</ul>
         ${p.discreet?`<p class="discreet">🔒 Discreet home visit. Results are shared only with you.</p>`:""}
-        <div class="foot"><span class="sm">${ts.length} tests<br>+ AED ${SERVICE_CHARGE} home visit</span><span class="price num"><em>AED</em>${sum.toLocaleString("en-US")}</span></div>
+        <div class="foot"><span class="sm">${ts.length} tests<br>${sum>=FREE_COLLECTION_FROM?'<b style="color:var(--green)">Free home collection</b>':`+ AED ${COLLECTION_CHARGE} collection`}</span><span class="price num"><em>AED</em>${sum.toLocaleString("en-US")}</span></div>
         <button class="btn btn-cyan" type="button" data-pack="${k}">Add to my package</button></div></article>`;
   }).join("");
   document.querySelectorAll("[data-pack]").forEach(b=>b.onclick=()=>{
@@ -1509,6 +1940,104 @@ function renderPacks(){
   });
 }
 renderPacks();
+const SYMPTOMS = [{"id": "fever", "label": "Fever", "syn": ["fever", "temperature", "high temp", "chills", "shivering", "pyrexia", "bukhar", "hot body"], "core": ["Complete Blood Count (CBC)", "C-Reactive Protein (CRP)", "Urine Analysis"], "extra": ["Dengue Fever- NS1 Antigen", "Malaria Antigen", "Widal Test", "Erythrocyte Sedimentation Rate (ESR)", "Blood Culture", "Procalcitonin"]}, {"id": "flu", "label": "Flu & cold", "syn": ["flu", "cold", "influenza", "runny nose", "blocked nose", "sneezing", "body ache", "viral"], "core": ["Influenza (A and B) Antigen", "Complete Blood Count (CBC)", "C-Reactive Protein (CRP)"], "extra": ["Respiratory Syncytial Virus (RSV) Antigen", "Respiratory Virus Panel"]}, {"id": "throat", "label": "Sore throat", "syn": ["sore throat", "throat pain", "tonsil", "tonsillitis", "strep", "swallowing pain"], "core": ["Streptococcal A Antigen (GAS)", "Throat Swab C/S"], "extra": ["Antistreptolysin O Titre (ASOT)", "Complete Blood Count (CBC)", "Monospot Test"]}, {"id": "cough", "label": "Cough", "syn": ["cough", "chest infection", "phlegm", "mucus", "bronchitis", "wheezing"], "core": ["Complete Blood Count (CBC)", "C-Reactive Protein (CRP)"], "extra": ["Sputum C/S", "Mycoplasma Pneumoniae Ab IgM", "Respiratory Virus Panel", "QuantiFERON-TB Gold Plus (4 tube)"]}, {"id": "uti", "label": "UTI / urine burning", "syn": ["uti", "urine infection", "urinary infection", "burning urine", "burning", "pain when urinating", "frequent urination", "bladder", "cystitis", "peeing"], "core": ["Urine Analysis", "Urine Culture"], "extra": ["Renal Function Profile (10 parameters)", "Complete Blood Count (CBC)"]}, {"id": "std", "label": "STD / STI check", "syn": ["std", "sti", "stc", "sexual", "sexually transmitted", "hiv", "aids", "syphilis", "chlamydia", "gonorrhea", "gonorrhoea", "herpes", "hpv", "unprotected", "std test", "sti test"], "core": ["HIV Test (HIV-1 & HIV-2, Ag/Ab Combo)", "Rapid Plasma Reagin (RPR)", "Hepatitis B surface (HBs) Ag", "Hepatitis C Virus (HCV) Abs", "Discreet STD 14 Test (PCR)"], "extra": ["Discreet STD 7 Test (PCR)", "Herpes Virus (HSV) 2 IgG", "Human Papilloma Virus (HPV) detection and genotyping by PCR"], "note": "Discreet home visit. Results are shared only with you."}, {"id": "discharge", "label": "Vaginal discharge / itching", "syn": ["vaginal discharge", "discharge", "itching down", "yeast", "thrush", "candida", "smell", "odour", "bv"], "core": ["Vaginal Swab Examination C/S", "Vaginal Microbial Identification Test (VPIII)"], "extra": ["Candida Albicans by PCR", "Molecular Detection of Trichomonas vaginalis DNA by Real-Time PCR", "Molecular Detection of Gardnerella vaginalis DNA by Real-Time PCR"]}, {"id": "tired", "label": "Tiredness / low energy", "syn": ["tired", "tiredness", "fatigue", "low energy", "weak", "weakness", "exhausted", "sleepy", "lethargy"], "core": ["Complete Blood Count (CBC)", "Ferritin In Serum", "Vitamin D (25-OH, Total)", "Vitamin B12 (Cyanocobalamin)", "Thyroid Stimulating Hormone (TSH)"], "extra": ["Folic Acid in Serum", "Glycated Haemoglobin (HbA1c)", "Iron (Fe) in Serum", "Magnesium (Mg) in Serum"]}, {"id": "anaemia", "label": "Anaemia", "syn": ["anaemia", "anemia", "low hemoglobin", "low haemoglobin", "pale", "low iron", "iron deficiency"], "core": ["Complete Blood Count (CBC)", "Ferritin In Serum", "Iron (Fe) in Serum", "Total Iron Binding Capacity (TIBC)"], "extra": ["Vitamin B12 (Cyanocobalamin)", "Folic Acid in Serum", "Reticulocyte Count", "Hemoglobin Electrophoresis (Capillary)", "Peripheral Blood Film Consultation"]}, {"id": "hair", "label": "Hair loss", "syn": ["hair loss", "hair fall", "hairfall", "thinning hair", "bald", "alopecia"], "core": ["Ferritin In Serum", "Vitamin D (25-OH, Total)", "Zinc in Serum", "Thyroid Stimulating Hormone (TSH)"], "extra": ["Vitamin B12 (Cyanocobalamin)", "DHEA-S", "Testosterone (Total)", "Iron (Fe) in Serum"]}, {"id": "weight", "label": "Weight gain", "syn": ["weight gain", "overweight", "obesity", "can't lose weight", "belly fat", "weight"], "core": ["Thyroid Stimulating Hormone (TSH)", "Glycated Haemoglobin (HbA1c)", "Insulin Level", "Lipid Profile (Cholesterol, HDL, LDL, Triglycerides)"], "extra": ["HOMA-IR (Estimated Insulin Resistance)", "Cortisol in Serum (am)", "T4 (Free)"]}, {"id": "diabetes", "label": "Diabetes check", "syn": ["diabetes", "sugar", "blood sugar", "thirsty", "frequent thirst", "prediabetes", "glucose", "sugar test"], "core": ["Glucose in Plasma (Fasting)", "Glycated Haemoglobin (HbA1c)"], "extra": ["Insulin Level", "HOMA-IR (Estimated Insulin Resistance)", "Microalbuminuria (Albumin-Creatinine Ratio)", "Glucose Tolerance Test-OGTT (75g)"]}, {"id": "thyroid", "label": "Thyroid", "syn": ["thyroid", "goitre", "goiter", "neck swelling", "hypothyroid", "hyperthyroid"], "core": ["Thyroid Stimulating Hormone (TSH)", "T4 (Free)", "Free T3"], "extra": ["Anti Thyroid Peroxidase Abs (TPO)", "Anti Thyroglobulin Abs"]}, {"id": "heart", "label": "Heart health", "syn": ["heart", "cholesterol", "cardiac", "heart check"], "core": ["Lipid Profile (Cholesterol, HDL, LDL, Triglycerides)", "CRP H.S", "Glycated Haemoglobin (HbA1c)"], "extra": ["Lipoprotein (a)", "Apolipoprotein B", "Homocysteine", "Creatine Kinase (CK) Total"], "note": "Chest pain or breathlessness right now? Call 999 or go to the nearest emergency department."}, {"id": "bp", "label": "High blood pressure", "syn": ["blood pressure", "bp", "hypertension", "high bp"], "core": ["Renal Function Profile (10 parameters)", "Electrolytes Panel (Na, K, Cl)", "Lipid Profile (Cholesterol, HDL, LDL, Triglycerides)", "Urine Analysis"], "extra": ["Aldosterone / Direct Renin Ratio", "Thyroid Stimulating Hormone (TSH)", "Microalbuminuria (Albumin-Creatinine Ratio)"]}, {"id": "stomach", "label": "Stomach pain / acidity", "syn": ["stomach pain", "stomach ache", "acidity", "gastritis", "heartburn", "ulcer", "reflux", "indigestion", "abdominal pain", "h pylori"], "core": ["Helicobacter Pylori Stool Antigen (HpSA)", "Stool Examination"], "extra": ["Amylase in Serum", "Lipase", "Liver Function Profile", "Calprotectin", "Urea Breath Test (C13)"]}, {"id": "diarrhoea", "label": "Diarrhoea", "syn": ["diarrhoea", "diarrhea", "loose motion", "loose stool", "food poisoning", "vomiting", "gastro"], "core": ["Stool Examination", "Stool Culture"], "extra": ["Giardia Antigen In Stool", "Clostridium Difficile Toxins A and B (Stool)", "Rotavirus Antigen", "Gastrointestinal Panel", "Calprotectin"]}, {"id": "bloating", "label": "Bloating / gluten", "syn": ["bloating", "gas", "gluten", "celiac", "coeliac", "ibs", "wheat"], "core": ["Anti tissue Transglutaminase Abs IgA", "Immunoglobulin A (IgA)"], "extra": ["Anti Endomysium antibodies IgA IFA", "Anti Gliadin (DGP) IgA", "Lactose Tolerance Test", "Calprotectin"]}, {"id": "joint", "label": "Joint pain", "syn": ["joint pain", "joints", "arthritis", "knee pain", "swollen joints", "gout", "back pain", "stiffness"], "core": ["Rheumatoid Factor (quantitative)", "Anti CCP Abs", "Uric Acid in Serum", "C-Reactive Protein (CRP)", "Erythrocyte Sedimentation Rate (ESR)"], "extra": ["Anti Nuclear Abs (ANA)", "HLA B27", "Vitamin D (25-OH, Total)"]}, {"id": "allergy", "label": "Allergy", "syn": ["allergy", "allergies", "sneezing", "hay fever", "dust allergy", "hives", "asthma"], "core": ["Immunoglobulin E (IgE) Total", "Complete Blood Count (CBC)"], "extra": ["Allergens specific IgE Screening (Inhalant)", "Allergens specific IgE Screening (Food panel)", "Comprehensive Allergy Panel (ALEX)"]}, {"id": "food", "label": "Food intolerance", "syn": ["food intolerance", "food allergy", "lactose", "dairy", "intolerance"], "core": ["Allergens specific IgE Screening (Food panel)"], "extra": ["Food Print", "Fox Food Intolerance Test", "Lactose Tolerance Test"]}, {"id": "skin", "label": "Skin rash / itching", "syn": ["skin", "rash", "itching", "itchy", "eczema", "acne", "pimples", "fungal", "ringworm"], "core": ["Complete Blood Count (CBC)", "Immunoglobulin E (IgE) Total"], "extra": ["Liver Function Profile", "Anti Nuclear Abs (ANA)", "Fungal Culture (Skin)"]}, {"id": "pcos", "label": "Irregular periods / PCOS", "syn": ["irregular periods", "periods", "pcos", "pcod", "missed period", "acne and hair", "facial hair", "hormones"], "core": ["Luteinizing Hormone (LH)", "Follicular Stimulating Hormone (FSH)", "Prolactin", "Testosterone (Total)", "Thyroid Stimulating Hormone (TSH)"], "extra": ["Anti Mullerian Hormone", "Insulin Level", "Sex Hormone Binding Globulin (SHBG)", "DHEA-S", "17-Hydroxy-Progesterone"]}, {"id": "pregplan", "label": "Planning pregnancy", "syn": ["pregnancy planning", "planning pregnancy", "trying to conceive", "ttc", "fertility female", "before pregnancy", "conceive"], "core": ["Complete Blood Count (CBC)", "ABO and Rh", "Rubella (IgG)", "Thyroid Stimulating Hormone (TSH)", "Vitamin D (25-OH, Total)"], "extra": ["Toxoplasma (IgG)", "CMV (IgG)", "Hemoglobin Electrophoresis (Capillary)", "Folic Acid in Serum", "Glycated Haemoglobin (HbA1c)", "Anti Mullerian Hormone"]}, {"id": "pregtest", "label": "Pregnancy test", "syn": ["pregnant", "pregnancy test", "hcg", "late period"], "core": ["Beta Human Chorionic Gonadotrophin"], "extra": ["Pregnancy Test"]}, {"id": "men", "label": "Men's health / low libido", "syn": ["libido", "erectile", "ed", "low testosterone", "male fertility", "sperm", "men's health", "mens health"], "core": ["Testosterone (Total)", "Testosterone (Free)"], "extra": ["Semen Examination", "Luteinizing Hormone (LH)", "Prolactin", "Sex Hormone Binding Globulin (SHBG)", "Prostatic Specific Antigen (PSA) Total"]}, {"id": "liver", "label": "Liver check", "syn": ["liver", "fatty liver", "jaundice", "yellow eyes", "alcohol"], "core": ["Liver Function Profile", "Gamma Glutamyl Transferase (GGT)"], "extra": ["Hepatitis B surface (HBs) Ag", "Hepatitis C Virus (HCV) Abs", "Hepatitis A Virus (HAV) Total", "Lipid Profile (Cholesterol, HDL, LDL, Triglycerides)"]}, {"id": "kidney", "label": "Kidney check", "syn": ["kidney", "kidneys", "creatinine", "swelling feet", "renal"], "core": ["Renal Function Profile (10 parameters)", "Urine Analysis", "Microalbuminuria (Albumin-Creatinine Ratio)"], "extra": ["Cystatin C", "Electrolytes Panel (Na, K, Cl)", "Uric Acid in Serum"]}, {"id": "vitamins", "label": "Vitamin check", "syn": ["vitamin", "vitamins", "deficiency", "vitamin d", "b12", "supplements"], "core": ["Vitamin D (25-OH, Total)", "Vitamin B12 (Cyanocobalamin)", "Folic Acid in Serum", "Ferritin In Serum"], "extra": ["Zinc in Serum", "Magnesium (Mg) in Serum", "Calcium in Serum (Total)"]}, {"id": "bone", "label": "Bone health", "syn": ["bone", "bones", "osteoporosis", "calcium", "back ache", "fracture"], "core": ["Vitamin D (25-OH, Total)", "Calcium in Serum (Total)", "Phosphorus (P) in Serum", "Alkaline Phosphatase"], "extra": ["Parathyroid Hormone (PTH)", "Magnesium (Mg) in Serum", "Beta Crosslaps", "Osteocalcin"]}, {"id": "hepatitis", "label": "Hepatitis", "syn": ["hepatitis", "hep b", "hep c", "hbsag", "jaundice test"], "core": ["Hepatitis B surface (HBs) Ag", "Hepatitis C Virus (HCV) Abs", "Hepatitis A Virus (HAV) Total"], "extra": ["Hepatitis B surface (HBs) Abs", "Hepatitis B core (HBc) Total", "Liver Function Profile"]}, {"id": "premarital", "label": "Pre-marital", "syn": ["pre-marital", "premarital", "marriage", "before marriage", "wedding"], "core": ["Complete Blood Count (CBC)", "Hemoglobin Electrophoresis (Capillary)", "ABO and Rh", "HIV Test (HIV-1 & HIV-2, Ag/Ab Combo)", "Hepatitis B surface (HBs) Ag", "Hepatitis C Virus (HCV) Abs", "Rapid Plasma Reagin (RPR)"], "extra": ["Rubella (IgG)"], "note": "Official pre-marital certificates are issued only by approved government centres."}, {"id": "gym", "label": "Gym & fitness", "syn": ["gym", "fitness", "workout", "muscle", "sports", "bodybuilding", "athlete"], "core": ["Complete Blood Count (CBC)", "Creatine Kinase (CK) Total", "Testosterone (Total)", "Vitamin D (25-OH, Total)", "Ferritin In Serum"], "extra": ["Renal Function Profile (10 parameters)", "Liver Function Profile", "Magnesium (Mg) in Serum", "Thyroid Stimulating Hormone (TSH)"]}, {"id": "headache", "label": "Headache / dizziness", "syn": ["headache", "migraine", "dizzy", "dizziness", "vertigo", "fainting"], "core": ["Complete Blood Count (CBC)", "Glucose in Plasma (Random)", "Electrolytes Panel (Na, K, Cl)"], "extra": ["Vitamin B12 (Cyanocobalamin)", "Vitamin D (25-OH, Total)", "Thyroid Stimulating Hormone (TSH)", "Ferritin In Serum"]}, {"id": "palpitations", "label": "Palpitations", "syn": ["palpitations", "fast heartbeat", "heart racing", "anxiety", "shaking"], "core": ["Thyroid Stimulating Hormone (TSH)", "Complete Blood Count (CBC)", "Electrolytes Panel (Na, K, Cl)", "Magnesium (Mg) in Serum"], "extra": ["T4 (Free)", "Ferritin In Serum"]}, {"id": "tb", "label": "TB screening", "syn": ["tb", "tuberculosis", "work visa", "night sweats"], "core": ["QuantiFERON-TB Gold Plus (4 tube)"], "extra": ["Complete Blood Count (CBC)", "Erythrocyte Sedimentation Rate (ESR)"]}, {"id": "checkup", "label": "Full body check-up", "syn": ["full body", "checkup", "check up", "check-up", "annual", "routine", "general health", "master health"], "core": ["Complete Blood Count (CBC)", "Liver Function Profile", "Renal Function Profile (10 parameters)", "Lipid Profile (Cholesterol, HDL, LDL, Triglycerides)", "Glucose in Plasma (Fasting)", "Glycated Haemoglobin (HbA1c)", "Thyroid Stimulating Hormone (TSH)", "Vitamin D (25-OH, Total)", "Vitamin B12 (Cyanocobalamin)", "Urine Analysis"], "extra": ["Ferritin In Serum", "Uric Acid in Serum"]}];
+/* ============ SYMPTOM FINDER ============ */
+const sym = {sel:[], q:"", on:new Set(), off:new Set(), all:false, added:0};
+const byName = new Map(TESTS.map(t=>[t.n,t]));
+const norm = s => s.toLowerCase().replace(/[^a-z0-9 ]+/g," ").replace(/\s+/g," ").trim();
+function symMatches(q){
+  const n = norm(q); if(!n) return [];
+  return SYMPTOMS.filter(x=> norm(x.label).includes(n) || x.syn.some(w=>{ const ww=norm(w); return ww.includes(n) || (n.length>3 && n.includes(ww)); }));
+}
+function symLists(){
+  const core=new Map(), extra=new Map();
+  sym.sel.forEach(id=>{ const x=SYMPTOMS.find(s=>s.id===id); if(!x) return;
+    x.core.forEach(n=>{ const t=byName.get(n); if(t){ (core.get(t.id)||core.set(t.id,{t,why:[]}).get(t.id)).why.push(x.label);} });
+    x.extra.forEach(n=>{ const t=byName.get(n); if(t){ (extra.get(t.id)||extra.set(t.id,{t,why:[]}).get(t.id)).why.push(x.label);} });
+  });
+  [...core.keys()].forEach(id=>extra.delete(id));
+  let direct=[];
+  const n=norm(sym.q);
+  if(n.length>=2){ direct = TESTS.filter(t=>norm(t.n).includes(n) && !core.has(t.id) && !extra.has(t.id)).slice(0,8).map(t=>({t,why:[]})); }
+  return {core:[...core.values()], extra:[...extra.values()], direct};
+}
+const symPicked = id => (sym.coreIds.has(id) && !sym.off.has(id)) || sym.on.has(id);
+function renderSymTags(){
+  const hits = new Set(symMatches(sym.q).map(x=>x.id));
+  let list = SYMPTOMS;
+  if(sym.q && hits.size) list = [...SYMPTOMS.filter(x=>hits.has(x.id)), ...SYMPTOMS.filter(x=>!hits.has(x.id))];
+  const limit = sym.all ? list.length : 14;
+  const shown = list.filter((x,i)=> i<limit || sym.sel.includes(x.id));
+  $("#symTags").innerHTML = shown.map(x=>`<button type="button" class="stag ${sym.sel.includes(x.id)?"on":hits.has(x.id)?"hit":""}" data-sym="${x.id}" aria-pressed="${sym.sel.includes(x.id)}">${sym.sel.includes(x.id)?"✓ ":""}${esc(x.label)}</button>`).join("")
+    + (list.length>limit ? `<button type="button" class="stag more" id="symMore">+ ${list.length-limit} more</button>` : (sym.all?`<button type="button" class="stag more" id="symMore">Show less</button>`:""));
+}
+function srow(r){
+  const t=r.t, on=symPicked(t.id), inPkg=state.sel.has(t.id);
+  return `<label class="srow ${on?"pick":""}"><input type="checkbox" data-spick="${t.id}" ${on?"checked":""}>
+    <span class="tile">${sampleIcon(t)}</span>
+    <span class="sname"><b>${esc(t.n)}</b>${t.incl?`<span class="incl" style="display:block;margin-top:4px">Includes ${t.incl.length}: ${esc(t.incl.join(", "))}</span>`:""}<small>${r.why.map(w=>`<span class="why">${esc(w)}</span>`).join("")}${t.f?'<span class="why" style="background:var(--yellow-t);color:#8A6400">Fasting</span>':""}${inPkg?'<span class="inpkg">In your package</span>':""}</small></span>
+    <span class="sp num"><em>AED</em>${t.p}</span></label>`;
+}
+function renderSymOut(){
+  const L = symLists();
+  sym.coreIds = new Set(L.core.map(r=>r.t.id));
+  const rows = [...L.core, ...L.extra, ...L.direct];
+  const picked = rows.filter(r=>symPicked(r.t.id)).map(r=>r.t);
+  const out = $("#symOut");
+  if(!rows.length){
+    out.innerHTML = sym.q && !symMatches(sym.q).length
+      ? `<div class="sym-empty">No match for “${esc(sym.q)}”. Try a simpler word like “fever”, “tired” or “sugar”, or browse all tests below.</div>`
+      : `<div class="sym-empty">Pick one or more concerns above. Suggested tests will appear here with prices.</div>`;
+    return;
+  }
+  const labels = sym.sel.map(id=>SYMPTOMS.find(x=>x.id===id).label);
+  const notes = sym.sel.map(id=>SYMPTOMS.find(x=>x.id===id).note).filter(Boolean);
+  const pr = priceFor(picked);
+  out.innerHTML = `<div class="sym-res">
+    <div class="sym-hd"><h3>${labels.length?`Suggested for: ${esc(labels.join(", "))}`:`Tests matching “${esc(sym.q)}”`}</h3>
+      ${labels.length?`<button type="button" class="link" id="symClear">Clear all</button>`:""}</div>
+    ${notes.map(n=>`<p class="sym-note">${esc(n)}</p>`).join("")}
+    ${L.core.length?`<div class="sym-group"><h4>Recommended</h4>${L.core.map(srow).join("")}</div>`:""}
+    ${L.extra.length?`<div class="sym-group"><h4>Also consider</h4>${L.extra.map(srow).join("")}</div>`:""}
+    ${L.direct.length?`<div class="sym-group"><h4>Tests matching “${esc(sym.q)}”</h4>${L.direct.map(srow).join("")}</div>`:""}
+    ${sym.added?`<div class="sym-ok"><span>✓ ${sym.added} ${sym.added===1?"test":"tests"} added to your package.</span><button type="button" class="btn btn-cyan btn-sm" id="symGo">Go to my package →</button></div>`:""}
+    <p class="sym-disc">These suggestions are general guidance, not a diagnosis. If symptoms are severe or getting worse, please see a doctor.</p>
+    <div class="sym-foot">
+      <div class="sym-sum">${picked.length} of ${rows.length} selected${picked.length?` · tests AED ${pr.sum.toLocaleString("en-US")} + collection ${pr.service?`AED ${pr.service}`:"FREE"} = <b class="num">AED ${pr.total.toLocaleString("en-US")}</b>`:""}${picked.length?freeNudge(pr,true):""}</div>
+      <div class="sym-btns">
+        <button type="button" class="btn btn-cyan" id="symAdd" ${picked.length?"":"disabled"}>Add selected to my package</button>
+        <button type="button" class="btn btn-white" id="symAll">Add all ${rows.length}</button>
+        <button type="button" class="btn btn-white" id="symShare" ${picked.length?"":"disabled"}>⬆ Save / share</button>
+      </div>
+    </div></div>`;
+  out.querySelectorAll("[data-spick]").forEach(cb=>cb.onchange=()=>{
+    const id=cb.dataset.spick;
+    if(cb.checked){ sym.off.delete(id); if(!sym.coreIds.has(id)) sym.on.add(id); }
+    else { sym.on.delete(id); if(sym.coreIds.has(id)) sym.off.add(id); }
+    sym.added=0; renderSymOut();
+  });
+  const addList = list => { list.forEach(t=>state.sel.add(t.id)); state.done=null; if(state.step>0) state.step=0; sym.added=list.length; render(); renderSymOut(); };
+  $("#symAdd").onclick = ()=>addList(picked);
+  $("#symAll").onclick = ()=>{ rows.forEach(r=>{ sym.off.delete(r.t.id); if(!sym.coreIds.has(r.t.id)) sym.on.add(r.t.id); }); addList(rows.map(r=>r.t)); };
+  $("#symShare").onclick = ()=>openShare(picked, "Suggested lab tests", labels.length?`For: ${labels.join(", ")}`:null);
+  const g=$("#symGo"); if(g) g.onclick=()=>$("#build").scrollIntoView({behavior:"smooth",block:"start"});
+  const c=$("#symClear"); if(c) c.onclick=()=>{ sym.sel=[]; sym.on.clear(); sym.off.clear(); sym.added=0; sym.q=""; $("#symQ").value=""; renderSym(); };
+}
+function renderSym(){ renderSymTags(); renderSymOut(); }
+$("#symTags").addEventListener("click", e=>{
+  const m=e.target.closest("#symMore"); if(m){ sym.all=!sym.all; renderSymTags(); return; }
+  const b=e.target.closest("[data-sym]"); if(!b) return;
+  const id=b.dataset.sym;
+  sym.sel = sym.sel.includes(id) ? sym.sel.filter(x=>x!==id) : [...sym.sel, id];
+  sym.added=0; renderSym();
+});
+$("#symQ").addEventListener("input", e=>{ sym.q=e.target.value; sym.added=0; renderSym(); });
+$("#symQ").addEventListener("keydown", e=>{
+  if(e.key!=="Enter") return; e.preventDefault();
+  const m=symMatches(sym.q).find(x=>!sym.sel.includes(x.id));
+  if(m){ sym.sel=[...sym.sel, m.id]; sym.q=""; e.target.value=""; sym.added=0; renderSym(); }
+});
+renderSym();
 render();
 </script>
 
